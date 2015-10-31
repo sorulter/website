@@ -123,4 +123,14 @@ return [
 
     ],
 
+    'ssdb' => [
+        'cluster' => false,
+
+        'default' => [
+            'host' => env('SSDB_HOST', '127.0.0.1'),
+            'port' => env('SSDB_PORT', 8888),
+            'ns' => env('SSDB_NS', 'ts3.'),
+        ],
+    ],
+
 ];
