@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c6026b96e6fa11a641b51a6ba976f5e",
-    "content-hash": "5bd58fd976f1ee3e9611bc37c006ec46",
+    "hash": "9fa1754146873a03cc72a6113fd90b08",
+    "content-hash": "75c111bf004ae7dbef8d79680a193a37",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -942,6 +942,46 @@
                 "shell"
             ],
             "time": "2015-07-16 15:26:57"
+        },
+        {
+            "name": "ssdb/phpssdb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ssdb/phpssdb.git",
+                "reference": "de0ad9942a65f55a1bee82dbf6657ee5eacb55a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ssdb/phpssdb/zipball/de0ad9942a65f55a1bee82dbf6657ee5eacb55a0",
+                "reference": "de0ad9942a65f55a1bee82dbf6657ee5eacb55a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SSDB\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shen Zhenyu",
+                    "email": "zhenyupku@gmail.com"
+                },
+                {
+                    "name": "ideawu",
+                    "email": "ideawu@163.com"
+                }
+            ],
+            "description": "SSDB PHP Client",
+            "time": "2015-03-24 10:43:19"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2946,7 +2986,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ssdb/phpssdb": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
