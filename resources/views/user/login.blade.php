@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>iProxier | Login</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -99,6 +100,12 @@
           } else {
               $('#submit').attr('disabled', true);
           };
+      });
+
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
       });
 
     });
