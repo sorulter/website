@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('login', ['as' => 'user/login', 'uses' => 'LoginController@getIndex']);
+Route::post('login', 'LoginController@postIndex');
