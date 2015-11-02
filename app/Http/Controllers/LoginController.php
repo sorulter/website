@@ -25,6 +25,13 @@ class LoginController extends Controller
     public function postIndex(Request $request)
     {
         $input = $request->input();
+        $raw = $this->ssdb->get("proxier.user.password.${input['username']}");
+        if ($input['password'] === $raw->data) {
+            return response()->json(['ok' => true, 'msg' => 'login success.']);
+        } else {
+            return response()->json(['ok' => false, 'msg' => 'username or password error.']);
+        }
+
     }
 
     /**
