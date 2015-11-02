@@ -35,6 +35,14 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">Sign in to start your session</p>
+      <div class="alert alert-success alert-dismissable" style="display: none;" id="msg-success">
+        <button type="button" class="close" aria-hidden="true">×</button>
+        <p>...</p>
+      </div>
+      <div class="alert alert-danger alert-dismissable" style="display: none;" id="msg-error">
+        <button type="button" class="close" aria-hidden="true">×</button>
+        <p>...</p>
+      </div>
 
       <form>
         <div class="form-group has-feedback">
