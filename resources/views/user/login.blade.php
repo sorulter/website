@@ -116,6 +116,39 @@
           }
       });
 
+      var login = function() {
+        $.ajax({
+          type:"POST",
+          url:"{{ route('user/login') }}",
+          dataType:"json",
+          data:{
+            username: $("#username").val(),
+            password: $("#password").val(),
+            remember: $("#remember").val()
+          },
+          success:function(data){
+            if(data.ok){
+              $("#msg-error").hide(100);
+              $("#msg-success").show(100);
+              $("#msg-success p").html(data.msg);
+              window.setTimeout("location.href='{{ url('user') }}'", 2000);
+            }else{
+              $("#msg-error").hide(10);
+              $("#msg-error").show(100);
+              $("#msg-error p").html(data.msg);
+            }
+          },
+          error:function(jqXHR){
+            $("#msg-error").hide(10);
+            $("#msg-error").show(100);
+            $("#msg-error p").html("Error:"+jqXHR.status);
+          }
+        });
+      }
+      $(".close").click(function(){
+        $(".alert").hide(100);
+      });
+
     });
   </script>
   </body>
