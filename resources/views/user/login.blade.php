@@ -38,11 +38,11 @@
       <form action="{{ route('user/login') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Username" name="username">
+          <input type="text" class="form-control" placeholder="Username" name="username" id="username">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password" name="password">
+          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -55,7 +55,7 @@
           </div>
           <!-- /.col -->
           <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat" id="submit" disabled>Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -84,6 +84,23 @@
         radioClass: 'iradio_square-blue',
         increaseArea: '20%' // optional
       });
+
+      // chekc input value
+      $('#username').keyup(function() {
+          if ($(this).val() && $('#password').val()) {
+              $('#submit').attr('disabled', false);
+          } else {
+              $('#submit').attr('disabled', true);
+          };
+      });
+      $('#password').keyup(function() {
+          if ($(this).val() && $('#username').val()) {
+              $('#submit').attr('disabled', false);
+          } else {
+              $('#submit').attr('disabled', true);
+          };
+      });
+
     });
   </script>
   </body>
