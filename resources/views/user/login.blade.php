@@ -149,6 +149,16 @@
         $(".alert").hide(100);
       });
 
+      // login
+      $('#submit').click(function(e) {
+        login();
+      });
+      $("html").keydown(function(event){
+        if(event.keyCode==13){
+          login();
+        }
+      });
+
     });
   </script>
   </body>
