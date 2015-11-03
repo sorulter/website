@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::get('login', ['as' => 'user/login', 'uses' => 'AuthController@getLogin']);
 Route::post('login', 'AuthController@postLogin');
+Route::get('logout', 'AuthController@getLogout');
 Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
     Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
 });
