@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Str;
+use Input;
+use Session;
 
 class LoginController extends Controller
 {
@@ -24,10 +28,17 @@ class LoginController extends Controller
      */
     public function postIndex(Request $request)
     {
-        $input = $request->input();
-        $raw = $this->ssdb->get("proxier.user.password.${input['username']}");
-        if ($input['password'] === $raw->data) {
-            return response()->json(['ok' => true, 'msg' => 'login success.']);
+        $data = Input::all();
+        $raw = $this->ssdb->get("proxier.user.password.${data['username']}");
+        if ($data['password'] === $raw->data) {
+            Session::put("user", ['username' => $data['username']]);
+            if (Input::has('rememberme')) {
+                $remembermeToken = Str::random(60);
+                // set token expire time to 30 days.
+                $cookie = cookie('rememberme_token', $remembermeToken, 43200);
+                $this->ssdb->setx("proxier.rememberme_token.${remembermeToken}", $data['username'], 600);
+            }
+            return response()->json(['ok' => true, 'msg' => 'login success.', 'tk' => $remembermeToken])->withCookie($cookie);
         } else {
             return response()->json(['ok' => false, 'msg' => 'username or password error.']);
         }
