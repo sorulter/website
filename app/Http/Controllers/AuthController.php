@@ -54,7 +54,7 @@ class AuthController extends Controller
     {
         $this->ssdb->del('proxier.rememberme_token.' . Cookie::get('rememberme_token'));
         Session::flush();
-        return view('user.logout');
+        return view('user.logout')->withCookie(Cookie::forget('rememberme_token'));
     }
 
 }
