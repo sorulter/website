@@ -45,4 +45,16 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * Logout.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogout()
+    {
+        $this->ssdb->del('proxier.rememberme_token.' . Cookie::get('rememberme_token'));
+        Session::flush();
+        return view('user.logout');
+    }
+
 }
