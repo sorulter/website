@@ -54,7 +54,7 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="remember"> Remember Me
+              <input type="checkbox" name="rememberme" id="rememberme"> Remember Me
             </label>
           </div>
         </div>
@@ -119,7 +119,7 @@
           data:{
             username: $("#username").val(),
             password: $("#password").val(),
-            remember: $("#remember").val()
+            rememberme: $("#rememberme").val()
           },
           success:function(data){
             if(data.ok){
