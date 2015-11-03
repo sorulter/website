@@ -36,7 +36,7 @@ class AuthController extends Controller
                 $remembermeToken = Str::random(60);
                 // set token expire time to 30 days.
                 $cookie = cookie('rememberme_token', $remembermeToken, 43200);
-                $this->ssdb->setx("proxier.rememberme_token.${remembermeToken}", $data['username'], 600);
+                $this->ssdb->setx("proxier.rememberme_token.${remembermeToken}", $data['username'], 2592000);
             }
             return response()->json(['ok' => true, 'msg' => 'login success.', 'tk' => $remembermeToken])->withCookie($cookie);
         } else {
