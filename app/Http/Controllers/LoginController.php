@@ -16,7 +16,7 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getLogin()
     {
         return view('user.login');
     }
@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function postIndex(Request $request)
+    public function postLogin(Request $request)
     {
         $data = Input::all();
         $raw = $this->ssdb->get("proxier.user.password.${data['username']}");
