@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Input;
 use Session;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display login page.
