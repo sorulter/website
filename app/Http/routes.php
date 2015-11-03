@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 Route::get('login', ['as' => 'user/login', 'uses' => 'LoginController@getIndex']);
 Route::post('login', 'LoginController@postIndex');
+Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
+});
+
