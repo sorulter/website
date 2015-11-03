@@ -31,7 +31,7 @@ class LoginController extends Controller
         $data = Input::all();
         $raw = $this->ssdb->get("proxier.user.password.${data['username']}");
         if ($data['password'] === $raw->data) {
-            Session::put("user", ['username' => $data['username']]);
+            Session::put("user", ['username' => $data['username'], 'login' => true]);
             if (Input::has('rememberme')) {
                 $remembermeToken = Str::random(60);
                 // set token expire time to 30 days.
