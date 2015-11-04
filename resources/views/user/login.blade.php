@@ -22,7 +22,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-<body class="hold-transition login-page" style="background: url(http://ww3.sinaimg.cn/large/6816152bgw1exn0b9uqbgj21kw1230un.jpg) no-repeat center center fixed;">
+<body class="hold-transition login-page layout-top-nav" style="background: url(http://ww3.sinaimg.cn/large/6816152bgw1exn0b9uqbgj21kw1230un.jpg) no-repeat center center fixed;">
   <div class="login-box">
     <div class="login-logo">
       <a href="{{ url('/') }}"><b>iProxier</b>.com</a>
@@ -72,6 +72,15 @@
   </div>
   <!-- /.login-box -->
 
+  <!-- Footer -->
+  <style type="text/css">
+footer {
+  position: absolute;
+  bottom: 0;
+  clear: auto;
+  width: 100%;
+}
+  </style>
   @include('user.footer')
 
 
