@@ -2,7 +2,7 @@
 <header class="main-header">
 
   <!-- Logo -->
-  <a href="{{ route('user.dashboard')}}" class="logo"><b>iProxier</b>.com</a>
+  <a href="{{ url('/') }}" class="logo"><b>iProxier</b>.com</a>
 
   <!-- Header Navbar -->
   <nav class="navbar navbar-static-top" role="navigation">
