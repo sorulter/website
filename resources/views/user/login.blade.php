@@ -72,6 +72,8 @@
   </div>
   <!-- /.login-box -->
 
+  @include('user.footer')
+
 
   <!-- jQuery 2.1.4 -->
   <script src="{{ asset("/static/jquery/jquery-2.1.4.min.js") }}"></script>
