@@ -57,4 +57,9 @@ class AuthController extends Controller
         return view('user.logout')->withCookie(Cookie::forget('rememberme_token'));
     }
 
+    public function getRegister()
+    {
+        return view('user.register');
+    }
+
 }
