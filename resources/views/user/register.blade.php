@@ -29,22 +29,34 @@
       <p class="login-box-msg">Register your account.</p>
 
       <form method="post">
-        <div class="form-group has-feedback">
+        <div class="input-group">
           <input type="text" class="form-control" placeholder="Username" name="username" id="username">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i>
+          </span>
         </div>
-        <div class="form-group has-feedback">
+        <br>
+        <div class="input-group">
           <input type="email" class="form-control" placeholder="Email" name="email" id="email">
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope"></i>
+          </span>
         </div>
-        <div class="form-group has-feedback">
+        <br>
+        <div class="input-group">
           <input type="password" class="form-control" placeholder="Password" name="password" id="password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
         </div>
-        <div class="form-group has-feedback">
+        <br>
+        <div class="input-group">
           <input type="password" class="form-control" placeholder="Retype password">
-          <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-log-in"></i>
+          </span>
         </div>
+        <br>
 
         <div class="form-group">
           <span class="glyphicon glyphicon-alert"></span>
