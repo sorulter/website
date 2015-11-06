@@ -103,6 +103,11 @@
     return patten.test(email);
   }
 
+  function showErrorMsg(element) {
+    $('label[for='+element.id+']').css('display', 'block');
+    $(element).parent().removeClass('has-feedback').addClass('has-error');
+  }
+
   </script>
   </body>
 </html>
