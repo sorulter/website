@@ -28,7 +28,7 @@
     <div class="login-box-body">
       <p class="login-box-msg">Register your account.</p>
 
-      <form>
+      <form method="post">
         <div class="form-group has-feedback">
           <input type="text" class="form-control" placeholder="Username" name="username" id="username">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
