@@ -84,7 +84,7 @@
           <span class="glyphicon glyphicon-alert"></span>
           <b>Register account,and I agree to the <a href="#">terms</a></b>
         </div>
-        <button type="submit" class="btn btn-primary btn-block btn-flat" disabled>Register</button>
+        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
       </form>
     </div>
 
