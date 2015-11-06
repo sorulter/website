@@ -108,6 +108,11 @@
     $(element).parent().removeClass('has-feedback').addClass('has-error');
   }
 
+  function hideErrorMsg(element) {
+    $('label[for='+element.id+']').css('display', 'none');
+    $(element).parent().removeClass('has-error').addClass('has-success');
+  }
+
   </script>
   </body>
 </html>
