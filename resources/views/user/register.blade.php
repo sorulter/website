@@ -31,6 +31,11 @@
       <p class="login-box-msg">Register your account.</p>
 
       <form method="post">
+
+        <label class="control-label" for="username" style="display: none;">
+          <i class="fa fa-times-circle-o"></i>
+          <span>Username length must between 4 and 20.</span>
+        </label>
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Username" name="username" id="username">
           <span class="input-group-addon">
@@ -38,6 +43,11 @@
           </span>
         </div>
         <br>
+
+        <label class="control-label" for="email" style="display: none;">
+          <i class="fa fa-times-circle-o"></i>
+          <span>Invalid email address.</span>
+        </label>
         <div class="input-group">
           <input type="email" class="form-control" placeholder="Email" name="email" id="email">
           <span class="input-group-addon">
@@ -45,6 +55,11 @@
           </span>
         </div>
         <br>
+
+        <label class="control-label" for="password" style="display: none;">
+          <i class="fa fa-times-circle-o"></i>
+          <span>Password length must between 6 and 20.</span>
+        </label>
         <div class="input-group">
           <input type="password" class="form-control" placeholder="Password" name="password" id="password">
           <span class="input-group-addon">
@@ -52,8 +67,13 @@
           </span>
         </div>
         <br>
+
+        <label class="control-label" for="re-password" style="display: none;">
+          <i class="fa fa-times-circle-o"></i>
+          <span>Not equal first typed.</span>
+        </label>
         <div class="input-group">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" placeholder="Retype password" id="re-password">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-log-in"></i>
           </span>
