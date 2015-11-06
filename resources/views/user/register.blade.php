@@ -97,5 +97,12 @@
   <script src="{{ asset("/static/jquery/jquery-2.1.4.min.js") }}"></script>
   <!-- Bootstrap 3.3.2 JS -->
   <script src="{{ asset("/static/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
+  <script>
+  function valid_email(email) {
+    var patten = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
+    return patten.test(email);
+  }
+
+  </script>
   </body>
 </html>
