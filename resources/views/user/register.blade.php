@@ -98,6 +98,8 @@
   <!-- Bootstrap 3.3.2 JS -->
   <script src="{{ asset("/static/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
   <script>
+  var valid = {'username': false, 'email': false, 'password': false, 'repassword': false}
+
   function valid_email(email) {
     var patten = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
     return patten.test(email);
@@ -125,6 +127,59 @@
     return this;
   };
 
+  $(function () {
+    // valid username
+    $('#username').on('focusout', function() {
+      if ($(this).val().length < 4 || $(this).val().length > 20 ) {
+        valid.username = false;
+        showErrorMsg(this);
+      } else {
+        valid.username = true;
+        hideErrorMsg(this);
+      };
+    });
+
+    // valid email
+    $('#email').on('focusout', function() {
+      if ($(this).val().length < 6 || !valid_email($(this).val()) ) {
+        valid.email = false;
+        showErrorMsg(this);
+      } else {
+        valid.email = true;
+        hideErrorMsg(this);
+      };
+    });
+
+    // valid password
+    $('#password').on('focusout', function() {
+      if ($(this).val().length < 6 || $(this).val().length > 20 ) {
+        valid.password = false;
+        showErrorMsg(this);
+      } else {
+        valid.password = true;
+        hideErrorMsg(this);
+      };
+    });
+
+    // valid re-password
+    $('#re-password').on('focusout', function() {
+      if ($(this).val() !== $('#password').val() ) {
+        valid.repassword = false;
+        showErrorMsg(this);
+      } else {
+        valid.repassword = true;
+        hideErrorMsg(this);
+      };
+    });
+
+    $('form').on('submit', function(event) {
+      if (!(valid.username && valid.email && valid.password && valid.repassword)) {
+        event.preventDefault();
+        $('.login-box-body').shake(5, 5, 5);
+      }
+    });
+
+  });
   </script>
   </body>
 </html>
