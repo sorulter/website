@@ -31,6 +31,7 @@
       <p class="login-box-msg">Register your account.</p>
 
       <form method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <label class="control-label" for="username" style="display: none;">
           <i class="fa fa-times-circle-o"></i>
