@@ -129,6 +129,7 @@ return [
         'default' => [
             'host' => env('SSDB_HOST', '127.0.0.1'),
             'port' => env('SSDB_PORT', 8888),
+            'timeout' => env('SSDB_TIMEOUT', 1000),
             'ns' => env('SSDB_NS', 'ts3.'),
         ],
     ],
