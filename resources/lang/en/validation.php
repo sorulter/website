@@ -88,8 +88,8 @@ return [
      */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'unique_mail' => 'This mail has register.Try <a href="/login">Login</a>',
         ],
     ],
 
