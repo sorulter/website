@@ -33,23 +33,18 @@
       <form method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-        <label class="control-label" for="username" style="display: none;">
+        <label class="control-label" for="email" style="display: @if ($errors->register->has('email'))block @else none @endif;">
           <i class="fa fa-times-circle-o"></i>
-          <span>Username length must between 4 and 20.</span>
-        </label>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Username" name="username" id="username">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-user"></i>
+          <span>
+            {{-- @if ($errors->has('email')) --}}
+            {{-- expr --}}
+            {!! $errors->register->first('email') !!}
+            {{-- @else --}}
+            {{-- Invalid email address. --}}
+          {{-- @endif --}}
           </span>
-        </div>
-        <br>
-
-        <label class="control-label" for="email" style="display: none;">
-          <i class="fa fa-times-circle-o"></i>
-          <span>Invalid email address.</span>
         </label>
-        <div class="input-group">
+        <div class="input-group @if ($errors->register->has('email')) has-error @endif">
           <input type="email" class="form-control" placeholder="Email" name="email" id="email">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-envelope"></i>
@@ -69,22 +64,6 @@
         </div>
         <br>
 
-        <label class="control-label" for="re-password" style="display: none;">
-          <i class="fa fa-times-circle-o"></i>
-          <span>Not equal first typed.</span>
-        </label>
-        <div class="input-group">
-          <input type="password" class="form-control" placeholder="Retype password" id="re-password">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-log-in"></i>
-          </span>
-        </div>
-        <br>
-
-        <div class="form-group">
-          <span class="glyphicon glyphicon-alert"></span>
-          <b>Register account,and I agree to the <a href="#">terms</a></b>
-        </div>
         <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
       </form>
     </div>
@@ -99,7 +78,6 @@
   <!-- Bootstrap 3.3.2 JS -->
   <script src="{{ asset("/static/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
   <script>
-  var valid = {'username': false, 'email': false, 'password': false, 'repassword': false}
 
   function valid_email(email) {
     var patten = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
@@ -129,24 +107,12 @@
   };
 
   $(function () {
-    // valid username
-    $('#username').on('focusout', function() {
-      if ($(this).val().length < 4 || $(this).val().length > 20 ) {
-        valid.username = false;
-        showErrorMsg(this);
-      } else {
-        valid.username = true;
-        hideErrorMsg(this);
-      };
-    });
 
     // valid email
     $('#email').on('focusout', function() {
       if ($(this).val().length < 6 || !valid_email($(this).val()) ) {
-        valid.email = false;
         showErrorMsg(this);
       } else {
-        valid.email = true;
         hideErrorMsg(this);
       };
     });
@@ -154,27 +120,15 @@
     // valid password
     $('#password').on('focusout', function() {
       if ($(this).val().length < 6 || $(this).val().length > 20 ) {
-        valid.password = false;
         showErrorMsg(this);
       } else {
-        valid.password = true;
         hideErrorMsg(this);
       };
     });
 
-    // valid re-password
-    $('#re-password').on('focusout', function() {
-      if ($(this).val() !== $('#password').val() ) {
-        valid.repassword = false;
-        showErrorMsg(this);
-      } else {
-        valid.repassword = true;
-        hideErrorMsg(this);
-      };
-    });
 
     $('form').on('submit', function(event) {
-      if (!(valid.username && valid.email && valid.password && valid.repassword)) {
+      if (!($('.has-error') && valid.password)) {
         event.preventDefault();
         $('.login-box-body').shake(5, 5, 5);
       }
