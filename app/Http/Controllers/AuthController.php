@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
 use Input;
 use Session;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -60,6 +61,19 @@ class AuthController extends Controller
     public function getRegister()
     {
         return view('user.register');
+    }
+
+    public function postRegister(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique_mail',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('register')
+                ->withErrors($validator, 'register')
+                ->withInput();
+        }
     }
 
 }
