@@ -2,7 +2,7 @@
 
 class User extends Base
 {
-    private $MialNS = 'user.mail.';
+    private $MailNS = 'user.mail.';
 
 /**
  *
@@ -13,7 +13,7 @@ class User extends Base
  */
     public function has($mail)
     {
-        $mail = $this->_ssdb->get($this->_ns . $this->MialNS . $mail);
+        $mail = $this->_ssdb->get($this->_ns . $this->MailNS . $mail);
         return $mail->data != null;
     }
 }
