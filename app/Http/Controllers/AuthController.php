@@ -73,6 +73,12 @@ class AuthController extends Controller
                 ->withErrors($validator, 'register')
                 ->withInput();
         }
+
+        // store
+        $state = (new User)->register($request->email, $request->password);
+
+        (new User)->login($request->email, $request->password);
+        return redirect('/user');
     }
 
 }
