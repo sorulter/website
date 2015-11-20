@@ -43,8 +43,6 @@ class User extends Base
         } else {
             return false;
         }
-
-        dd($data2store, $rs);
     }
 
     /**
