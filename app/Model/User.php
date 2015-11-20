@@ -1,5 +1,7 @@
 <?php namespace App\Model;
 
+use Session;
+
 class User extends Base
 {
     private $MailNS = 'user.mail.';
@@ -44,4 +46,25 @@ class User extends Base
 
         dd($data2store, $rs);
     }
+
+    /**
+     * User login.
+     *
+     * @since 2015-11-21 01:49:09
+     * @param String $email
+     * @param String $password
+     *
+     * @return Boolean
+     */
+    public function login($email, $password)
+    {
+        $rs = $this->_ssdb->get("{$this->_ns}{$this->PasswordNS}{$email}");
+        if ($rs->data == $password) {
+            Session::put("user", ['email' => $email, 'login' => true]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
