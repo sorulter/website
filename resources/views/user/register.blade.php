@@ -45,7 +45,7 @@
           </span>
         </label>
         <div class="input-group @if ($errors->register->has('email')) has-error @endif">
-          <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+          <input type="email" class="form-control" placeholder="Email" name="email" id="email" value="{{ old('email') }}">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-envelope"></i>
           </span>
