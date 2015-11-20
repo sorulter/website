@@ -42,8 +42,8 @@
       <form>
         <div class="form-group has-feedback">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <input type="text" class="form-control" placeholder="Username" name="username" id="username">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          <input type="text" class="form-control" placeholder="Email" name="email" id="email">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
           <input type="password" class="form-control" placeholder="Password" name="password" id="password">
@@ -101,7 +101,7 @@ footer {
       });
 
       // chekc input value
-      $('#username').keyup(function() {
+      $('#email').keyup(function() {
           if ($(this).val() && $('#password').val()) {
               $('#submit').attr('disabled', false);
           } else {
@@ -109,7 +109,7 @@ footer {
           };
       });
       $('#password').keyup(function() {
-          if ($(this).val() && $('#username').val()) {
+          if ($(this).val() && $('#email').val()) {
               $('#submit').attr('disabled', false);
           } else {
               $('#submit').attr('disabled', true);
@@ -128,7 +128,7 @@ footer {
           url:"{{ route('user/login') }}",
           dataType:"json",
           data:{
-            username: $("#username").val(),
+            email: $("#email").val(),
             password: $("#password").val(),
             rememberme: $("#rememberme").val()
           },

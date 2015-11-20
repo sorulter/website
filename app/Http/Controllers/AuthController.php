@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
@@ -30,14 +31,12 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         $data = Input::all();
-        $raw = $this->ssdb->get("proxier.user.password.${data['username']}");
-        if ($data['password'] === $raw->data) {
-            Session::put("user", ['username' => $data['username'], 'login' => true]);
+        if ((new User)->login($data['email'], $data['password'])) {
             if (Input::has('rememberme')) {
                 $remembermeToken = Str::random(60);
                 // set token expire time to 30 days.
                 $cookie = cookie('rememberme_token', $remembermeToken, 43200);
-                $this->ssdb->setx("proxier.rememberme_token.${remembermeToken}", $data['username'], 2592000);
+                $this->ssdb->setx("proxier.rememberme_token.${remembermeToken}", $data['email'], 2592000);
             }
             return response()->json(['ok' => true, 'msg' => 'login success.', 'tk' => $remembermeToken])->withCookie($cookie);
         } else {
