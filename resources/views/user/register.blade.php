@@ -128,7 +128,7 @@
 
 
     $('form').on('submit', function(event) {
-      if (!($('.has-error') && valid.password)) {
+      if ( $('.has-error').length > 0 || $('#password').val() == "" || $('#email').val() == "" ) {
         event.preventDefault();
         $('.login-box-body').shake(5, 5, 5);
       }
