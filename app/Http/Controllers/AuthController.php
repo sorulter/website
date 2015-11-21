@@ -32,13 +32,17 @@ class AuthController extends Controller
     {
         $data = Input::all();
         if ((new User)->login($data['email'], $data['password'])) {
-            if (Input::has('rememberme')) {
+            // dd($data, $data['rememberme'], $data['rememberme'] == "true");
+            if ($data['rememberme'] == 'true') {
                 $remembermeToken = Str::random(60);
                 // set token expire time to 30 days.
                 $cookie = cookie('rememberme_token', $remembermeToken, 43200);
                 $this->ssdb->setx("proxier.rememberme_token.${remembermeToken}", $data['email'], 2592000);
+                return response()->json(['ok' => true, 'msg' => 'login success.'])->withCookie($cookie);
+            } else {
+                return response()->json(['ok' => true, 'msg' => 'login success.']);
             }
-            return response()->json(['ok' => true, 'msg' => 'login success.', 'tk' => $remembermeToken])->withCookie($cookie);
+
         } else {
             return response()->json(['ok' => false, 'msg' => 'username or password error.']);
         }
