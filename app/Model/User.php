@@ -6,6 +6,7 @@ class User extends Base
 {
     private $MailNS = 'user.mail.';
     private $PasswordNS = 'user.password.';
+    private $RemembermeTokenNS = 'rememberme_token.';
 
     /**
      * Check the mail is exist.If exist return true
@@ -59,6 +60,25 @@ class User extends Base
         $rs = $this->_ssdb->get("{$this->_ns}{$this->PasswordNS}{$email}");
         if ($rs->data == $password) {
             Session::put("user", ['email' => $email, 'login' => true]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Login by remember token.
+     *
+     * @since 2015-11-21 11:35:57
+     * @param String $token
+     *
+     * @return Boolean
+     */
+    public function loginByRememberMeToken($token)
+    {
+        $res = $this->_ssdb->get("{$this->_ns}{$this->RemembermeTokenNS}{$token}");
+        if ($res->data) {
+            Session::put('user', ['email' => $res->data, 'login' => true]);
             return true;
         } else {
             return false;
