@@ -85,4 +85,20 @@ class User extends Base
         }
     }
 
+    /**
+     * Check user is login.
+     *
+     * @since 2015-11-21 02:27:11
+     *
+     * @return Boolean
+     */
+    public function isLogin()
+    {
+        dd(Session::get('user.email'), Session::get('user.login'));
+        if (Session::get('user.email') == "" && Session::get('user.login')) {
+            return false;
+        }
+        return true;
+    }
+
 }
