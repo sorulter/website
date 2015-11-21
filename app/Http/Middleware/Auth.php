@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Model\User;
 use Closure;
 use Cookie;
 use Session;
-use SSDB;
 
 class Auth
 {
@@ -19,15 +19,8 @@ class Auth
     public function handle($request, Closure $next)
     {
         // check remember me token.
-        $rememberme_token = Cookie::get('rememberme_token');
-        if ($rememberme_token) {
-            $db = config('database.ssdb.default');
-            $ssdb = new SSDB\Client($db['host'], $db['port']);
-            $res = $ssdb->get('proxier.rememberme_token.' . $rememberme_token);
-            if ($res->data) {
-                Session::put('user', ['username' => $res->data, 'login' => true]);
-            }
-        }
+        (new User)->loginByRememberMeToken(Cookie::get('rememberme_token'));
+
         // check login status.
         if (!Session::get('user')) {
             if ($request->ajax()) {
