@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
 use Input;
-use Session;
 use Validator;
 
 class AuthController extends Controller
@@ -56,8 +55,9 @@ class AuthController extends Controller
      */
     public function getLogout()
     {
-        $this->ssdb->del('proxier.rememberme_token.' . Cookie::get('rememberme_token'));
-        Session::flush();
+        // $this->ssdb->del('proxier.rememberme_token.' . Cookie::get('rememberme_token'));
+        // Session::flush();
+        (new User)->logout(Cookie::get('rememberme_token'));
         return view('user.logout')->withCookie(Cookie::forget('rememberme_token'));
     }
 
