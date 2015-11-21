@@ -56,7 +56,7 @@ $(document).ready(function() {
                 $('#timer').text(timer);
                 go();
             } else {
-                location.href='/user';
+                location.href='/login';
             }
         }, 1000);
     }
