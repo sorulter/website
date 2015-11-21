@@ -130,7 +130,7 @@ footer {
           data:{
             email: $("#email").val(),
             password: $("#password").val(),
-            rememberme: $("#rememberme").val()
+            rememberme: $("#rememberme").is(':checked')
           },
           success:function(data){
             if(data.ok){
