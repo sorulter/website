@@ -101,4 +101,21 @@ class User extends Base
         return true;
     }
 
+    /**
+     * Logout.
+     *
+     * @since 2015-11-21 12:00:04
+     * @param String $token Token of remember me.
+     *
+     * @return Boolean
+     */
+    public function logout($token)
+    {
+        Session::forget('user');
+        if ($this->_ssdb->del("{$this->_ns}{$this->RemembermeTokenNS}{$token}")->code != 'ok') {
+            return false;
+        }
+        return true;
+    }
+
 }
