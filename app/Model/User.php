@@ -4,7 +4,7 @@ use Session;
 
 class User extends Base
 {
-    private $MailNS = 'user.mail.';
+    private $MailNS = 'user.email.';
     private $PasswordNS = 'user.password.';
     private $RemembermeTokenNS = 'rememberme_token.';
 
