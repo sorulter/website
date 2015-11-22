@@ -27,24 +27,24 @@
             <!-- The user image in the navbar-->
             <img src="{{ $user['avatar'] or asset("/static/default/img/noavatar.png") }}" class="user-image" alt="User Image"/>
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-            <span class="hidden-xs">{{ $user['name'] or 'Username' }}</span>
+            <span class="hidden-xs">{{ $user['email'] or 'Email' }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- The user image in the menu -->
             <li class="user-header">
               <img src="{{ $user['avatar'] or asset("/static/default/img/noavatar.png") }}" class="img-circle" alt="User Image" />
               <p>
-                {{ $user['name'] or 'Username' }}
-                <small>{{ $user['since'] or 'Member since Nov. 2012' }}</small>
+                {{ $user['email'] or 'Email' }}
+                {{-- <small>{{ $user['since'] or 'Member since Nov. 2012' }}</small> --}}
               </p>
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                <a href="{{ url('/user/profile') }}" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
           </ul>
