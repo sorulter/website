@@ -6,6 +6,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Session;
+use View;
 
 abstract class Controller extends BaseController
 {
@@ -13,5 +15,7 @@ abstract class Controller extends BaseController
 
     public function __construct()
     {
+        // global variables of view
+        View::share('user', Session::get('user'));
     }
 }
