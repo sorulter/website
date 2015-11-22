@@ -7,7 +7,7 @@ class User extends Base
     private $MailNS = 'user.email.';
     private $PasswordNS = 'user.password.';
     private $RemembermeTokenNS = 'rememberme_token.';
-    private $WallatNS = 'user.wallat.';
+    private $WalletNS = 'user.wallet.';
 
     /**
      * Check the mail is exist.If exist return true
@@ -37,7 +37,7 @@ class User extends Base
         $data2store = [
             $this->_ns . $this->MailNS . $mail, 0,
             $this->_ns . $this->PasswordNS . $mail, $password,
-            $this->_ns . $this->WallatNS . $mail, env('INIT_WALLAT'),
+            $this->_ns . $this->WalletNS . $mail, env('INIT_WALLAT'),
         ];
         $rs = $this->_ssdb->multi_set($data2store);
 
