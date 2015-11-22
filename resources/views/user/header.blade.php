@@ -13,6 +13,13 @@
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+        <!-- User Wallet -->
+        <li class="dropdown tasks-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-cny"></i>
+            <span class="">{{ $user['wallet'] }}</span>
+          </a>
+        </li>
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
           <!-- Menu Toggle Button -->
