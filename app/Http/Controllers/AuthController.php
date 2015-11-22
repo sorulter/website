@@ -30,6 +30,10 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         $data = Input::all();
+        // check fields.
+        if ($data['email'] == '' || $data['password'] == '') {
+            return response()->json(['ok' => false, 'msg' => 'Please enter username and password.']);
+        }
         if ((new User)->login($data['email'], $data['password'])) {
             // dd($data, $data['rememberme'], $data['rememberme'] == "true");
             if ($data['rememberme'] == 'true') {
