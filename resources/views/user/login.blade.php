@@ -100,22 +100,6 @@ footer {
         increaseArea: '20%' // optional
       });
 
-      // chekc input value
-      $('#email').keyup(function() {
-          if ($(this).val() && $('#password').val()) {
-              $('#submit').attr('disabled', false);
-          } else {
-              $('#submit').attr('disabled', true);
-          };
-      });
-      $('#password').keyup(function() {
-          if ($(this).val() && $('#email').val()) {
-              $('#submit').attr('disabled', false);
-          } else {
-              $('#submit').attr('disabled', true);
-          };
-      });
-
       $.ajaxSetup({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
