@@ -58,7 +58,7 @@ class User extends Base
     public function login($email, $password)
     {
         $rs = $this->_ssdb->get("{$this->_ns}{$this->PasswordNS}{$email}");
-        if ($rs->data == $password) {
+        if ($rs->data != null && $rs->data == $password) {
             Session::put("user", ['email' => $email, 'login' => true]);
             return true;
         } else {
