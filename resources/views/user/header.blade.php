@@ -6,7 +6,7 @@
 
   <!-- Header Navbar -->
   <nav class="navbar navbar-static-top" role="navigation">
-    @if (!in_array($action, ['getActivate']))
+    @if (!in_array($action, ['getActivate', 'getResentActivateMail']))
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
@@ -15,7 +15,7 @@
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        @if (!in_array($action, ['getActivate']))
+        @if (!in_array($action, ['getActivate', 'getResentActivateMail']))
         <!-- User Wallet -->
         <li class="dropdown tasks-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -45,7 +45,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                @if (!in_array($action, ['getActivate']))
+                @if (!in_array($action, ['getActivate', 'getResentActivateMail']))
                 <a href="{{ url('/user/profile') }}" class="btn btn-default btn-flat">Profile</a>
                 @endif
               </div>
