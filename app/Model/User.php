@@ -10,6 +10,7 @@ class User extends Base
     private $RemembermeTokenNS = 'rememberme_token.';
     private $WalletNS = 'user.wallet.';
     private $MailActivateCodeNS = 'activate.mail.';
+    private $LastSendMailTime = 'mail.send.limit.';
 
     /**
      * Check the mail is exist.If exist return true
@@ -175,6 +176,24 @@ class User extends Base
                 ]);
                 return true;
             }
+        }
+        return false;
+    }
+
+    /**
+     * Check send mail is limit.
+     *
+     * @since 2015-11-24 00:16:43
+     *
+     * @return Boolean
+     */
+    public function isLimitSendMail()
+    {
+        $email = Session::get('user.email');
+        $rs = $this->_ssdb->get("{$this->_ns}{$this->LastSendMailTime}{$email}");
+        if ((time() - $rs->data) < env('MAIL_SENT_LIMIT_TIME')) {
+            $rs2 = $this->_ssdb->set("{$this->_ns}{$this->LastSendMailTime}{$email}", time());
+            return true;
         }
         return false;
     }
