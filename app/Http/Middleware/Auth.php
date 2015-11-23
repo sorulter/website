@@ -29,6 +29,11 @@ class Auth
                 return redirect()->guest('/login');
             }
         }
+
+        // check user is activate
+        if (!Session::get('user.activate') && !in_array($request->path(), ['user/activate', 'user/activate/resent'])) {
+            return redirect('/user/activate');
+        }
         return $next($request);
     }
 }
