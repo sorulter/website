@@ -46,7 +46,9 @@ class HomeController extends Controller
      */
     public function getResentActivateMail()
     {
-        ;
+        if (Session::get('user.activate')) {
+            return redirect('/user');
+        };
         if ((new User)->isLimitSendMail()) {
             return view('user.msg')->withType('warning')->withTitle('Limited.Try again later.')->withContent("<p>Don't request too many.</p>");
         }
