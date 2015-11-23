@@ -62,10 +62,16 @@ class User extends Base
         $keys = [
             "{$this->_ns}{$this->PasswordNS}{$email}",
             "{$this->_ns}{$this->WalletNS}{$email}",
+            "{$this->_ns}{$this->MailNS}{$email}",
         ];
         $rs = $this->_ssdb->multi_get($keys);
         if ($rs->data[$keys[0]] != null && $rs->data[$keys[0]] == $password) {
-            Session::put("user", ['email' => $email, 'login' => true, 'wallet' => $rs->data[$keys[1]]]);
+            Session::put("user", [
+                'email' => $email,
+                'login' => true,
+                'wallet' => $rs->data[$keys[1]],
+                'activate' => $rs->data[$keys[2]],
+            ]);
             return true;
         } else {
             return false;
