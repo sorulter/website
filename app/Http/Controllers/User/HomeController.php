@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+
     /**
      * Display user home.
      *
@@ -13,6 +14,7 @@ class HomeController extends Controller
      */
     public function getIndex()
     {
+        return view('user.home');
     }
 
 }
