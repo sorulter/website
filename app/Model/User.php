@@ -1,5 +1,6 @@
 <?php namespace App\Model;
 
+use Illuminate\Support\Str;
 use Session;
 
 class User extends Base
@@ -8,6 +9,7 @@ class User extends Base
     private $PasswordNS = 'user.password.';
     private $RemembermeTokenNS = 'rememberme_token.';
     private $WalletNS = 'user.wallet.';
+    private $MailActivateCodeNS = 'activate.mail.';
 
     /**
      * Check the mail is exist.If exist return true
@@ -128,6 +130,23 @@ class User extends Base
             return false;
         }
         return true;
+    }
+
+    /**
+     * Set activate code.
+     *
+     * @since 2015-11-23 8:47:13
+     *
+     * @return String
+     */
+    public function activateCode()
+    {
+        $email = Session::get('user.email');
+        $code = Str::random(32);
+        $rs = $this->_ssdb->setx("{$this->_ns}{$this->MailActivateCodeNS}{$code}", $email, 900);
+        if ($rs->code == 'ok') {
+            return $code;
+        }
     }
 
 }
