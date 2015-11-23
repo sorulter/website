@@ -22,5 +22,6 @@ Route::post('register', 'AuthController@postRegister');
 Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
     Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
     Route::get('/activate', ['as' => '/activate', 'uses' => 'HomeController@getActivate']);
+    Route::get('/activate/resent', ['as' => '/activate/resent', 'uses' => 'HomeController@getResentActivateMail']);
 });
 
