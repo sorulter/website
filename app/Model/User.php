@@ -198,4 +198,18 @@ class User extends Base
         return false;
     }
 
+    /**
+     * Set last send mail time.
+     *
+     * @since 2015-11-24 00:32:59
+     */
+    public function setLastSendMailTime($time)
+    {
+        if (!$time) {
+            $time = time();
+        }
+        $email = Session::get('user.email');
+        $this->_ssdb->set("{$this->_ns}{$this->LastSendMailTime}{$email}", $time);
+    }
+
 }
