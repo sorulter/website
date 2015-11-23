@@ -149,4 +149,34 @@ class User extends Base
         }
     }
 
+    /**
+     * Check activate code.
+     *
+     * @since 2015-11-23 23:35:37
+     * @param String $code
+     *
+     * @return Boolean
+     */
+    public function activate($code)
+    {
+        $rs = $this->_ssdb->get("{$this->_ns}{$this->MailActivateCodeNS}{$code}");
+        if ($rs->code == 'ok') {
+            $rs2 = $this->_ssdb->set("{$this->_ns}{$this->MailNS}{$rs->data}", 1);
+            if ($rs2->code == 'ok') {
+                $keys = [
+                    "{$this->_ns}{$this->WalletNS}{$rs->data}",
+                ];
+                $rs3 = $this->_ssdb->get($keys);
+                Session::put('user', [
+                    'email' => $rs->data,
+                    'login' => true,
+                    'wallet' => $rs3->data,
+                    'activate' => $rs2->data,
+                ]);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
