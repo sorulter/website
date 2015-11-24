@@ -19,6 +19,7 @@ Route::post('login', 'AuthController@postLogin');
 Route::get('logout', 'AuthController@getLogout');
 Route::get('register', 'AuthController@getRegister');
 Route::post('register', 'AuthController@postRegister');
+Route::get('activate/{code}', 'AuthController@getActivate')->where('code', '[0-9A-Za-z]+');
 Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
     Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
     Route::get('/activate', ['as' => '/activate', 'uses' => 'HomeController@getActivate']);
