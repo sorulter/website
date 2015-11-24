@@ -64,7 +64,7 @@
                     $('#timer').text(timer);
                     go();
                 } else {
-                    location.href='/login';
+                    location.href='{{ $to }}';
                 }
             }, 1000);
         }
