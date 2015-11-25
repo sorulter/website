@@ -28,7 +28,7 @@
     <div class="login-box-body">
       <p class="login-box-msg">Register your account.</p>
 
-      <form method="post" action="/auth/register">
+      <form method="post" action="/register">
         {!! csrf_field() !!}
 
         <label class="control-label text-red" for="email" style="display: @if ($errors->default->has('email'))block @else none @endif;">
