@@ -26,3 +26,8 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User',
     Route::get('/activate/resent', ['as' => '/activate/resent', 'uses' => 'HomeController@getResentActivateMail']);
 });
 
+// Authentication routes...
+Route::get('login', 'Auth\AuthController@getLogin');
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('logout', 'Auth\AuthController@getLogout');
+
