@@ -89,32 +89,4 @@ class AuthController extends Controller
         return redirect('/user');
     }
 
-    /**
-     * Activate user.
-     *
-     * @since 2015-11-24 20:11:59
-     * @param String $code activate cod.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getActivate($code)
-    {
-        // Activate user.
-        if ((new User)->activate($code)) {
-            return view('user.redirect')
-                ->withType('success')
-                ->withTitle('Activate success!')
-                ->withContent("<strong>Congratulations!</strong> Activate success. You can click <a href='/user'>Here</a> go to user home.")
-                ->withTo('/user')
-                ->withTime(3);
-        } else {
-            return view('user.redirect')
-                ->withType('danger')
-                ->withTitle('Activate failed!')
-                ->withContent("<strong>So sorry!</strong> This activate link has become invalid. Please <a href='/user'>Login</a> and try to send activate mail again.")
-                ->withTo('/login')
-                ->withTime(3);
-        }
-    }
-
 }
