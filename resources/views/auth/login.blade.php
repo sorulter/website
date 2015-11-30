@@ -28,22 +28,16 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">Sign in to start your session</p>
-      <div class="alert alert-success alert-dismissable" style="display: none;" id="msg-success">
-        <button type="button" class="close" aria-hidden="true">×</button>
-        <p>...</p>
-      </div>
-      <div class="alert alert-danger alert-dismissable" style="display: none;" id="msg-error">
-        <button type="button" class="close" aria-hidden="true">×</button>
-        <p>...</p>
-      </div>
 
-      <h3>{{ $errors->default->first('email') }}</h3>
-      <h3>{{ $errors->default->first('password') }}</h3>
       <form method="post" action="/login">
         {!! csrf_field() !!}
 
-        <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Email" name="email" id="email">
+        <label class="control-label text-red" for="email" style="display: @if ($errors->default->has('email'))block @else none @endif;">
+          <i class="fa fa-times-circle-o"></i>
+          <span>{{ $errors->default->first('email') }}</span>
+        </label>
+        <div class="form-group has-feedback @if ($errors->default->has('email')) has-error @endif">
+          <input type="text" class="form-control" placeholder="Email" name="email" id="email" value="{{ old('email') }}">
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
