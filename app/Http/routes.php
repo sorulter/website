@@ -22,7 +22,6 @@ Route::get('/', function () {
 Route::get('activate/{code}', 'AuthController@getActivate')->where('code', '[0-9A-Za-z]+');
 Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
     Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
-    Route::get('/activate', ['as' => '/activate', 'uses' => 'HomeController@getActivate']);
     Route::get('/activate/resent', ['as' => '/activate/resent', 'uses' => 'HomeController@getResentActivateMail']);
 });
 
