@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
 use Input;
-use Validator;
 
 class AuthController extends Controller
 {
@@ -63,30 +62,6 @@ class AuthController extends Controller
         // Session::flush();
         (new User)->logout(Cookie::get('rememberme_token'));
         return view('user.logout')->withCookie(Cookie::forget('rememberme_token'));
-    }
-
-    public function getRegister()
-    {
-        return view('user.register');
-    }
-
-    public function postRegister(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique_mail',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('register')
-                ->withErrors($validator, 'register')
-                ->withInput();
-        }
-
-        // store
-        $state = (new User)->register($request->email, $request->password);
-
-        (new User)->login($request->email, $request->password);
-        return redirect('/user');
     }
 
 }
