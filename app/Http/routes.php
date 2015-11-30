@@ -22,7 +22,6 @@ Route::get('/', function () {
 Route::get('activate/{code}', 'AuthController@getActivate')->where('code', '[0-9A-Za-z]+');
 Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
     Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
-    Route::get('/activate/resent', ['as' => '/activate/resent', 'uses' => 'HomeController@getResentActivateMail']);
 });
 
 // Authentication routes...
@@ -34,3 +33,21 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
+// test route
+Route::get('/view', function () {
+    return view('user.test');
+});
+Route::get('/id', function () {
+    // 93c4da84074bc4173a6240f1a29f8f4517d872ec
+    $oldid = Session::getId();
+    if (Input::has('debug')) {
+        Session::setId("93c4da84074bc4173a6240f1a29f8f4517d872ec");
+        echo "debug\n";
+    }
+    if (Input::has('set')) {
+        Session::put('user', 'kofj');
+    }
+    dd(Session::all(), $oldid, Session::getId());
+});
+
+// Route::get('/user', ['as' => 'user.dashboard', 'uses' => 'LoginController@index']);
