@@ -26,22 +26,3 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
-
-// test route
-Route::get('/view', function () {
-    return view('user.test');
-});
-Route::get('/id', function () {
-    // 93c4da84074bc4173a6240f1a29f8f4517d872ec
-    $oldid = Session::getId();
-    if (Input::has('debug')) {
-        Session::setId("93c4da84074bc4173a6240f1a29f8f4517d872ec");
-        echo "debug\n";
-    }
-    if (Input::has('set')) {
-        Session::put('user', 'kofj');
-    }
-    dd(Session::all(), $oldid, Session::getId());
-});
-
-// Route::get('/user', ['as' => 'user.dashboard', 'uses' => 'LoginController@index']);
