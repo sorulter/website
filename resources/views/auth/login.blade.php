@@ -60,7 +60,7 @@
         </div>
       </form>
 
-      <a href="#">I forgot my password</a>&emsp;|&emsp;<a href="#" class="text-center">Register a new membership</a>
+      <a href="/forgot">I forgot my password</a>&emsp;|&emsp;<a href="/register" class="text-center">Register a new membership</a>
 
     </div>
     <!-- /.login-box-body -->
