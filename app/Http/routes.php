@@ -30,3 +30,7 @@ Route::post('register', 'Auth\AuthController@postRegister');
 // Password reset link request routes...
 Route::get('forgot', 'Auth\PasswordController@getEmail');
 Route::post('forgot', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('reset', 'Auth\PasswordController@postReset');
