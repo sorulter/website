@@ -24,9 +24,6 @@
   <body class="skin-blue layout-top-nav">
     <div class="wrapper">
 
-      <!-- Header -->
-      @include('user.header')
-
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
 
