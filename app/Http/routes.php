@@ -34,3 +34,7 @@ Route::post('forgot', 'Auth\PasswordController@postEmail');
 // Password reset routes...
 Route::get('reset/{token}', 'Auth\PasswordController@getReset')->where('token', '[0-9A-Za-z]{59}');
 Route::post('reset', 'Auth\PasswordController@postReset');
+
+// Activation routes...
+Route::get('activate/{token}', 'Auth\ActivationController@getActivate')->where('token', '[0-9A-Za-z]{60}');
+
