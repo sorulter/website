@@ -15,8 +15,10 @@ abstract class Controller extends BaseController
 
     public function __construct()
     {
-        list(, $action) = explode('@', Route::getCurrentRoute()->getActionName());
-        View::share('action', $action);
+        if (!app()->runningInConsole()) {
+            list(, $action) = explode('@', Route::getCurrentRoute()->getActionName());
+            View::share('action', $action);
+        }
     }
 
 }
