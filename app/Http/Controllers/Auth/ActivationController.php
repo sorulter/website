@@ -25,6 +25,10 @@ class ActivationController extends Controller
                 ->withContent('')
                 ->withTo('/login')
                 ->withTime(3);
+        } else {
+            return view('user.msg')->withType('danger')
+                ->withTitle('Failed!')
+                ->withContent('Activation link is invalid or has activated.');
         }
     }
 }
