@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Mail;
+use URL;
 use Validator;
 
 class AuthController extends Controller
@@ -35,6 +37,11 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+
+        $TempRedirectPath = str_replace([url()], [''], URL::previous());
+        if (!empty($TempRedirectPath)) {
+            $this->redirectPath = $TempRedirectPath;
+        }
     }
 
     /**
