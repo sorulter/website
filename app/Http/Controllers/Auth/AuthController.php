@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Mail;
-use URL;
 use Validator;
 
 class AuthController extends Controller
@@ -34,13 +33,12 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
 
-        $TempRedirectPath = str_replace([url()], [''], URL::previous());
-        if (!empty($TempRedirectPath)) {
-            $this->redirectPath = $TempRedirectPath;
+        if (session()->has('redirectPath')) {
+            $this->redirectPath = session()->get('redirectPath');
         }
     }
 
