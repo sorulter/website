@@ -45,5 +45,10 @@ class ActivationController extends Controller
             session()->put('redirectPath', '/activate/resend');
             return redirect('login');
         }
+
+        // Check activate status
+        if ($request->user()->activate) {
+            return redirect('user');
+        }
     }
 }
