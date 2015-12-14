@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class ActivationController extends Controller
@@ -29,6 +30,20 @@ class ActivationController extends Controller
             return view('user.msg')->withType('danger')
                 ->withTitle('Failed!')
                 ->withContent('Activation link is invalid or has activated.');
+        }
+    }
+
+    /**
+     * Resend activation link.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getResend(Request $request)
+    {
+        // Check login status
+        if (Auth::guest()) {
+            session()->put('redirectPath', '/activate/resend');
+            return redirect('login');
         }
     }
 }
