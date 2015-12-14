@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Mail;
 
 class ActivationController extends Controller
 {
@@ -50,5 +52,17 @@ class ActivationController extends Controller
         if ($request->user()->activate) {
             return redirect('user');
         }
+
+        // resend
+        $token = Str::random(60);
+        $user = $request->user();
+        Mail::laterOn('email', 3, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
+            $name = mb_split('@', $user->email)[0];
+            $message->to($user->email, $name)->subject('Welcome to iProxier,' . $name);
+        });
+        $user->activate_code = $token;
+        $user->save();
+        return view('user.msg')->withType('success')->withTitle('Success!')->withContent('Resend activate link mail success.');
+
     }
 }
