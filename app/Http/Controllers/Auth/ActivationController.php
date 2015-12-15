@@ -29,7 +29,7 @@ class ActivationController extends Controller
                 ->withTo('/login')
                 ->withTime(3);
         } else {
-            return view('user.msg')->withType('danger')
+            return view('pub.msg')->withType('danger')
                 ->withTitle('Failed!')
                 ->withContent('Activation link is invalid or has activated.');
         }
@@ -62,7 +62,7 @@ class ActivationController extends Controller
         });
         $user->activate_code = $token;
         $user->save();
-        return view('user.msg')->withType('success')->withTitle('Success!')->withContent('Resend activate link mail success.');
+        return view('pub.msg')->withType('success')->withTitle('Success!')->withContent('Resend activate link mail success.');
 
     }
 }
