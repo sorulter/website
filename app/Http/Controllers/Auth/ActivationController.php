@@ -23,7 +23,7 @@ class ActivationController extends Controller
             User::where('activate_code', '=', $token)->update(
                 array('activate' => 1, 'activate_code' => '')
             );
-            return view('user.redirect')->withType('success')
+            return view('pub.redirect')->withType('success')
                 ->withTitle('Activate Success!')
                 ->withContent('')
                 ->withTo('/login')
