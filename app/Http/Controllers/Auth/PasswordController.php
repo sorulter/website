@@ -52,7 +52,7 @@ class PasswordController extends Controller
         switch ($response) {
             case Password::RESET_LINK_SENT:
                 // return redirect()->back()->with('status', trans($response));
-                return view('user.msg')->withType('success')->withTitle('Password reset link mail')->withContent(trans($response));
+                return view('pub.msg')->withType('success')->withTitle('Password reset link mail')->withContent(trans($response));
 
             case Password::INVALID_USER:
                 return redirect()->back()->withErrors(['email' => trans($response)]);

@@ -47,7 +47,7 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Not activate.', 401);
             } else {
-                return view('user.msg')
+                return view('pub.msg')
                     ->withType('warning')
                     ->withTitle('User Not Activated.')
                     ->withContent('We have already sent an activation link to the email address you submitted with registration.');
