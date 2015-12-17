@@ -1,5 +1,9 @@
 @extends('front')
 
+@extends('title')
+{{ $title or 'iProxier › Redirect' }}
+@stop
+
 @section('content')
     <div class="callout callout-{{ $type }}">
       <h4>{!! $title !!}</h4>

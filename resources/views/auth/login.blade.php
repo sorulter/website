@@ -1,6 +1,9 @@
 @extends('front')
 
 @section('body-class') hold-transition login-page @stop
+@section('title')
+iProxier › Login
+@stop
 
 @section('content')
 <!-- iCheck -->

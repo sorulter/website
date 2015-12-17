@@ -2,9 +2,15 @@
 
 @section('body-class') hold-transition login-page @stop
 
+@section('title')
+iProxier › Reset your password via email
+@stop
+
+
 @section('content')
   <div class="login-box">
     <div class="login-box-body">
+      <p class="login-box-msg">Reset your password via email</p>
 
       <form method="POST" action="/forgot">
         {!! csrf_field() !!}
