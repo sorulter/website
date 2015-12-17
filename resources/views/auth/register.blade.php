@@ -1,32 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>iProxier | Register</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
-    <link href="{{ asset("/static/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="{{ asset("/static/admin-lte/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
+@extends('front')
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-<body class="hold-transition login-page" style="background: url(http://ww3.sinaimg.cn/large/6816152bgw1exn0b9uqbgj21kw1230un.jpg) no-repeat center center fixed;">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="{{ url('/') }}"><b>iProxier</b>.com</a>
-    </div>
-    <!-- /.login-logo -->
+@section('title')
+iProxier › Register
+@stop
+
+@section('body-class') hold-transition login-page @stop
+
+@section('content')
+    <div class="login-box">
     <div class="login-box-body">
-      <p class="login-box-msg">Register your account.</p>
+      <p class="login-box-msg"><b>Register your account</b></p>
 
       <form method="post" action="/register">
         {!! csrf_field() !!}
@@ -62,6 +45,4 @@
     <!-- /.login-box-body -->
   </div>
   <!-- /.login-box -->
-
-  </body>
-</html>
+@stop
