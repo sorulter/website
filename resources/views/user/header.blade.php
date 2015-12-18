@@ -18,12 +18,14 @@
         @if (!in_array($action, ['getActivate', 'getResentActivateMail']))
         <!-- User Wallet -->
         <li class="dropdown tasks-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-cny"></i>
-            <span class="">{{ $user['wallet'] }}</span>
-          </a>
+          <span style="color: white; line-height: 20px;display: block; padding: 15px 15px;">
+            <i class="fa fa-cny "></i>
+            {!! $user['wallet'] !!}
+            <span class="label label-success"> <a href="/billing/charge" style="color: white;">charge</a></span>
+          </span>
         </li>
         @endif
+
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
           <!-- Menu Toggle Button -->
