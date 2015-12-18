@@ -64,5 +64,20 @@
     <script src="{{ asset ("/static/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset ("/static/admin-lte/js/app.min.js") }}" type="text/javascript"></script>
+    <script type="text/javascript">
+    var path = window.location.pathname;
+
+    if (path == "/user") {
+      $('#user-services').addClass('active');
+    };
+    if (path == "/user/billing") {
+      $('#user-billing').addClass('active');
+    };
+    if (path == "/user/settings") {
+      $('#user-settings').addClass('active');
+    };
+
+    </script>
+
   </body>
 </html>
