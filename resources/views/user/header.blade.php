@@ -19,7 +19,7 @@
           <span style="color: white; line-height: 20px;display: block; padding: 15px 15px;">
             <i class="fa fa-cny "></i>
             {!! $user['wallet'] !!}
-            <span class="label label-success"> <a href="/billing/charge" style="color: white;">charge</a></span>
+            <span class="label label-success"> <a href="/user/billing/charge" style="color: white;">charge</a></span>
           </span>
         </li>
 
