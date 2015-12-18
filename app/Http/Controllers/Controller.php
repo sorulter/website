@@ -18,6 +18,11 @@ abstract class Controller extends BaseController
         if (!app()->runningInConsole()) {
             list(, $action) = explode('@', Route::getCurrentRoute()->getActionName());
             View::share('action', $action);
+
+            // share user info to global
+            if (request()->user() != null) {
+                View::share('user', request()->user());
+            }
         }
     }
 
