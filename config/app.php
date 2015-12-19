@@ -148,6 +148,7 @@ return [
 
         Mews\Captcha\CaptchaServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Rayjun\LaravelOrder\LaravelOrderServiceProvider::class,
 
     ],
 
@@ -200,6 +201,7 @@ return [
 
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Order' => Rayjun\LaravelOrder\Facades\Order::class,
 
     ],
 
