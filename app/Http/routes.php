@@ -14,9 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
-    Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
-});
 
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
@@ -38,3 +35,8 @@ Route::post('reset', 'Auth\PasswordController@postReset');
 // Activation routes...
 Route::get('activate/{token}', 'Auth\ActivationController@getActivate')->where('token', '[0-9A-Za-z]{60}');
 Route::get('activate/resend', ['uses' => 'Auth\ActivationController@getResend']);
+
+// user group routes...
+Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
+    Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
+});
