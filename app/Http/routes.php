@@ -39,4 +39,8 @@ Route::get('activate/resend', ['uses' => 'Auth\ActivationController@getResend'])
 // user group routes...
 Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
     Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
+
+    // Billing routes...
+    Route::get('billing', ['as' => '/billing', 'uses' => 'BillingController@getIndex']);
+
 });
