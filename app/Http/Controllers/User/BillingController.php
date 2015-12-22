@@ -19,4 +19,14 @@ class BillingController extends Controller
         return view('user.billing.index')->withOrders($order->where("user_id", "=", request()->user()->id)->paginate(2));
     }
 
+    /**
+     * Display charge page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCharge()
+    {
+        return view('billing/charge');
+    }
+
 }
