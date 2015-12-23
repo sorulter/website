@@ -26,7 +26,7 @@ class BillingController extends Controller
      */
     public function getCharge()
     {
-        return view('billing/charge');
+        return view('user.billing.charge');
     }
 
 }
