@@ -29,4 +29,12 @@ class BillingController extends Controller
         return view('user.billing.charge');
     }
 
+    /**
+     * Charge
+     */
+    public function postCharge()
+    {
+
+    }
+
 }
