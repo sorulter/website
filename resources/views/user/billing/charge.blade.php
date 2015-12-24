@@ -10,6 +10,8 @@
             </div>
             <!-- /.box-header -->
             <form class="form-horizontal" method="post">
+                {!! csrf_field() !!}
+
                 <div class="box-body">
                     <div class="form-group">
                         <label for="amount" class="col-sm-2 control-label">Amount</label>
