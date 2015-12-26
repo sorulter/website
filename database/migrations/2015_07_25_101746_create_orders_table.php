@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('state');
-            $table->float('total', 15, 2);
+            $table->float('amount', 15, 2);
             $table->dateTime('completed_at')->nullable();
             $table->timestamps();
 
