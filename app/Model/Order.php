@@ -24,16 +24,16 @@ class Order extends Model
      * Create new order
      * @param $price
      * @param $user_id
-     * @return Order
+     * @return bool
      */
-    public function order($price, $user_id)
+    public function order($amount, $user_id)
     {
         $this->user_id = $user_id;
+        $this->order_id = (int) microtime(true) * 100000 + rand(100, 999);
         $this->state = $this->OBLIGATION;
-        $this->total = $price;
+        $this->amount = $amount;
 
-        $this->save();
-        return $this;
+        return $this->save();
     }
 
     /**
