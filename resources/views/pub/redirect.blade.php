@@ -1,6 +1,6 @@
 @extends('front')
 
-@extends('title')
+@section('title')
 {{ $title or 'iProxier › Redirect' }}
 @stop
 
