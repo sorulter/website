@@ -60,6 +60,14 @@ class BillingController extends Controller
      */
     public function getPayment()
     {
+        $order = session()->get('order');
+        // Check order
+        if ($order == null) {
+            return view('pub.redirect')
+                ->withType('warning')->withTitle('Ellegal order!')
+                ->withContent('')->withTo('/user/billing/charge')->withTime(3);
+        }
+
     }
 
 }
