@@ -42,6 +42,16 @@ class BillingController extends Controller
                 ->withContent('')->withTo('')->withTime(3);
         }
 
+        // Create order
+        $order = new Order;
+        if ($order->order(request()->input('amount'), request()->user()->id)) {
+            return redirect('user/billing/payment');
+        } else {
+            return view('pub.redirect')
+                ->withType('warning')->withTitle('Create order failed!')
+                ->withContent('')->withTo('')->withTime(3);
+        }
+
     }
 
 }
