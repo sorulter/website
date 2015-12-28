@@ -54,4 +54,11 @@ class BillingController extends Controller
 
     }
 
+    /**
+     * Display payment page.
+     */
+    public function getPayment()
+    {
+    }
+
 }
