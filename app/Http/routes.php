@@ -44,5 +44,6 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User',
     Route::get('billing', ['as' => '/billing', 'uses' => 'BillingController@getIndex']);
     Route::get('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@getCharge']);
     Route::post('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@postCharge']);
+    Route::post('billing/payment', ['as' => '/billing/payment', 'uses' => 'BillingController@getPayment']);
 
 });
