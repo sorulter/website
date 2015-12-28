@@ -29,7 +29,7 @@ class Order extends Model
     public function order($amount, $user_id)
     {
         $this->user_id = $user_id;
-        $this->order_id = ate("Ymd-His") . '-' . substr((string) microtime(), 2, 6);
+        $this->order_id = date("Ymd-His") . '-' . substr((string) microtime(), 2, 6);
         $this->state = $this->OBLIGATION;
         $this->amount = $amount;
 
