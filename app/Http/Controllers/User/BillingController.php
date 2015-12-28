@@ -45,7 +45,8 @@ class BillingController extends Controller
         // Create order
         $order = new Order;
         if ($order->order(request()->input('amount'), request()->user()->id)) {
-            return redirect('user/billing/payment')->withOrder($order);
+            session()->set('order', $order);
+            return redirect('user/billing/payment');
         } else {
             return view('pub.redirect')
                 ->withType('warning')->withTitle('Create order failed!')
