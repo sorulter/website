@@ -8,6 +8,7 @@
             <tbody>
                 <tr>
                     <th style="width: 10px">#</th>
+                    <th>{{ trans('billing.Order ID') }}</th>
                     <th>{{ trans('billing.Amount') }}</th>
                     <th>{{ trans("billing.State") }}</th>
                     <th>{{ trans('billing.Created At') }}</th>
@@ -16,8 +17,9 @@
                 @foreach ($orders as $order)
                 <tr>
                     <td>{{$order->id}}</td>
-                    <td>{{$order->state}}</td>
-                    <td>{{$order->total}}</td>
+                    <td>{{$order->order_id}}</td>
+                    <td>{{$order->amount}}</td>
+                    <td>￥ {{$order->state}}.00</td>
                     <td>{{$order->created_at}}</td>
                     <td>@if ($order->state == $order->OBLIGATION) Continue @else View @endif</td>
                 </tr>
