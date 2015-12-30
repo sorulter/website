@@ -72,4 +72,20 @@ class BillingController extends Controller
 
     }
 
+    /**
+     * Continue to pay
+     */
+    public function getContinue($order_id)
+    {
+        $order = Order::where('order_id', '=', $order_id)->find(1);
+        if ($order == null) {
+            return view('pub.redirect')
+                ->withType('warning')->withTitle('Ellegal order!')
+                ->withContent('')->withTo('/user/billing/charge')->withTime(3);
+        }
+
+        session()->set('order', $order);
+        return redirect('user/billing/payment');
+    }
+
 }
