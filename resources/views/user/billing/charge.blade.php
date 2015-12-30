@@ -9,6 +9,7 @@
                 <h3 class="box-title">Charge <small>Alipay</small></h3>
             </div>
             <!-- /.box-header -->
+            @if ($order == null)
             <form class="form-horizontal" method="post">
                 {!! csrf_field() !!}
 
@@ -42,6 +43,37 @@
                 </div>
                 <!-- /.box-footer -->
             </form>
+            @endif
+
+            @if ($order != null)
+            <div class="box-body">
+                <div class="form-group">
+                    <h3><i class="icon fa fa-warning"></i> There is an order need to pay!</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Amount</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <body>
+                            <tr>
+                                <td>{{ $order->order_id }}</td>
+                                <td>{{ $order->amount }}</td>
+                                <td>{{ $order->created_at }}</td>
+                            </tr>
+                        </body>
+                    </table>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="pull-right"><a class="btn btn-info" href="/user/billing/continue/{{ $order->order_id }}">Continue</a></div>
+            </div>
+            <!-- /.box-footer -->
+
+            @endif
 
         </div>
         <!-- /.box -->
