@@ -20,6 +20,8 @@ class Order extends Model
 
     public $COMPLETE = 'complete';
 
+    public $CLOSED = 'closed';
+
     /**
      * Create new order
      * @param $price
