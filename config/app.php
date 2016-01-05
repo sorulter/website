@@ -148,6 +148,7 @@ return [
 
         Mews\Captcha\CaptchaServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
 
     ],
 
@@ -200,6 +201,7 @@ return [
 
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
 
     ],
 
