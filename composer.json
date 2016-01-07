@@ -12,7 +12,8 @@
         "laravel/framework": "5.1.*",
         "barryvdh/laravel-debugbar": "^2.0",
         "ignited/laravel-omnipay": "2.*",
-        "lokielse/omnipay-alipay": "dev-master"
+        "lokielse/omnipay-alipay": "dev-master",
+        "Nathanmac/Parser": "3.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
