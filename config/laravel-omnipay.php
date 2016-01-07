@@ -3,7 +3,7 @@
 return [
 
     // The default gateway to use
-    'default' => 'paypal',
+    'default' => 'alipay',
 
     // Add in each gateway here
     'gateways' => [
