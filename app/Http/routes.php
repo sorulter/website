@@ -37,14 +37,21 @@ Route::get('activate/{token}', 'Auth\ActivationController@getActivate')->where('
 Route::get('activate/resend', ['uses' => 'Auth\ActivationController@getResend']);
 
 // user group routes...
-Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => 'User', 'as' => 'user'], function () {
-    Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
+Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], function () {
+    // With auth middleware.
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
 
-    // Billing routes...
-    Route::get('billing', ['as' => '/billing', 'uses' => 'BillingController@getIndex']);
-    Route::get('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@getCharge']);
-    Route::post('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@postCharge']);
-    Route::get('billing/payment', ['as' => '/billing/payment', 'uses' => 'BillingController@getPayment']);
-    Route::get('billing/continue/{orderid}', ['as' => '/billing/continue', 'uses' => 'BillingController@getContinue']);
+        // Billing routes...
+        Route::get('billing', ['as' => '/billing', 'uses' => 'BillingController@getIndex']);
+        Route::get('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@getCharge']);
+        Route::post('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@postCharge']);
+        Route::get('billing/payment', ['as' => '/billing/payment', 'uses' => 'BillingController@getPayment']);
+        Route::get('billing/continue/{orderid}', ['as' => '/billing/continue', 'uses' => 'BillingController@getContinue']);
+
+    });
+
+    // Without auth middleware.
+    Route::any('billing/result', ['as' => '/billing/result', 'uses' => 'BillingController@result']);
 
 });
