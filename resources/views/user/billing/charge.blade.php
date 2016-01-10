@@ -10,7 +10,7 @@
             </div>
             <!-- /.box-header -->
             @if ($order == null)
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" target="_blank">
                 {!! csrf_field() !!}
 
                 <div class="box-body">
