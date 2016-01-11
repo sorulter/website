@@ -26,7 +26,7 @@ class BillingController extends Controller
      */
     public function getCharge()
     {
-        $order = Order::where('state', '=', 'obligation')->first();
+        $order = Order::where('state', '=', 'ORDER_CREATED')->first();
 
         return view('user.billing.charge')->withOrder($order);
     }
