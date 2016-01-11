@@ -32,7 +32,7 @@ class Order extends Model
     {
         $this->user_id = $user_id;
         $this->order_id = date("Ymd-His") . '-' . substr((string) microtime(), 2, 6);
-        $this->state = $this->OBLIGATION;
+        $this->state = "ORDER_CREATED";
         $this->amount = $amount;
 
         return $this->save();
