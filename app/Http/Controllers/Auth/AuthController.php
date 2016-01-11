@@ -7,8 +7,6 @@ use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Mail;
 use Validator;
 
 class AuthController extends Controller
@@ -64,16 +62,9 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $token = Str::random(60);
-        Mail::queueOn('mail', 'emails.welcome', array('code' => $token), function ($message) {
-            $name = mb_split('@', $data['email'])[0];
-            $message->to($data['email'], $name)->subject('Welcome to iProxier,' . $name);
-        });
-
         return User::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'activate_code' => $token,
         ]);
     }
 }
