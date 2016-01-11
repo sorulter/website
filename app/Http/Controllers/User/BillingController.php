@@ -182,6 +182,8 @@ class BillingController extends Controller
             return 'success';
         }
 
+        return abort(404);
+
     }
 
 }
