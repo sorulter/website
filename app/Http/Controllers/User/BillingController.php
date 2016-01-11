@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Model\Order;
+use Input;
+use Omnipay;
 
 class BillingController extends Controller
 {
@@ -69,6 +71,25 @@ class BillingController extends Controller
                 ->withType('warning')->withTitle('Ellegal order!')
                 ->withContent('')->withTo('/user/billing/charge')->withTime(3);
         }
+
+        $gateway = Omnipay::gateway();
+        $options = [
+            'out_trade_no' => $order->order_id,
+            'subject' => 'iProxier charge ' . $order->amount . ' RMB.',
+            'price' => $order->amount,
+            'quantity' => 1,
+            'payment_type' => '1',
+            'logistics_fee' => '0.00',
+            'logistics_type' => 'EXPRESS',
+            'logistics_payment' => 'BUYER_PAY_AFTER_RECEIVE',
+            'receive_name' => 'user@iProxier',
+            'receive_address' => 'user@iProxier',
+
+        ];
+        $gateway->setKey(env('ALIPAY_KEY'));
+
+        $response = $gateway->purchase($options)->send();
+        $response->redirect();
 
     }
 
