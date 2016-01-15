@@ -176,7 +176,6 @@ class BillingController extends Controller
         // 4.
         if ($trade_status == 'TRADE_FINISHED') {
             if ($order->state == 'WAIT_BUYER_CONFIRM_GOODS') {
-                Order::where('order_id', '=', $order_id)->update(['state' => 'TRADE_FINISHED']);
                 $flows = Flows::find($order->user_id);
 
                 switch ($order->amount) {
@@ -218,6 +217,8 @@ class BillingController extends Controller
                         $flows->ComboFlowsCharge(12);
                         break;
                 }
+
+                Order::where('order_id', '=', $order_id)->update(['state' => 'TRADE_FINISHED']);
             }
 
             return 'success';
