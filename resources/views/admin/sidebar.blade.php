@@ -9,7 +9,7 @@
       <li class="header">Menu</li>
       <!-- Optionally, you can add icons to the links -->
       <li id="user-overview" class="fa-lg">
-        <a href="/admin">
+        <a href="/{{ env('ADMINNS') }}">
           <span class="fa-stack">
             <i class="fa fa-user fa-stack-1x"></i>
           </span>
@@ -17,7 +17,7 @@
         </a>
       </li>
       <li id="user-ports" class="fa-lg">
-        <a href="/admin/ports">
+        <a href="/{{ env('ADMINNS') }}/ports">
           <span class="fa-stack">
             <i class="fa fa-credit-card fa-stack-1x"></i>
           </span>
@@ -25,7 +25,7 @@
         </a>
       </li>
       <li id="user-users" class="fa-lg">
-        <a href="/admin/users">
+        <a href="/{{ env('ADMINNS') }}/users">
           <span class="fa-stack">
             <i class="fa fa-cog fa-stack-1x"></i>
           </span>
