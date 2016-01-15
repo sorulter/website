@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePacTable extends Migration
+class CreatePacsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class CreatePacTable extends Migration
      */
     public function up()
     {
-        Schema::create('pac', function (Blueprint $table) {
+        Schema::create('pacs', function (Blueprint $table) {
             $table->integer('user_id')->unsigned()->primary();
-            $table->bigInteger('rules')->unsigned();
+            $table->string('rules');
+            $table->boolean('global');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -28,6 +29,6 @@ class CreatePacTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pac');
+        Schema::drop('pacs');
     }
 }
