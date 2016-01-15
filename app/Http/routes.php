@@ -55,3 +55,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
     Route::any('billing/result', ['as' => '/billing/result', 'uses' => 'BillingController@result']);
 
 });
+
+Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin', 'as' => 'admin'], function () {
+    Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
+});
