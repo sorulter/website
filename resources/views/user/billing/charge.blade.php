@@ -18,17 +18,15 @@
                         <label for="amount" class="col-sm-2 control-label">Amount</label>
                         <div class="col-sm-5">
                             <select name="amount" class="form-control select2" style="width: 100%;">
-                                <option value="1" disabled="disabled">¥ 1.00（1Gb 永久流量）</option>
-                                <option value="10">¥ 10.00（10GB 永久流量）</option>
-                                <option value="20">¥ 20.00（20GB 永久流量）</option>
-                                <option value="30">¥ 30.00（20GB/月 自然月包月流量套餐）</option>
-                                <option value="50">¥ 50.00（50GB 永久流量）</option>
-                                <option value="100">¥ 100.00（100GB 永久流量）</option>
-                                <option value="100" selected="selected">¥ 160.00（20GB/月 半年流量套餐）</option>
-                                <option value="200">¥ 200.00（200GB 永久流量）</option>
-                                <option value="300">¥ 300.00（20GB/月 包年流量套餐）</b></option>
-                                <option value="500">¥ 500.00（500GB 永久流量）</option>
-                                <option value="1000">¥ 1000.00（1000GB 永久流量）</option>
+                                <option value="0.01">¥ 0.01（100Mb 试用流量）</option>
+                                <option value="10" disabled="disabled">¥ 10.00（1Gb 永久流量）</option>
+                                <option value="30">¥ 30.00（15GB/月 一自然月有效期）</option>
+                                <option value="55">¥ 55.00（6GB 永久流量）</option>
+                                <option value="80">¥ 80.00（15GB/月 三个自然月有效期）</option>
+                                <option value="100">¥ 100.00（12GB 永久流量）</option>
+                                <option value="300" selected="selected">¥ 300.00（15GB/月 一年有效期）</option>
+                                <option value="500">¥ 500.00（60GB 永久流量）</option>
+                                <option value="1000">¥ 1000.00（120GB 永久流量）</option>
                             </select>
                         </div>
                         <div class="col-sm-3">
