@@ -18,8 +18,6 @@ class CreatePortsTable extends Migration
             $table->integer('port');
             $table->integer('user_id')->unsigned()->default(0);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
