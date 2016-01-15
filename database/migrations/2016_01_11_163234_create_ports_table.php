@@ -28,6 +28,6 @@ class CreatePortsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pac');
+        Schema::drop('ports');
     }
 }
