@@ -14,7 +14,7 @@ class CreatePortsTable extends Migration
     {
         Schema::create('ports', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('node_doname');
+            $table->string('node_name');
             $table->integer('port');
             $table->integer('user_id')->unsigned()->default(0);
             $table->timestamps();
