@@ -41,7 +41,7 @@ class BillingController extends Controller
     public function postCharge()
     {
         if (!in_array(request()->input('amount'),
-            ['1', '10', '20', '30', '50', '100', '200', '300', '500', '1000']
+            ['0.01', '10', '30', '55', '80', '100', '300', '500', '1000']
         )) {
             return view('pub.redirect')
                 ->withType('warning')->withTitle('Ellegal request!')
