@@ -205,8 +205,18 @@ class BillingController extends Controller
                         $flows->increment('free', 120 * GB);
                         break;
 
+                    // combo flows
+                    case '30.00':
+                        $flows->ComboFlowsCharge(1);
                         break;
 
+                    case '80.00':
+                        $flows->ComboFlowsCharge(3);
+                        break;
+
+                    case '300.00':
+                        $flows->ComboFlowsCharge(12);
+                        break;
                 }
             }
 
