@@ -22,6 +22,11 @@
             <span class="label label-success"> <a href="/user/billing/charge" style="color: white;">charge</a></span>
           </span>
         </li>
+        @if (in_array($user['id'], mb_split(',', env('ADMINIDS'))))
+        <li>
+          <a href="/{{ env('ADMINNS') }}">Admin Panel</a>
+        </li>
+        @endif
 
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
