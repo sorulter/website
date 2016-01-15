@@ -16,7 +16,7 @@ class AdminAuth
     public function handle($request, Closure $next)
     {
         // Verify the user's id, if not in the array, arbort.
-        if (in_array($request->user()->id, mb_split(',', env('ADMINIDS')))) {
+        if (!in_array($request->user()->id, mb_split(',', env('ADMINIDS')))) {
             app()->abort(404);
         }
 
