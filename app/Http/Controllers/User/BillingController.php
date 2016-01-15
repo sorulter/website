@@ -177,31 +177,34 @@ class BillingController extends Controller
         if ($trade_status == 'TRADE_FINISHED') {
             if ($order->state == 'WAIT_BUYER_CONFIRM_GOODS') {
                 Order::where('order_id', '=', $order_id)->update(['state' => 'TRADE_FINISHED']);
+                $flows = Flows::find($order->user_id);
 
                 switch ($order->amount) {
                     case '0.01':
-                        Flows::where('user_id', '=', $order->user_id)->increment('free', 100 * MB);
+                        $flows->increment('free', 100 * MB);
                         break;
 
                     // free flows
                     case '10.00':
-                        Flows::where('user_id', '=', $order->user_id)->increment('free', 1 * GB);
+                        $flows->increment('free', 1 * GB);
                         break;
 
                     case '55.00':
-                        Flows::where('user_id', '=', $order->user_id)->increment('free', 6 * GB);
+                        $flows->increment('free', 6 * GB);
                         break;
 
                     case '100.00':
-                        Flows::where('user_id', '=', $order->user_id)->increment('free', 12 * GB);
+                        $flows->increment('free', 12 * GB);
                         break;
 
                     case '500.00':
-                        Flows::where('user_id', '=', $order->user_id)->increment('free', 60 * GB);
+                        $flows->increment('free', 60 * GB);
                         break;
 
                     case '1000.00':
-                        Flows::where('user_id', '=', $order->user_id)->increment('free', 120 * GB);
+                        $flows->increment('free', 120 * GB);
+                        break;
+
                         break;
 
                 }
