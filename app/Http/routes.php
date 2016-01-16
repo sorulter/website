@@ -58,4 +58,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
 Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin', 'as' => 'admin'], function () {
     Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
+
+    Route::get('ports', ['as' => '/ports', 'uses' => 'PortsController@getIndex']);
+    Route::get('ports/index/used', ['as' => '/ports/index/used', 'uses' => 'PortsController@getIndexUsed']);
+    Route::get('ports/index/empty', ['as' => '/ports/index/empty', 'uses' => 'PortsController@getIndexEmpty']);
 });
