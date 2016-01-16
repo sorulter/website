@@ -43,4 +43,12 @@ class PortsController extends Controller
     {
         return view('admin.ports.add');
     }
+
+    /**
+     * Save ports.
+     */
+    public function postAddPorts()
+    {
+    }
+
 }
