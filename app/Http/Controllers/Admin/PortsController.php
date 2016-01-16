@@ -26,4 +26,13 @@ class PortsController extends Controller
         $ports = new Ports;
         return view('admin.ports.index')->withPorts($ports->where('user_id', '<>', '0')->paginate(2));
     }
+
+    /**
+     * Filter empty ports
+     */
+    public function getIndexEmpty()
+    {
+        $ports = new Ports;
+        return view('admin.ports.index')->withPorts($ports->where('user_id', '==', '0')->paginate(2));
+    }
 }
