@@ -18,4 +18,12 @@ class PortsController extends Controller
         return view('admin.ports.index')->withPorts($ports->paginate(2));
     }
 
+    /**
+     * Filter used ports.
+     */
+    public function getIndexUsed()
+    {
+        $ports = new Ports;
+        return view('admin.ports.index')->withPorts($ports->where('user_id', '<>', '0')->paginate(2));
+    }
 }
