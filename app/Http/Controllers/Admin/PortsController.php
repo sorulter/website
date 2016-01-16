@@ -35,4 +35,12 @@ class PortsController extends Controller
         $ports = new Ports;
         return view('admin.ports.index')->withPorts($ports->where('user_id', '==', '0')->paginate(2));
     }
+
+    /**
+     * Display ports adding page.
+     */
+    public function getAddPorts()
+    {
+        return view('admin.ports.add');
+    }
 }
