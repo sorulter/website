@@ -62,4 +62,6 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('ports', ['as' => '/ports', 'uses' => 'PortsController@getIndex']);
     Route::get('ports/index/used', ['as' => '/ports/index/used', 'uses' => 'PortsController@getIndexUsed']);
     Route::get('ports/index/empty', ['as' => '/ports/index/empty', 'uses' => 'PortsController@getIndexEmpty']);
+    Route::get('ports/add', ['as' => '/ports/add', 'uses' => 'PortsController@getAddPorts']);
+    Route::post('ports/add', ['as' => '/ports/add', 'uses' => 'PortsController@postAddPorts']);
 });
