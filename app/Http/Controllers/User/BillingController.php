@@ -21,7 +21,7 @@ class BillingController extends Controller
     {
         // get user's order.
         $order = new Order;
-        return view('user.billing.index')->withOrders($order->where("user_id", "=", request()->user()->id)->paginate(2));
+        return view('user.billing.index')->withOrders($order->where("user_id", "=", request()->user()->id)->paginate(env('PERPAGE')));
     }
 
     /**

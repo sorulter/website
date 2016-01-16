@@ -15,7 +15,7 @@ class PortsController extends Controller
     public function getIndex()
     {
         $ports = new Ports;
-        return view('admin.ports.index')->withPorts($ports->paginate(2));
+        return view('admin.ports.index')->withPorts($ports->paginate(env('PERPAGE')));
     }
 
     /**
@@ -24,7 +24,7 @@ class PortsController extends Controller
     public function getIndexUsed()
     {
         $ports = new Ports;
-        return view('admin.ports.index')->withPorts($ports->where('user_id', '<>', '0')->paginate(2));
+        return view('admin.ports.index')->withPorts($ports->where('user_id', '<>', '0')->paginate(env('PERPAGE')));
     }
 
     /**
@@ -33,7 +33,7 @@ class PortsController extends Controller
     public function getIndexEmpty()
     {
         $ports = new Ports;
-        return view('admin.ports.index')->withPorts($ports->where('user_id', '==', '0')->paginate(2));
+        return view('admin.ports.index')->withPorts($ports->where('user_id', '==', '0')->paginate(env('PERPAGE')));
     }
 
     /**
