@@ -57,8 +57,8 @@
                             <td>{{$user->port->port}}</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td><span><i class="fa fa-ticket"></i>&emsp;Pac URL</span></td>
+                            <td>{{env('PAC_BASE_URL')}}{{ App\id2hash($user->id)}}</td>
                         </tr>
                     </tbody>
                 </table>
