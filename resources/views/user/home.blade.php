@@ -24,6 +24,52 @@
             <!-- /.footer -->
         </div>
 
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Account Info</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td><span><i class="fa fa-sign-in"></i>&emsp;Front End</span></td>
+                            <td>{{$user->port->node_name}}</td>
+                        </tr>
+                        <tr>
+                            <td><span><i class="fa fa-clock-o"></i>&emsp;Combo EndDate</span></td>
+                            <td>{{$user->flows->combo_end_date}}</td>
+                        </tr>
+                        <tr>
+                            <td><span><i class="fa fa-bar-chart-o"></i>&emsp;Used Flows</span></td>
+                            <td>{{$user->flows->used/MB}} MB</td>
+                        </tr>
+                        <tr>
+                            <td><span><i class="fa fa-server"></i>&emsp;Proxy Server</span></td>
+                            <td>{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}</td>
+                        </tr>
+                        <tr>
+                            <td><span><i class="fa fa-share-alt"></i>&emsp;Proxy Port</span></td>
+                            <td>{{$user->port->port}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+
+            <div class="box-footer no-padding" style="display: block;">
+            </div>
+            <!-- /.footer -->
+        </div>
+
     </div>
 
     <div class="col-md-6">
