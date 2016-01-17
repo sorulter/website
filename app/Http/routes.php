@@ -42,6 +42,9 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
 
+        // Settings routes...
+        Route::get('settings', ['as' => '/settings', 'uses' => 'SettingsController@getIndex']);
+
         // Billing routes...
         Route::get('billing', ['as' => '/billing', 'uses' => 'BillingController@getIndex']);
         Route::get('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@getCharge']);
