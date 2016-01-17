@@ -37,6 +37,18 @@
                 <table class="table table-striped">
                     <tbody>
                         <tr>
+                            <td><span><i class="fa fa-btc"></i>&emsp;Free Flows</span></td>
+                            <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->Free/MB}} MB</span></td>
+                        </tr>
+                        <tr>
+                            <td><span><i class="fa fa-rmb"></i>&emsp;Combo Flows</span></td>
+                            <td><span title="{{$user->flows->combo_flows}} Bytes">{{$user->flows->combo_flows/MB}} MB</span></td>
+                        </tr>
+                        <tr>
+                            <td><span><i class="fa fa-tachometer"></i>&emsp;Used Flows</span></td>
+                            <td><span title="{{$user->flows->used}} Bytes">{{$user->flows->used/MB}} MB</span></td>
+                        </tr>
+                        <tr>
                             <td><span><i class="fa fa-sign-in"></i>&emsp;Front End</span></td>
                             <td>{{$user->port->node_name}}</td>
                         </tr>
