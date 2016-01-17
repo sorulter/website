@@ -54,7 +54,11 @@
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-clock-o"></i>&emsp;Combo EndDate</span></td>
-                            <td>{{$user->flows->combo_end_date}}</td>
+                            <td>@if ($user->flows->combo_end_date > date('Y-m-d H:i:s'))
+                                {{$user->flows->combo_end_date}}
+                            @else
+                                <a href="/user/billing/charge" class="label label-warning">No combo flows.Order now!</a>
+                            @endif
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-bar-chart-o"></i>&emsp;Used Flows</span></td>
