@@ -150,6 +150,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
         Nathanmac\Utilities\Parser\ParserServiceProvider::class,
+        Vinkla\Hashids\HashidsServiceProvider::class,
 
     ],
 
@@ -204,6 +205,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
         'Parser' => Nathanmac\Utilities\Parser\Facades\Parser::class,
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
 
     ],
 
