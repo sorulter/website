@@ -18,7 +18,6 @@
                         <label for="amount" class="col-sm-2 control-label">Amount</label>
                         <div class="col-sm-5">
                             <select name="amount" class="form-control select2" style="width: 100%;">
-                                <option value="0.01">¥ 0.01（100Mb 试用流量）</option>
                                 <option value="10" disabled="disabled">¥ 10.00（1Gb 永久流量）</option>
                                 <option value="30">¥ 30.00（15GB/月 一自然月有效期）</option>
                                 <option value="55">¥ 55.00（6GB 永久流量）</option>
