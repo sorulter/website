@@ -36,4 +36,14 @@ CanResetPasswordContract
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function port()
+    {
+        return $this->hasOne('App\Model\Ports');
+    }
+
+    public function flows()
+    {
+        return $this->hasOne('App\Model\Flows');
+    }
 }
