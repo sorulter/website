@@ -39,7 +39,7 @@
               <img src="{{ $user['avatar'] or asset("/static/default/img/noavatar.png") }}" class="img-circle" alt="User Image" />
               <p>
                 {{ $user['email'] or 'Email' }}
-                {{-- <small>{{ $user['since'] or 'Member since Nov. 2012' }}</small> --}}
+                <small>{{ $user['created_at'] or 'Member since Nov. 2012' }}</small>
               </p>
             </li>
             <!-- Menu Footer-->
