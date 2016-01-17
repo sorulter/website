@@ -13,7 +13,8 @@
         "barryvdh/laravel-debugbar": "^2.0",
         "ignited/laravel-omnipay": "2.*",
         "lokielse/omnipay-alipay": "dev-master",
-        "Nathanmac/Parser": "3.*"
+        "Nathanmac/Parser": "3.*",
+        "vinkla/hashids": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
