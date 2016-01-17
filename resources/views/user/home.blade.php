@@ -38,7 +38,7 @@
                     <tbody>
                         <tr>
                             <td><span><i class="fa fa-btc"></i>&emsp;Free Flows</span></td>
-                            <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->Free/MB}} MB</span></td>
+                            <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->free/MB}} MB</span></td>
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-rmb"></i>&emsp;Combo Flows</span></td>
