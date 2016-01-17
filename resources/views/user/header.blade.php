@@ -16,11 +16,7 @@
       <ul class="nav navbar-nav">
         <!-- User Wallet -->
         <li class="dropdown tasks-menu">
-          <span style="color: white; line-height: 20px;display: block; padding: 15px 15px;">
-            <i class="fa fa-cny "></i>
-            {!! $user['wallet'] !!}
-            <span class="label label-success"> <a href="/user/billing/charge" style="color: white;">charge</a></span>
-          </span>
+          <a href="/user/billing/charge" style="color: white;">Charge</a>
         </li>
         @if (in_array($user['id'], mb_split(',', env('ADMINIDS'))))
         <li>
