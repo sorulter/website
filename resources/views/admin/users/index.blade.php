@@ -31,6 +31,7 @@
                         <td>{{$user->activate}}</td>
                         <td>{{$user->created_at}}</td>
                         <td>{{$user->updated_at}}</td>
+                        <td><a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a></td>
                     </tr>
                     @endforeach
 
