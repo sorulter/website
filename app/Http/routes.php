@@ -68,5 +68,6 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('ports/add', ['as' => '/ports/add', 'uses' => 'PortsController@getAddPorts']);
     Route::post('ports/add', ['as' => '/ports/add', 'uses' => 'PortsController@postAddPorts']);
 
+    Route::get('users/activate/{id}', ['as' => '/users/activate', 'uses' => 'UsersController@getActivate'])->where('id', '[0-9]+');
     Route::get('users', ['as' => '/users', 'uses' => 'UsersController@getIndex']);
 });
