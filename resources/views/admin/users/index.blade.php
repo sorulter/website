@@ -6,13 +6,8 @@
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Ports List</h3>
+            <h3 class="box-title">Users List</h3>
             <div class="box-tools">
-                <a href="{{route('admin/ports')}}"><span class="label label-success">All</span></a>
-                <a href="{{route('admin/ports/index/used')}}"><span class="label label-success">Used</span></a>
-                <a href="{{route('admin/ports/index/empty')}}"><span class="label label-success">Empty</span></a>
-
-                <a href="{{route('admin/ports/add')}}"><span class="label label-info">Add Ports</span></a>
             </div>
         </div>
         <!-- /.box-header -->
