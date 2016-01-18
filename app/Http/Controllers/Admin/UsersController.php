@@ -18,4 +18,19 @@ class UsersController extends Controller
         return view('admin.users.index')->withUsers($users->paginate(env('PERPAGE')));
     }
 
+    /**
+     * Manual activate user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getActivate($id)
+    {
+        $user = User::find($id);
+        if ($user != null) {
+            $user->activate = 1;
+            $user->save();
+        }
+        return redirect()->back();
+    }
+
 }
