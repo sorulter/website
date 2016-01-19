@@ -38,7 +38,7 @@
 			<key>PayloadType</key>
 			<string>com.apple.apn.managed</string>
 			<key>PayloadUUID</key>
-			<string>cd8cc43e-c18c-4d78-8835-e98ad7d8939c</string>
+			<string>{{ $apnUUID }}</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -56,7 +56,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>94cd0567-25fc-4abb-adf6-8a4e460054af</string>
+	<string>{{ $configUUID }}</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
