@@ -16,7 +16,7 @@
             </div>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body table-responsive no-padding">
             <table class="table table-bordered">
                 <tbody>
                     <tr>
