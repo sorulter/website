@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Agent;
 use App\Http\Controllers\Controller;
 use Debugbar;
+use Uuid;
 use View;
 
 class CellularController extends Controller
@@ -34,8 +35,13 @@ class CellularController extends Controller
     public function getConfig($net)
     {
         Debugbar::disable();
+        $ApnUUID = Uuid::generate();
+        $ConfigUUID = Uuid::generate();
         $data = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
-        (string) View::make('user.cellular.apn');
+        View::make('user.cellular.apn')
+            ->with('apnUUID', $ApnUUID)
+            ->with('configUUID', $ConfigUUID)
+            ->render();
 
         return response($data)
             ->header('Content-Type', 'application/x-apple-aspen-config');
