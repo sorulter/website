@@ -151,6 +151,7 @@ return [
         Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
         Nathanmac\Utilities\Parser\ParserServiceProvider::class,
         Vinkla\Hashids\HashidsServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
     ],
 
@@ -206,6 +207,7 @@ return [
         'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
         'Parser' => Nathanmac\Utilities\Parser\Facades\Parser::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
     ],
 
