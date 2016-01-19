@@ -14,4 +14,14 @@ class CellularController extends Controller
             return abort(404);
         }
     }
+
+    /**
+     * Display a listing of the cellular type.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getIndex()
+    {
+        return view('user.cellular.index');
+    }
 }
