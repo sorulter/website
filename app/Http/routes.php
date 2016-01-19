@@ -52,6 +52,10 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
         Route::get('billing/payment', ['as' => '/billing/payment', 'uses' => 'BillingController@getPayment']);
         Route::get('billing/continue/{orderid}', ['as' => '/billing/continue', 'uses' => 'BillingController@getContinue']);
 
+        // Cellular routes...
+        Route::get('cellular', ['as' => '/cellular', 'uses' => 'CellularController@getIndex']);
+        Route::get('cellular/config/{net}', ['as' => '/cellular/config', 'uses' => 'CellularController@getConfig'])->where('net', '[a-z3]+');
+
     });
 
     // Without auth middleware.
