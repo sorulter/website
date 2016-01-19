@@ -14,7 +14,8 @@
         "ignited/laravel-omnipay": "2.*",
         "lokielse/omnipay-alipay": "dev-master",
         "Nathanmac/Parser": "3.*",
-        "vinkla/hashids": "^2.2"
+        "vinkla/hashids": "^2.2",
+        "jenssegers/agent": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
