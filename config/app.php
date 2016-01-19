@@ -208,6 +208,7 @@ return [
         'Parser' => Nathanmac\Utilities\Parser\Facades\Parser::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Uuid' => Webpatser\Uuid\Uuid::class,
 
     ],
 
