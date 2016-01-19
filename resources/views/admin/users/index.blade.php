@@ -39,9 +39,11 @@
             </table>
         </div>
         <!-- /.box-body -->
+        @if ($users->hasMorePages())
         <div class="box-footer clearfix">
         	@include('pagination.large', ['paginator' => $users])
         </div>
+        @endif
     </div>
 
   </div>
