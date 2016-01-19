@@ -39,6 +39,7 @@ class CellularController extends Controller
         $ConfigUUID = Uuid::generate();
         $data = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
         View::make('user.cellular.apn')
+            ->with('apnName', $net)
             ->with('apnUUID', $ApnUUID)
             ->with('configUUID', $ConfigUUID)
             ->render();
