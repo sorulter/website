@@ -13,7 +13,7 @@
 						<array>
 							<dict>
 								<key>apn</key>
-								<string>cmnet</string>
+								<string>{{ $apnName }}</string>
 								<key>proxy</key>
 								<string>{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}</string>
 								<key>proxyPort</key>
@@ -32,7 +32,7 @@
 			<key>PayloadDisplayName</key>
 			<string>APN</string>
 			<key>PayloadIdentifier</key>
-			<string>tuxingsun.net.apn</string>
+			<string>iProxier.com.apn</string>
 			<key>PayloadOrganization</key>
 			<string></string>
 			<key>PayloadType</key>
