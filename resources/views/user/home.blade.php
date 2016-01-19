@@ -61,10 +61,6 @@
                             @endif
                         </tr>
                         <tr>
-                            <td><span><i class="fa fa-bar-chart-o"></i>&emsp;Used Flows</span></td>
-                            <td>{{$user->flows->used/MB}} MB</td>
-                        </tr>
-                        <tr>
                             <td><span><i class="fa fa-server"></i>&emsp;Proxy Server</span></td>
                             <td>{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}</td>
                         </tr>
