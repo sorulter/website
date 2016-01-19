@@ -44,7 +44,24 @@ class CellularController extends Controller
             ->with('configUUID', $ConfigUUID)
             ->render();
 
-        return response($data)
+        $path = base_path() . DIRECTORY_SEPARATOR; // my actual directory
+        $signcert = file_get_contents($path . 'certs/iproxier.crt'); // my certificate to sign
+        $privkey = file_get_contents($path . 'certs/iproxier.com.key'); // my private key of the certificate
+        $extracerts = $path . 'certs/iproxier.chained.crt'; // the cert chain of my CA
+
+        // write to tmp file
+        file_put_contents('/tmp/' . $ApnUUID, $data);
+
+        if (!openssl_pkcs7_sign('/tmp/' . $ApnUUID, '/tmp/' . $ConfigUUID, $signcert, $privkey, array(), PKCS7_NOATTR, $extracerts)) {
+            return "Error!";
+        }
+
+        $signed = file_get_contents('/tmp/' . $ConfigUUID);
+        $mobileconfig = base64_decode(preg_replace('/(.+\n)+\n/', '', $signed, 1));
+        @unlink('/tmp/' . $ApnUUID);
+        @unlink('/tmp/' . $ConfigUUID);
+
+        return response($mobileconfig)
             ->header('Content-Type', 'application/x-apple-aspen-config');
     }
 }
