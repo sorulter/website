@@ -3,8 +3,8 @@
 @section('content')
 <div class="box">
     <div class="box-header"><h3 class="box-title">{{ trans("billing.Billing History") }}</h3></div><!-- /.box-header -->
-    <div class="box-body no-padding">
-        <table class="table table-striped">
+    <div class="box-body no-padding table-responsive">
+        <table class="table table-striped table-hover">
             <tbody>
                 <tr>
                     <th style="width: 10px">#</th>
