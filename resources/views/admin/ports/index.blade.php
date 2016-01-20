@@ -17,7 +17,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
+            <table class="table table-hover table-striped">
                 <tbody>
                     <tr>
                         <th style="width: 10px">#</th>
