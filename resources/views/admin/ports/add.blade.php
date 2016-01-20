@@ -14,6 +14,9 @@
 
             <div class="form-group">
                 <label>Node name:</label>
+                @if ($errors->has('name'))
+                    <span class="label label-danger">{{$errors->first('name')}}</span>
+                @endif
                 <div class="input-group">
                     <div class="input-group-addon">
                         <i class="fa fa-tag"></i>
@@ -26,12 +29,18 @@
 
             <div class="form-group">
                 <label>Ports range:</label>
+                @if ($errors->has('min'))
+                    <span class="label label-danger">{{$errors->first('min')}}</span>
+                @endif
+                @if ($errors->has('max'))
+                    <span class="label label-danger">{{$errors->first('max')}}</span>
+                @endif
                 <div class="input-group">
                     <div class="input-group-addon">
                         <i class="fa fa-laptop"></i>
                     </div>
-                    <input type="text" class="form-control" name="down">
-                    <input type="text" class="form-control" name="up">
+                    <input type="text" class="form-control" name="min">
+                    <input type="text" class="form-control" name="max">
                 </div>
                 <!-- /.input group -->
             </div>
