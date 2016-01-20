@@ -54,6 +54,20 @@ class PortsController extends Controller
             'min' => 'different:max|numeric|min:1000|max:60000',
             'max' => 'different:min|numeric|min:1000|max:60000',
         ]);
+        $input = request()->input();
+        $data = [];
+        for ($i = $input['min']; $i <= $input['max']; $i++) {
+            if (Ports::where('node_name', '=', $input['name'])->where('port', '=', $i)->first() == null) {
+                $data[] = ['node_name' => $input['name'], 'port' => $i];
+            }
+        }
+
+        if (Ports::insert($data)) {
+            return redirect()->back()->withMsg('Add ports success.');
+        } else {
+            return redirect()->back()->withMsg('Add ports failed.');
+        }
+
     }
 
 }
