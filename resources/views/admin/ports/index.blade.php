@@ -32,8 +32,8 @@
                     <tr>
                         <td>{{$port->id}}</td>
                         <td>{{$port->node_name}}</td>
+                        <td>{{$port->port}}</td>
                         <td><span class="badge @if ($port->user_id!=0) bg-red @else bg-green @endif ">{{$port->user_id}}</span></td>
-                        <td>{{$port->user_id}}</td>
                         <td>{{$port->created_at}}</td>
                         <td>{{$port->updated_at}}</td>
                     </tr>
