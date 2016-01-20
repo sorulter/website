@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Agent;
+use App;
 use App\Http\Controllers\Controller;
 use Debugbar;
 use Uuid;
@@ -13,7 +14,7 @@ class CellularController extends Controller
     public function __construct()
     {
         parent::__construct();
-        if (!(Agent::is('iPhone') && Agent::is('Safari'))) {
+        if (!(Agent::is('iPhone') && Agent::is('Safari')) && !App::runningInConsole()) {
             return abort(404);
         }
     }
