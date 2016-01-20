@@ -4,6 +4,14 @@
 <div class='row'>
   <div class="col-md-12">
 
+    @if ( !empty(Session::get('msg')) )
+    <div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+        {{Session::get('msg')}}
+    </div>
+    @endif
+
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Users List</h3>
