@@ -50,7 +50,11 @@
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-sign-in"></i>&emsp;Front End</span></td>
+                            @if ($user->port)
                             <td>{{$user->port->node_name}}</td>
+                            @else
+                            <td>No server.</td>
+                            @endif
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-clock-o"></i>&emsp;Combo EndDate</span></td>
@@ -62,11 +66,19 @@
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-server"></i>&emsp;Proxy Server</span></td>
+                            @if ($user->port)
                             <td>{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}</td>
+                            @else
+                            <td>No server.</td>
+                            @endif
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-share-alt"></i>&emsp;Proxy Port</span></td>
+                            @if ($user->port)
                             <td>{{$user->port->port}}</td>
+                            @else
+                            <td>No server port.</td>
+                            @endif
                         </tr>
                         <tr>
                             <td><span><i class="fa fa-ticket"></i>&emsp;Pac URL</span></td>
