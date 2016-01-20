@@ -27,10 +27,9 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         if ($user != null) {
-            $user->activate = 1;
-            $user->save();
+            $msg = $user->activate();
         }
-        return redirect()->back();
+        return redirect()->back()->with('msg', $msg);
     }
 
 }
