@@ -49,6 +49,11 @@ class PortsController extends Controller
      */
     public function postAddPorts()
     {
+        $this->validate(request(), [
+            'name' => 'required',
+            'min' => 'required_without:max|different:max|numeric|min:1000|max:60000',
+            'max' => 'required_without:min|different:min|numeric|min:1000|max:60000',
+        ]);
     }
 
 }
