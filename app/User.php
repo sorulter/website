@@ -46,4 +46,9 @@ CanResetPasswordContract
     {
         return $this->hasOne('App\Model\Flows');
     }
+
+    public function pacs()
+    {
+        return $this->hasOne('App\Model\Pacs');
+    }
 }
