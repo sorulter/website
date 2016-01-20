@@ -12,6 +12,14 @@
         </div>
         <div class="box-body">
 
+            @if ( !empty(Session::get('msg')) )
+            <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                {{Session::get('msg')}}
+            </div>
+            @endif
+
             <div class="form-group">
                 <label>Node name:</label>
                 @if ($errors->has('name'))
