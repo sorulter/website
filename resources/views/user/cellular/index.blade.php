@@ -6,7 +6,7 @@
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Choose your mobile carrier and net type</h3>
+            <h3 class="box-title">Choose your mobile carrier</h3>
             <div class="box-tools">
             </div>
         </div>
