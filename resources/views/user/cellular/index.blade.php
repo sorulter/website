@@ -8,6 +8,7 @@
         <div class="box-header with-border">
             <h3 class="box-title">Choose your mobile carrier</h3>
             <div class="box-tools">
+                <a href="{{ route('user/cellular/disable') }}" class="label label-danger">Disable</a>
             </div>
         </div>
         <!-- /.box-header -->
