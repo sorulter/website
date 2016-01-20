@@ -65,4 +65,13 @@ class CellularController extends Controller
         return response($mobileconfig)
             ->header('Content-Type', 'application/x-apple-aspen-config');
     }
+
+    /**
+     * Display a listing of the cellular type to disable.
+     *
+     */
+    public function getDisable()
+    {
+        return view('user.cellular.disable');
+    }
 }
