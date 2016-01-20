@@ -40,6 +40,7 @@
             <div class="content">
                 <div class="title">iProxier Beta</div>
                 <a href="/user"><h1>User Panel</h1></a>
+                <a href="/register"><h1>Register</h1></a>
             </div>
         </div>
     </body>
