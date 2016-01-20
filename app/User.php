@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Model\Flows;
+use App\Model\Pacs;
+use App\Model\Ports;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -50,5 +53,33 @@ CanResetPasswordContract
     public function pacs()
     {
         return $this->hasOne('App\Model\Pacs');
+    }
+
+    public function activate()
+    {
+        if ($this->pacs == null) {
+            // Create pacs item.
+            $pacs = new Pacs;
+            $pacs->user_id = $this->id;
+            $pacs->rules = '{}';
+            $pacs->global = 0;
+            $pacs->save();
+        }
+
+        // Create flows item.
+        if ($this->flows == null) {
+            $flows = new Flows;
+            $flows->user_id = $this->id;
+            $flows->save();
+        }
+
+        // Select a port.
+        if ($this->port == null) {
+            $port = Ports::orderByRaw('RAND()')->where('user_id', '=', '0')->first();
+            if ($port == null) {
+                return "No enough port to use, please add.";
+            }
+            Ports::where('id', '=', $port->id)->update(['user_id' => $this->id]);
+        }
     }
 }
