@@ -15,7 +15,7 @@ class Flows extends Model
      * Charge combo flows.
      * @param $month how many months to charge.
      */
-    public function ComboFlowsCharge($month)
+    public function ComboFlowsCharge($flows, $month)
     {
         $now = new DateTime("", new DateTimeZone('CST'));
         $end = new DateTime($this->combo_end_date, new DateTimeZone('CST'));
@@ -30,7 +30,7 @@ class Flows extends Model
             $end = $end->add(new DateInterval("P{$month}M"));
         }
 
-        $this->combo_flows = ComboFlows;
+        $this->combo_flows = $flows;
         $this->combo_end_date = $end;
         return $this->save();
     }
