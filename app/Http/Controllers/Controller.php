@@ -11,7 +11,6 @@ use View;
 
 define('MB', 1000000);
 define('GB', 1000 * MB);
-define('ComboFlows', 15 * GB);
 
 abstract class Controller extends BaseController
 {
