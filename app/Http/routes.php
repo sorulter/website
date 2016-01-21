@@ -55,8 +55,6 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
         // Cellular routes...
         Route::get('cellular', ['as' => '/cellular', 'uses' => 'CellularController@getIndex']);
         Route::get('cellular/config/{net}', ['as' => '/cellular/config', 'uses' => 'CellularController@getConfig'])->where('net', '[a-z3]+');
-        Route::get('cellular/disable', ['as' => '/cellular/disable', 'uses' => 'CellularController@getDisable']);
-        Route::get('cellular/cancel/{net}', ['as' => '/cellular/cancel', 'uses' => 'CellularController@getCancelConfig'])->where('net', '[a-z3]+');
 
     });
 
