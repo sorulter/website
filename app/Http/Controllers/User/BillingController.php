@@ -179,9 +179,6 @@ class BillingController extends Controller
                 $flows = Flows::find($order->user_id);
 
                 switch ($order->amount) {
-                    case '0.01':
-                        $flows->increment('free', 100 * MB);
-                        break;
 
                     // free flows
                     case '10.00':
