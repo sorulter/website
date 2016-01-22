@@ -81,5 +81,8 @@ CanResetPasswordContract
             }
             Ports::where('id', '=', $port->id)->update(['user_id' => $this->id]);
         }
+
+        $this->activate = 1;
+        $this->save();
     }
 }
