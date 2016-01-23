@@ -1,0 +1,9 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>{{$title}}</h2>
+{{$msg}}
+</body>
+</html>
