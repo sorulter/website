@@ -78,4 +78,6 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::post('users/sendmail/{id}', ['as' => '/users/sendmail', 'uses' => 'UsersController@postSendMail'])->where('id', '[0-9]+');
 
     Route::get('category', ['as' => '/category', 'uses' => 'CategoryController@index']);
+
+    Route::get('articles', ['as' => '/articles', 'uses' => 'ArticlesController@index']);
 });
