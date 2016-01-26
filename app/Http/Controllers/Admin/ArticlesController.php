@@ -20,7 +20,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for creating a new articles.
+     * Show the form for creating a new article.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +29,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Store a newly created articles in storage.
+     * Store a newly created article in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -39,7 +39,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Display the specified articles.
+     * Display the specified article.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -49,7 +49,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified articles.
+     * Show the form for editing the specified article.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -59,7 +59,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Update the specified articles in storage.
+     * Update the specified article in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -70,7 +70,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Remove the specified articles from storage.
+     * Remove the specified article from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
