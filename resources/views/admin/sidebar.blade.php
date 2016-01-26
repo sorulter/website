@@ -32,8 +32,8 @@
           <span>Users</span>
         </a>
       </li>
-      <li id="user-articles" class="fa-lg treeview">
-        <a href="#">
+      <li id="user-articles" class="treeview">
+        <a href="#" class="fa-lg">
           <span class="fa-stack">
             <i class="fa fa-list fa-stack-1x"></i>
           </span>
