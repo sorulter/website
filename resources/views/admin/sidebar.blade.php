@@ -39,6 +39,11 @@
           </span>
           <span>Articles</span>
         </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{{ route('admin/category') }}"><i class="fa fa-circle-o"></i> Category</a>
+          </li>
+        </ul>
       </li>
 
     </ul><!-- /.sidebar-menu -->
