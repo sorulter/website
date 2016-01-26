@@ -32,6 +32,14 @@
           <span>Users</span>
         </a>
       </li>
+      <li id="user-articles" class="fa-lg treeview">
+        <a href="#">
+          <span class="fa-stack">
+            <i class="fa fa-list fa-stack-1x"></i>
+          </span>
+          <span>Articles</span>
+        </a>
+      </li>
 
     </ul><!-- /.sidebar-menu -->
   </section>
