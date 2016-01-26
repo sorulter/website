@@ -11,7 +11,7 @@
       <li id="user-overview" class="fa-lg">
         <a href="/{{ env('ADMINNS') }}">
           <span class="fa-stack">
-            <i class="fa fa-user fa-stack-1x"></i>
+            <i class="fa fa-pie-chart fa-stack-1x"></i>
           </span>
           <span>Overview</span>
         </a>
@@ -19,7 +19,7 @@
       <li id="user-ports" class="fa-lg">
         <a href="/{{ env('ADMINNS') }}/ports">
           <span class="fa-stack">
-            <i class="fa fa-credit-card fa-stack-1x"></i>
+            <i class="fa fa-desktop fa-stack-1x"></i>
           </span>
           <span>Ports</span>
         </a>
@@ -27,7 +27,7 @@
       <li id="user-users" class="fa-lg">
         <a href="/{{ env('ADMINNS') }}/users">
           <span class="fa-stack">
-            <i class="fa fa-cog fa-stack-1x"></i>
+            <i class="fa fa-user fa-stack-1x"></i>
           </span>
           <span>Users</span>
         </a>
