@@ -12,6 +12,20 @@
                 <div class="box-tools">
                 </div>
             </div>
+            @if ($errors->has('category_id') or $errors->has('status'))
+                <div class="alert alert-danger">
+                    <ul>
+                        @if ($errors->has('category_id'))
+                            <li>{{ $errors->first('category_id') }}</li>
+                        @endif
+
+                        @if ($errors->has('status'))
+                            <li>{{ $errors->first('status') }}</li>
+                        @endif
+                    </ul>
+                </div>
+            @endif
+
             <!-- /.box-header -->
             <div class="box-body">
 
@@ -25,7 +39,7 @@
 
                 <div class="form-group col-xs-12">
                     <label>Title:</label>
-                    @if ($errors->has('name'))
+                    @if ($errors->has('title'))
                         <span class="label label-danger">{{$errors->first('title')}}</span>
                     @endif
                     <div class="input-group">
@@ -59,6 +73,9 @@
 
                 <div class="form-group col-xs-12">
                     <label>Content:</label>
+                    @if ($errors->has('content'))
+                        <span class="label label-danger">{{$errors->first('content')}}</span>
+                    @endif
                     <textarea class="form-control" rows="3" placeholder="Enter ..." name="content"></textarea>
                 </div>
                 <!-- /.form group -->
