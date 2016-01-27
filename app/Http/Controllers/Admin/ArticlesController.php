@@ -39,7 +39,7 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-            'title' => 'required|unique:articles|max:255',
+            'title' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
             'status' => 'required',
             'content' => 'required',
@@ -88,7 +88,7 @@ class ArticlesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title' => 'required|unique:articles|max:255',
+            'title' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
             'status' => 'required',
             'content' => 'required',
