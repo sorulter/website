@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ $page_title or "iProxier Admin Dashboard" }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" type="image/png" href="/static/images/icon/logo.png">
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset("/static/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
