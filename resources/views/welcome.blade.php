@@ -4,6 +4,7 @@
         <title>iProxier</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/png" href="static/images/icon/logo.png">
 
         <style>
             html, body {
