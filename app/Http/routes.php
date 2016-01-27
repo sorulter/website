@@ -80,4 +80,5 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('category', ['as' => '/category', 'uses' => 'CategoryController@index']);
 
     Route::get('articles', ['as' => '/articles', 'uses' => 'ArticlesController@index']);
+    Route::get('articles/create', ['as' => '/articles/create', 'uses' => 'ArticlesController@create']);
 });
