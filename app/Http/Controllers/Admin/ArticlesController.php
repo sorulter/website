@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Articles;
+use App\Model\Category;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -26,6 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
+        return view('admin.articles.create')->withCategories(Category::all());
     }
 
     /**
