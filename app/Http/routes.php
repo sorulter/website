@@ -81,4 +81,5 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
 
     Route::get('articles', ['as' => '/articles', 'uses' => 'ArticlesController@index']);
     Route::get('articles/create', ['as' => '/articles/create', 'uses' => 'ArticlesController@create']);
+    Route::post('articles/store', ['as' => '/articles/store', 'uses' => 'ArticlesController@store']);
 });
