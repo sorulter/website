@@ -44,6 +44,9 @@
             <a href="{{ route('admin/articles') }}"><i class="fa fa-circle-o"></i> Articles</a>
           </li>
           <li>
+            <a href="{{ route('admin/articles/create') }}"><i class="fa fa-circle-o"></i>Create Articles</a>
+          </li>
+          <li>
             <a href="{{ route('admin/category') }}"><i class="fa fa-circle-o"></i> Category</a>
           </li>
         </ul>
