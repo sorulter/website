@@ -33,7 +33,7 @@
                         <td>{{$article->status}}</td>
                         <td>{{$article->created_at}}</td>
                         <td>{{$article->updated_at}}</td>
-                        <td></td>
+                        <td><a href="{{route('admin/articles/edit', $article->id)}}">Edit</a></td>
                     </tr>
                     @endforeach
 
