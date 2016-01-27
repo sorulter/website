@@ -87,6 +87,21 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'title' => 'required|unique:articles|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'status' => 'required',
+            'content' => 'required',
+        ]);
+        $article = Articles::find($id);
+        $article->title = $request->title;
+        $article->category_id = $request->category_id;
+        $article->author_id = $request->user()->id;
+        $article->status = $request->status;
+        $article->content = $request->content;
+        $id = $article->save();
+        return redirect()->back()->withMsg('Update the article success, ID: ' . $article->id);
+
     }
 
     /**
