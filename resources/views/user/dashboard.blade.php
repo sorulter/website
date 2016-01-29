@@ -62,6 +62,9 @@
     if (path == "/user/billing") {
       $('#user-billing').addClass('active');
     };
+    if (path == "/user/helps") {
+      $('#user-helps').addClass('active');
+    };
     if (path == "/user/settings") {
       $('#user-settings').addClass('active');
     };

@@ -24,6 +24,14 @@
           <span>Billing</span>
         </a>
       </li>
+      <li id="user-helps" class="fa-lg">
+        <a href="/user/helps">
+          <span class="fa-stack">
+            <i class="fa fa-question-circle fa-stack-1x"></i>
+          </span>
+          <span>Helps</span>
+        </a>
+      </li>
       <li id="user-settings" class="fa-lg">
         <a href="/user/settings">
           <span class="fa-stack">
