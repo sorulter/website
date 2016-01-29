@@ -8,11 +8,13 @@
             <tbody>
                 <tr>
                     <th>{{ trans('articles.Title') }}</th>
-                    <th style="max-width: 50px;">{{ trans('articles.Read') }}</th>
+                    <th class="col-xs-1">{{ trans('articles.UpdatedAt') }}</th>
+                    <th class="col-xs-1">{{ trans('articles.Read') }}</th>
                 </tr>
                 @foreach ($helps as $help)
                 <tr>
                     <td><a href="{{ route('user/helps', $help->id) }}"><b>{{$help->title}}</b></a></td>
+                    <td>{{$help->updated_at}}</td>
                     <td><a href="{{ route('user/helps', $help->id) }}" class="btn btn-info">{{ trans('articles.Details') }}</a></td>
                 </tr>
                 @endforeach
