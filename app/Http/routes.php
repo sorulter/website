@@ -56,6 +56,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
         Route::get('cellular', ['as' => '/cellular', 'uses' => 'CellularController@getIndex']);
         Route::get('cellular/config/{net}', ['as' => '/cellular/config', 'uses' => 'CellularController@getConfig'])->where('net', '[a-z3]+');
 
+        // Helps routes...
+        Route::get('helps', ['as' => '/helps', 'uses' => 'HelpsController@index']);
     });
 
     // Without auth middleware.
