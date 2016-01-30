@@ -19,4 +19,16 @@ class HelpsController extends Controller
 
     }
 
+    /**
+     * Display the specified help.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $help = Articles::find($id);
+        return view('user.helps.show')->withHelp($help);
+    }
+
 }

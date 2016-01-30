@@ -58,6 +58,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
         // Helps routes...
         Route::get('helps', ['as' => '/helps', 'uses' => 'HelpsController@index']);
+        Route::get('helps/{id}', ['as' => '/helps', 'uses' => 'HelpsController@show'])->where('id', '[0-9]+');
+
     });
 
     // Without auth middleware.
