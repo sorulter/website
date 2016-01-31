@@ -34,7 +34,7 @@ Route::post('reset', 'Auth\PasswordController@postReset');
 
 // Activation routes...
 Route::get('activate/{token}', 'Auth\ActivationController@getActivate')->where('token', '[0-9A-Za-z]{60}');
-Route::get('activate/resend', ['uses' => 'Auth\ActivationController@getResend']);
+Route::get('activate/send', ['uses' => 'Auth\ActivationController@getSend']);
 
 // user group routes...
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], function () {

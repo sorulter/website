@@ -40,11 +40,11 @@ class ActivationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getResend(Request $request)
+    public function getSend(Request $request)
     {
         // Check login status
         if (Auth::guest()) {
-            session()->put('redirectPath', '/activate/resend');
+            session()->put('redirectPath', '/activate/send');
             return redirect('login');
         }
 
@@ -56,13 +56,13 @@ class ActivationController extends Controller
         // resend
         $token = Str::random(60);
         $user = $request->user();
-        Mail::laterOn('email', 3, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
+        Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
             $name = mb_split('@', $user->email)[0];
-            $message->to($user->email, $name)->subject('Welcome to iProxier,' . $name);
+            $message->to($user->email, $name)->subject('Activate your iProxier account,' . $name);
         });
         $user->activate_code = $token;
         $user->save();
-        return view('pub.msg')->withType('success')->withTitle('Success!')->withContent('Resend activate link mail success.');
+        return view('pub.msg')->withType('success')->withTitle('Success!')->withContent('Send activate link mail success.');
 
     }
 }
