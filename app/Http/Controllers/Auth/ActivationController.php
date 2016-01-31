@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Model\Flows;
+use App\Model\Order;
 use App\User;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Mail;
@@ -21,6 +24,20 @@ class ActivationController extends Controller
         $user = User::where('activate_code', '=', $token)->where('activate', '=', '0')->first();
         if ($user != null) {
             $user->activate();
+
+            $now = Carbon::now();
+            $created_at = Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at, config()->get('app.timezone'));
+            if ($created_at->addDays(2)->gte($now)) {
+                // charge free flows to try.
+                $order = new Order;
+                $order->order(0, $user->id);
+                $order->state = 'TRADE_FINISHED';
+                $order->save();
+
+                $flows = Flows::where('user_id', '=', $user->id)->first();
+                $flows->free = env('FREE_FLOWS');
+                $flows->save();
+            }
 
             return view('pub.redirect')->withType('success')
                 ->withTitle('Activate Success!')
