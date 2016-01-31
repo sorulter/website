@@ -83,6 +83,7 @@ CanResetPasswordContract
         }
 
         $this->activate = 1;
+        $this->activate_code = '';
         $this->save();
     }
 }
