@@ -16,7 +16,8 @@
         "Nathanmac/Parser": "3.*",
         "vinkla/hashids": "^2.2",
         "jenssegers/agent": "^2.3",
-        "webpatser/laravel-uuid": "2.*"
+        "webpatser/laravel-uuid": "2.*",
+        "nesbot/Carbon": "^1.21"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
