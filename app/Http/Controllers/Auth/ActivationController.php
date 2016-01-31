@@ -72,10 +72,41 @@ class ActivationController extends Controller
         // resend
         $token = Str::random(60);
         $user = $request->user();
-        Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
-            $name = mb_split('@', $user->email)[0];
-            $message->to($user->email, $name)->subject('Activate your iProxier account,' . $name);
-        });
+
+        // set special mail poster
+        if (in_array(mb_split("@", $user->email)[1], ["qq.com", "foxmail.com"])
+            && env('MAIL_HOST') && env('MAIL_PORT') && env('MAIL_USERNAME') && env('MAIL_PASSWORD')) {
+            echo "USE SMTP\n";
+            // Backup your default mailer
+            $default_mailer = Mail::getSwiftMailer();
+
+            // Setup backup mailer
+            $transport = SmtpTransport::newInstance(env('MAIL_HOST'), env('MAIL_PORT'), env('MAIL_ENCRYPTION'));
+            $transport->setUsername(env('MAIL_USERNAME'));
+            $transport->setPassword(env('MAIL_PASSWORD'));
+            // Any other mailer configuration stuff needed...
+
+            $backup_mailer = new Swift_Mailer($transport);
+
+            // Set the mailer to use
+            Mail::setSwiftMailer($backup_mailer);
+
+            // Send your message
+            Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
+                $name = mb_split('@', $user->email)[0];
+                $message->to($user->email, $name)->subject('Activate your iProxier account,' . $name);
+            });
+
+            // Restore your original mailer
+            Mail::setSwiftMailer($default_mailer); # code...
+            return;
+        } else {
+            Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
+                $name = mb_split('@', $user->email)[0];
+                $message->to($user->email, $name)->subject('Activate your iProxier account,' . $name);
+            });
+        };
+
         $user->activate_code = $token;
         $user->save();
         return view('pub.msg')->withType('success')->withTitle('Success!')->withContent('Send activate link mail success.');
