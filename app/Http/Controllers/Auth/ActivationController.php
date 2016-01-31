@@ -78,7 +78,6 @@ class ActivationController extends Controller
         // set special mail poster
         if (in_array(mb_split("@", $user->email)[1], ["qq.com", "foxmail.com"])
             && env('MAIL_HOST') && env('MAIL_PORT') && env('MAIL_USERNAME') && env('MAIL_PASSWORD')) {
-            echo "USE SMTP\n";
             // Backup your default mailer
             $default_mailer = Mail::getSwiftMailer();
 
