@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Mail;
+use Swift_Mailer;
+use Swift_SmtpTransport as SmtpTransport;
 
 class ActivationController extends Controller
 {
