@@ -15,7 +15,7 @@
                 <tr>
                     <td><a href="{{ route('user/helps', $help->id) }}"><b>{{$help->title}}</b></a></td>
                     <td>{{$help->updated_at}}</td>
-                    <td><a href="{{ route('user/helps', $help->id) }}" class="btn btn-info">{{ trans('articles.Details') }}</a></td>
+                    <td><a href="{{ route('user/helps', $help->id) }}" class="label label-info">{{ trans('articles.Details') }}</a></td>
                 </tr>
                 @endforeach
             </tbody>
