@@ -36,60 +36,65 @@
             <div class="box-body">
                 <table class="table table-striped">
                     <tbody>
-                        <tr>
-                            <td><span><i class="fa fa-btc"></i>&emsp;Free Flows</span></td>
-                            <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->free/MB}} MB</span></td>
-                        </tr>
-                        <tr>
-                            <td><span><i class="fa fa-rmb"></i>&emsp;Combo Flows</span></td>
-                            <td><span title="{{$user->flows->combo_flows}} Bytes">{{$user->flows->combo_flows/MB}} MB</span></td>
-                        </tr>
-                        <tr>
-                            <td><span><i class="fa fa-tachometer"></i>&emsp;Used Flows</span></td>
-                            <td><span title="{{$user->flows->used}} Bytes">{{$user->flows->used/MB}} MB</span></td>
-                        </tr>
-                        <tr>
-                            <td><span><i class="fa fa-sign-in"></i>&emsp;Front End</span></td>
-                            @if ($user->port)
-                            <td>{{$user->port->node_name}}</td>
-                            @else
-                            <td>No server.</td>
-                            @endif
-                        </tr>
-                        <tr>
-                            <td><span><i class="fa fa-clock-o"></i>&emsp;Combo EndDate</span></td>
-                            <td>@if ($user->flows->combo_end_date > date('Y-m-d H:i:s'))
-                                {{$user->flows->combo_end_date}}
-                            @else
-                                <a href="/user/billing/charge" class="label label-warning">No combo flows.Order now!</a>
-                            @endif
-                        </tr>
-                        <tr>
-                            <td><span><i class="fa fa-server"></i>&emsp;Proxy Server</span></td>
-                            @if ($user->port)
-                            <td>{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}</td>
-                            @else
-                            <td>No server.</td>
-                            @endif
-                        </tr>
-                        <tr>
-                            <td><span><i class="fa fa-share-alt"></i>&emsp;Proxy Port</span></td>
-                            @if ($user->port)
-                            <td>{{$user->port->port}}</td>
-                            @else
-                            <td>No server port.</td>
-                            @endif
-                        </tr>
-                        <tr>
-                            <td><span><i class="fa fa-ticket"></i>&emsp;Pac URL</span></td>
-                            <td>{{env('PAC_BASE_URL')}}{{ App\id2hash($user->id)}}</td>
-                        </tr>
-                        @if (Agent::is('iPhone') && Agent::is('Safari'))
+                        @if ($user->activate)
                             <tr>
-                                <td><span><i class="fa fa-apple"></i>&emsp;iOS 3/4G</span></td>
-                                <td><a href="{{route('user/cellular')}}">Download</a></td>
+                                <td><span><i class="fa fa-btc"></i>&emsp;Free Flows</span></td>
+                                <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->free/MB}} MB</span></td>
                             </tr>
+                            <tr>
+                                <td><span><i class="fa fa-rmb"></i>&emsp;Combo Flows</span></td>
+                                <td><span title="{{$user->flows->combo_flows}} Bytes">{{$user->flows->combo_flows/MB}} MB</span></td>
+                            </tr>
+                            <tr>
+                                <td><span><i class="fa fa-tachometer"></i>&emsp;Used Flows</span></td>
+                                <td><span title="{{$user->flows->used}} Bytes">{{$user->flows->used/MB}} MB</span></td>
+                            </tr>
+                            <tr>
+                                <td><span><i class="fa fa-sign-in"></i>&emsp;Front End</span></td>
+                                @if ($user->port)
+                                <td>{{$user->port->node_name}}</td>
+                                @else
+                                <td>No server.</td>
+                                @endif
+                            </tr>
+                            <tr>
+                                <td><span><i class="fa fa-clock-o"></i>&emsp;Combo EndDate</span></td>
+                                <td>@if ($user->flows->combo_end_date > date('Y-m-d H:i:s'))
+                                    {{$user->flows->combo_end_date}}
+                                @else
+                                    <a href="/user/billing/charge" class="label label-warning">No combo flows.Order now!</a>
+                                @endif
+                            </tr>
+                            <tr>
+                                <td><span><i class="fa fa-server"></i>&emsp;Proxy Server</span></td>
+                                @if ($user->port)
+                                <td>{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}</td>
+                                @else
+                                <td>No server.</td>
+                                @endif
+                            </tr>
+                            <tr>
+                                <td><span><i class="fa fa-share-alt"></i>&emsp;Proxy Port</span></td>
+                                @if ($user->port)
+                                <td>{{$user->port->port}}</td>
+                                @else
+                                <td>No server port.</td>
+                                @endif
+                            </tr>
+                            <tr>
+                                <td><span><i class="fa fa-ticket"></i>&emsp;Pac URL</span></td>
+                                <td>{{env('PAC_BASE_URL')}}{{ App\id2hash($user->id)}}</td>
+                            </tr>
+                            @if (Agent::is('iPhone') && Agent::is('Safari'))
+                                <tr>
+                                    <td><span><i class="fa fa-apple"></i>&emsp;iOS 3/4G</span></td>
+                                    <td><a href="{{route('user/cellular')}}">Download</a></td>
+                                </tr>
+                            @endif
+                        @else
+                            <tr>Please activate.</tr>
                         @endif
+
                     </tbody>
                 </table>
             </div>
