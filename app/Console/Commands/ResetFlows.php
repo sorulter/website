@@ -75,7 +75,7 @@ class ResetFlows extends Command
                 }
 
                 // User no combo flows.
-                if ($flow->combo_end_date < $today) {
+                if ($flow->combo_end_date <= $today) {
                     $flow->combo_flows = 0;
                 }
 
