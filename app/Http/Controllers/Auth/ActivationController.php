@@ -18,11 +18,10 @@ class ActivationController extends Controller
      */
     public function getActivate(Request $request, $token)
     {
-        //
-        if (sizeof(User::where('activate_code', '=', $token)->get()) == 1) {
-            User::where('activate_code', '=', $token)->update(
-                array('activate' => 1, 'activate_code' => '')
-            );
+        $user = User::where('activate_code', '=', $token)->where('activate', '=', '0')->first();
+        if ($user != null) {
+            $user->activate();
+
             return view('pub.redirect')->withType('success')
                 ->withTitle('Activate Success!')
                 ->withContent('')
