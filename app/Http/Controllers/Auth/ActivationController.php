@@ -99,8 +99,7 @@ class ActivationController extends Controller
             });
 
             // Restore your original mailer
-            Mail::setSwiftMailer($default_mailer); # code...
-            return;
+            Mail::setSwiftMailer($default_mailer);
         } else {
             Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
                 $name = mb_split('@', $user->email)[0];
