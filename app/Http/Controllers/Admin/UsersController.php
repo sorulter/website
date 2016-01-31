@@ -16,7 +16,7 @@ class UsersController extends Controller
     public function getIndex()
     {
         $users = new User;
-        return view('admin.users.index')->withUsers($users->paginate(env('PERPAGE')));
+        return view('admin.users.index')->withUsers($users->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 
     /**
