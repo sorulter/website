@@ -15,7 +15,14 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <p> Welcome to use IPX(iPorxier).There is the guide for you.</p>
+                <p> &emsp;&emsp;Welcome to use IPX(iPorxier).There is the guide for you.</p>
+                @if (!$user->activate)
+                    <p>&emsp;&emsp;Click follow button,we will send a activate mail to you.Open your mailbox, click the link in your activate mail, you can get <span class="label label-info">{{env('FREE_FLOWS')/MB}} MBytes</span> flows to try.</p>
+                        <a href="" class="btn btn-success col-xs-12"><b>Send activate mail</b></a>
+
+                @else
+                    {{-- false expr --}}
+                @endif
             </div>
             <!-- /.box-body -->
 
