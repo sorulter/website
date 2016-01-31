@@ -62,7 +62,7 @@ background-color: #f6f6f6;
 						<p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0 0 15px; padding: 0;">Thanks for choosing iProxier. Please activate your account by clicking the button below.</p>
 						<table class="btn btn-primary" style="box-sizing: border-box; -premailer-width: auto; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin-bottom: 15px; width: auto;" width="auto"><tbody><tr>
 <td style="box-sizing: border-box; vertical-align: top; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-radius: 5px; text-align: center; background: #348eda;" align="center" valign="top">
-              		<a href="http://iProxier.com/activate/{{ $code }}" style="box-sizing: border-box; border-radius: 5px; color: #fff; text-decoration: none; cursor: pointer; display: inline-block; font-size: 14px; font-weight: bold; text-transform: capitalize; background: #348eda; margin: 0; padding: 12px 25px; border: 1px solid #348eda;">Activate iProxier account</a>
+              		<a href="https://www.iProxier.com/activate/{{ $code }}" style="box-sizing: border-box; border-radius: 5px; color: #fff; text-decoration: none; cursor: pointer; display: inline-block; font-size: 14px; font-weight: bold; text-transform: capitalize; background: #348eda; margin: 0; padding: 12px 25px; border: 1px solid #348eda;">Activate iProxier account</a>
                 </td>
               </tr></tbody></table>
               <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; font-weight: normal; margin: 0 0 15px; padding: 0;">This activate link will disable after <strong>15 minutes</strong>.</p>
