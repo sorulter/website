@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Jobs\SendMsgEmail;
 use App\User;
+use Mail;
+use Swift_Mailer;
+use Swift_SmtpTransport as SmtpTransport;
 
 class UsersController extends Controller
 {
@@ -53,8 +55,43 @@ class UsersController extends Controller
             'msg' => 'required',
         ]);
 
-        $job = (new SendMsgEmail(request()->get('title'), request()->get('msg'), User::find($id)))->delay(10);
-        $this->dispatch($job);
+        $user = request()->user();
+        $title = request()->title;
+        $msg = request()->msg;
+
+        // set special mail poster
+        if (in_array(mb_split("@", $user->email)[1], ["qq.com", "foxmail.com"])
+            && env('MAIL_HOST') && env('MAIL_PORT') && env('MAIL_USERNAME') && env('MAIL_PASSWORD')) {
+            // Backup your default mailer
+            $default_mailer = Mail::getSwiftMailer();
+
+            // Setup backup mailer
+            $transport = SmtpTransport::newInstance(env('MAIL_HOST'), env('MAIL_PORT'), env('MAIL_ENCRYPTION'));
+            $transport->setUsername(env('MAIL_USERNAME'));
+            $transport->setPassword(env('MAIL_PASSWORD'));
+            // Any other mailer configuration stuff needed...
+
+            $backup_mailer = new Swift_Mailer($transport);
+
+            // Set the mailer to use
+            Mail::setSwiftMailer($backup_mailer);
+
+            // Send your message
+            Mail::laterOn('default', 10, 'emails.msg', ['user' => $user, 'title' => $title, 'msg' => $msg], function ($m) use ($user) {
+                $m->from(env('MAIL_USERNAME'), config('mail.from.name'));
+                $m->to($user->email);
+                $m->subject('Your Message from master at ' . date('Y-m-d h:i:s T'));
+            });
+
+            // Restore your original mailer
+            Mail::setSwiftMailer($default_mailer); # code...
+
+        } else {
+            $mailer->send('emails.msg', ['user' => $user, 'title' => $title, 'msg' => $msg], function ($m) use ($user) {
+                $m->to($user->email)->subject('Your Message from master at ' . date('Y-m-d h:i:s T'));
+            });
+        }
+
         return redirect()->back()->with('msg', 'send mail success.');
     }
 
