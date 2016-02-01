@@ -87,7 +87,7 @@ class UsersController extends Controller
             Mail::setSwiftMailer($default_mailer); # code...
 
         } else {
-            $mailer->send('emails.msg', ['user' => $to, 'title' => $title, 'msg' => $msg], function ($m) use ($to) {
+            Mail::laterOn('default', 10, 'emails.msg', ['user' => $to, 'title' => $title, 'msg' => $msg], function ($m) use ($to) {
                 $m->to($to->email)->subject('Your Message from master at ' . date('Y-m-d h:i:s T'));
             });
         }
