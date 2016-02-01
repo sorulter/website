@@ -55,12 +55,12 @@ class UsersController extends Controller
             'msg' => 'required',
         ]);
 
-        $user = request()->user();
+        $to = User::find($id);
         $title = request()->title;
         $msg = request()->msg;
 
         // set special mail poster
-        if (in_array(mb_split("@", $user->email)[1], ["qq.com", "foxmail.com"])
+        if (in_array(mb_split("@", $to->email)[1], ["qq.com", "foxmail.com"])
             && env('MAIL_HOST') && env('MAIL_PORT') && env('MAIL_USERNAME') && env('MAIL_PASSWORD')) {
             // Backup your default mailer
             $default_mailer = Mail::getSwiftMailer();
@@ -77,9 +77,9 @@ class UsersController extends Controller
             Mail::setSwiftMailer($backup_mailer);
 
             // Send your message
-            Mail::laterOn('default', 10, 'emails.msg', ['user' => $user, 'title' => $title, 'msg' => $msg], function ($m) use ($user) {
+            Mail::laterOn('default', 10, 'emails.msg', ['user' => $to, 'title' => $title, 'msg' => $msg], function ($m) use ($to) {
                 $m->from(env('MAIL_USERNAME'), config('mail.from.name'));
-                $m->to($user->email);
+                $m->to($to->email);
                 $m->subject('Your Message from master at ' . date('Y-m-d h:i:s T'));
             });
 
@@ -87,8 +87,8 @@ class UsersController extends Controller
             Mail::setSwiftMailer($default_mailer); # code...
 
         } else {
-            $mailer->send('emails.msg', ['user' => $user, 'title' => $title, 'msg' => $msg], function ($m) use ($user) {
-                $m->to($user->email)->subject('Your Message from master at ' . date('Y-m-d h:i:s T'));
+            $mailer->send('emails.msg', ['user' => $to, 'title' => $title, 'msg' => $msg], function ($m) use ($to) {
+                $m->to($to->email)->subject('Your Message from master at ' . date('Y-m-d h:i:s T'));
             });
         }
 
