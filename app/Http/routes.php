@@ -80,6 +80,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('users', ['as' => '/users', 'uses' => 'UsersController@getIndex']);
     Route::get('users/sendmail/{id}', ['as' => '/users/sendmail', 'uses' => 'UsersController@getSendMail'])->where('id', '[0-9]+');
     Route::post('users/sendmail/{id}', ['as' => '/users/sendmail', 'uses' => 'UsersController@postSendMail'])->where('id', '[0-9]+');
+    Route::get('users/gift/{id}', ['as' => '/users/gift', 'uses' => 'UsersController@getGift'])->where('id', '[0-9]+');
 
     Route::get('category', ['as' => '/category', 'uses' => 'CategoryController@index']);
 
