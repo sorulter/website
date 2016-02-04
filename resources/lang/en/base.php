@@ -9,4 +9,7 @@ return [
     'regsiter_account' => 'Register a new membership',
     'login_subtitle' => 'Sign in to start your session',
 
+    'captcha' => 'Captcha',
+    'reset_via_email' => 'Reset your password via email',
+    'send_reset_mail' => 'Send Password Reset Link',
 ];
