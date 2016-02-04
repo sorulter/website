@@ -34,4 +34,9 @@ class Flows extends Model
         $this->combo_end_date = $end;
         return $this->save();
     }
+
+    public function user()
+    {
+        return $this->hasOne('App\User', 'id', 'user_id');
+    }
 }
