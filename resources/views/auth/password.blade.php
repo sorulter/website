@@ -3,14 +3,14 @@
 @section('body-class') hold-transition login-page @stop
 
 @section('title')
-iProxier › Reset your password via email
+iProxier › {{ trans('base.reset_via_email') }}
 @stop
 
 
 @section('content')
   <div class="login-box">
     <div class="login-box-body">
-      <p class="login-box-msg">Reset your password via email</p>
+      <p class="login-box-msg">{{ trans('base.reset_via_email') }}</p>
 
       <form method="POST" action="/forgot">
         {!! csrf_field() !!}
@@ -20,7 +20,7 @@ iProxier › Reset your password via email
           <span>{{ $errors->default->first('email') }}</span>
         </label>
         <div class="input-group @if ($errors->default->has('email')) has-error @endif">
-          <input type="email" class="form-control" placeholder="Email" name="email" id="email" value="{{ old('email') }}">
+          <input type="email" class="form-control" placeholder="{{ trans('base.email') }}" name="email" id="email" value="{{ old('email') }}">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-envelope"></i>
           </span>
@@ -33,7 +33,7 @@ iProxier › Reset your password via email
         </label>
         <div class="col-xs-5" style="padding-left: 0;">{!! captcha_img() !!}</div>
         <div class="col-xs-7 input-group @if ($errors->default->has('captcha')) has-error @endif">
-          <input type="text" class="form-control" placeholder="Captcha" name="captcha" id="captcha">
+          <input type="text" class="form-control" placeholder="{{ trans('base.captcha') }}" name="captcha" id="captcha">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-user"></i>
           </span>
@@ -42,7 +42,7 @@ iProxier › Reset your password via email
 
         <div class="row">
           <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-float">Send Password Reset Link</button>
+            <button type="submit" class="btn btn-primary btn-block btn-float">{{ trans('base.send_reset_mail') }}</button>
           </div>
           <!-- /.col -->
         </div>
