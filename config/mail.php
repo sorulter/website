@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => "noreply@iproxier.com", 'name' => "iProxier"],
+    'from' => ['address' => env('MAIL_USERNAME'), 'name' => "iProxier"],
 
     /*
     |--------------------------------------------------------------------------
