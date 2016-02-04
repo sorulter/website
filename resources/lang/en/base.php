@@ -15,4 +15,7 @@ return [
 
     'reset_password' => 'Reset your password',
     'submit' => 'Submit',
+
+    'gift_to_user' => 'We have gift your :flows MB flows.',
+    'gift_msg' => 'Dear user, we have gift :flows MB flows to your account :email',
 ];
