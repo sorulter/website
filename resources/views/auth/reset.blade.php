@@ -3,13 +3,13 @@
 @section('body-class') hold-transition login-page @stop
 
 @section('title')
-iProxier › Reset your password
+iProxier › {{ trans('base.reset_password') }}
 @stop
 
 @section('content')
   <div class="login-box">
     <div class="login-box-body">
-      <p class="login-box-msg">Reset your password</p>
+      <p class="login-box-msg">{{ trans('base.reset_password') }}</p>
 
       @if (count($errors) > 0)
       <ul>
@@ -29,7 +29,7 @@ iProxier › Reset your password
           <span>{{ $errors->default->first('email') }}</span>
         </label>
         <div class="input-group @if ($errors->default->has('email')) has-error @endif">
-          <input type="email" class="form-control" placeholder="Email" name="email" id="email" value="{{ old('email') }}">
+          <input type="email" class="form-control" placeholder="{{ trans('base.email') }}" name="email" id="email" value="{{ old('email') }}">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-envelope"></i>
           </span>
@@ -41,7 +41,7 @@ iProxier › Reset your password
           <span>{{ $errors->default->first('password') }}</span>
         </label>
         <div class="input-group">
-          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+          <input type="password" class="form-control" placeholder="{{ trans('base.password') }}" name="password" id="password">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-lock"></i>
           </span>
@@ -53,7 +53,7 @@ iProxier › Reset your password
           <span>{{ $errors->default->first('password_confirmation') }}</span>
         </label>
         <div class="input-group">
-          <input type="password" class="form-control" placeholder="Password confirmation" name="password_confirmation" id="password_confirmation">
+          <input type="password" class="form-control" placeholder="{{ trans('base.password_confirmation') }}" name="password_confirmation" id="password_confirmation">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-lock"></i>
           </span>
@@ -62,7 +62,7 @@ iProxier › Reset your password
 
         <div class="row">
           <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-float">Reset Password</button>
+            <button type="submit" class="btn btn-primary btn-block btn-float">{{ trans('base.submit') }}</button>
           </div>
           <!-- /.col -->
         </div>
