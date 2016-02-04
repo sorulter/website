@@ -42,6 +42,7 @@
                         <td>
                             <a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a>
                             <a href="{{ route('admin/users/sendmail', $user->id) }}" class="label label-success">Mail</a>
+                            <a href="{{ route('admin/users/gift', $user->id) }}" class="label label-warning">Gift</a>
                         </td>
                     </tr>
                     @endforeach
