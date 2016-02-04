@@ -95,4 +95,9 @@ class UsersController extends Controller
         return redirect()->back()->with('msg', 'send mail success.');
     }
 
+    public function getGift($id)
+    {
+        return view('admin.users.gift')->with('toUser', User::find($id));
+    }
+
 }
