@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Model\Flows;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,9 @@ class HomeController extends Controller
      */
     public function getIndex()
     {
-        return view('admin.home');
+        $topUsed = Flows::orderBy('used', 'desc')->limit(env('TOPNUM'))->get();
+        return view('admin.home')
+            ->withTopUsed($topUsed);
     }
 
 }
