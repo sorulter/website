@@ -39,8 +39,13 @@
                         <td>{{$user->email}}</td>
                         <td>{{App\id2hash($user->id)}}</td>
                         <td>{{$user->activate}}</td>
+                        @if ($user->activate)
                         <td>{{$user->flows->used/MB }}</td>
                         <td>{{$user->flows->free/MB }} / {{$user->flows->combo_flows/MB }}</td>
+                        @else
+                        <td>0</td>
+                        <td>0</td>
+                        @endif
                         <td>{{$user->created_at}}</td>
                         <td>{{$user->updated_at}}</td>
                         <td>
