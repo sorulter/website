@@ -27,6 +27,8 @@
                         <th>Email</th>
                         <th>Hash ID</th>
                         <th>Activate</th>
+                        <th>Used(MB)</th>
+                        <th>Free/Combo(MB)</th>
                         <th>Created</th>
                         <th>Updated</th>
                         <th>Actions</th>
@@ -37,6 +39,8 @@
                         <td>{{$user->email}}</td>
                         <td>{{App\id2hash($user->id)}}</td>
                         <td>{{$user->activate}}</td>
+                        <td>{{$user->flows->used/MB }}</td>
+                        <td>{{$user->flows->free/MB }} / {{$user->flows->combo_flows/MB }}</td>
                         <td>{{$user->created_at}}</td>
                         <td>{{$user->updated_at}}</td>
                         <td>
