@@ -14,5 +14,6 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         'user/billing/result',
+        'api/v1/*',
     ];
 }
