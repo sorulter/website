@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
+use App;
 use App\Model\ApiToken;
 use Auth;
 use Illuminate\Support\Str;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
 
     /**
