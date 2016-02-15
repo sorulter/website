@@ -93,4 +93,5 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
 });
 
 Route::group(['prefix' => 'api/v1', 'as' => 'api', 'namespace' => 'API'], function () {
+    Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']);
 });
