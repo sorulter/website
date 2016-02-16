@@ -40,12 +40,13 @@
                         <td>{{$user->flows->used/MB }}</td>
                         <td>{{$user->flows->free/MB }} / {{$user->flows->combo_flows/MB }}</td>
                         @else
-                        <td>0</td>
+                        <td>
+                            <a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a>
+                        </td>
                         <td>0</td>
                         @endif
                         <td>{{$user->updated_at->format('y/m/d H:i:s')}} | {{ $user->flows->updated_at->format('y/m/d H:i:s') }} </td>
                         <td>
-                            <a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a>
                             <a href="{{ route('admin/users/sendmail', $user->id) }}" class="label label-success">Mail</a>
                             <a href="{{ route('admin/users/gift', $user->id) }}" class="label label-warning">Gift</a>
                         </td>
