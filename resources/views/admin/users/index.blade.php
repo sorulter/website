@@ -32,26 +32,26 @@
                         <th>Last Login | Conn</th>
                         <th>Actions</th>
                     </tr>
-                    @foreach ($users as $user)
+                    @foreach ($users as $item)
                     <tr>
-                        <td>{{$user->id}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{App\id2hash($user->id)}}</td>
-                        @if ($user->activate)
-                        <td><span class="label label-info">{{$user->port->node_name }}</span><span class="label label-warning">{{$user->port->port }}</span></td>
-                        <td>{{$user->flows->used/MB }}</td>
-                        <td>{{$user->flows->free/MB }} / {{$user->flows->combo_flows/MB }}</td>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->email}}</td>
+                        <td>{{App\id2hash($item->id)}}</td>
+                        @if ($item->activate)
+                        <td><span class="label label-info">{{$item->port->node_name }}</span><span class="label label-warning">{{$item->port->port }}</span></td>
+                        <td>{{$item->flows->used/MB }}</td>
+                        <td>{{$item->flows->free/MB }} / {{$item->flows->combo_flows/MB }}</td>
                         @else
                         <td>
-                            <a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a>
+                            <a href="{{ route('admin/users/activate', $item->id) }}" class="label label-info">Activate</a>
                         </td>
                         <td>0</td>
                         <td>0</td>
                         @endif
-                        <td>{{$user->updated_at->format('y/m/d H:i:s')}} | {{ $user->flows->updated_at->format('y/m/d H:i:s') }} </td>
+                        <td>{{$item->updated_at->format('y/m/d H:i:s')}} | {{ $item->flows->updated_at->format('y/m/d H:i:s') }} </td>
                         <td>
-                            <a href="{{ route('admin/users/sendmail', $user->id) }}" class="label label-success">Mail</a>
-                            <a href="{{ route('admin/users/gift', $user->id) }}" class="label label-warning">Gift</a>
+                            <a href="{{ route('admin/users/sendmail', $item->id) }}" class="label label-success">Mail</a>
+                            <a href="{{ route('admin/users/gift', $item->id) }}" class="label label-warning">Gift</a>
                         </td>
                     </tr>
                     @endforeach
