@@ -30,7 +30,7 @@
                         <th>Used(MB)</th>
                         <th>Free/Combo(MB)</th>
                         <th>Created</th>
-                        <th>Updated</th>
+                        <th>Last Login</th>
                         <th>Actions</th>
                     </tr>
                     @foreach ($users as $user)
