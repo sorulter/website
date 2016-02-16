@@ -26,6 +26,7 @@
                         <th style="width: 10px">#</th>
                         <th>Email</th>
                         <th>Hash ID</th>
+                        <th>Node/Port</th>
                         <th>Used(MB)</th>
                         <th>Free/Combo(MB)</th>
                         <th>Last Login | Conn</th>
@@ -37,12 +38,14 @@
                         <td>{{$user->email}}</td>
                         <td>{{App\id2hash($user->id)}}</td>
                         @if ($user->activate)
+                        <td><span class="label label-info">{{$user->port->node_name }}</span><span class="label label-warning">{{$user->port->port }}</span></td>
                         <td>{{$user->flows->used/MB }}</td>
                         <td>{{$user->flows->free/MB }} / {{$user->flows->combo_flows/MB }}</td>
                         @else
                         <td>
                             <a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a>
                         </td>
+                        <td>0</td>
                         <td>0</td>
                         @endif
                         <td>{{$user->updated_at->format('y/m/d H:i:s')}} | {{ $user->flows->updated_at->format('y/m/d H:i:s') }} </td>
