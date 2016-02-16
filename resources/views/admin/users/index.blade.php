@@ -28,7 +28,7 @@
                         <th>Hash ID</th>
                         <th>Used(MB)</th>
                         <th>Free/Combo(MB)</th>
-                        <th>Last Login</th>
+                        <th>Last Login | Conn</th>
                         <th>Actions</th>
                     </tr>
                     @foreach ($users as $user)
@@ -43,7 +43,7 @@
                         <td>0</td>
                         <td>0</td>
                         @endif
-                        <td>{{$user->updated_at}}</td>
+                        <td>{{$user->updated_at->format('y/m/d H:i:s')}} | {{ $user->flows->updated_at->format('y/m/d H:i:s') }} </td>
                         <td>
                             <a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a>
                             <a href="{{ route('admin/users/sendmail', $user->id) }}" class="label label-success">Mail</a>
