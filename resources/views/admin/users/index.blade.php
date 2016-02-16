@@ -26,10 +26,8 @@
                         <th style="width: 10px">#</th>
                         <th>Email</th>
                         <th>Hash ID</th>
-                        <th>Activate</th>
                         <th>Used(MB)</th>
                         <th>Free/Combo(MB)</th>
-                        <th>Created</th>
                         <th>Last Login</th>
                         <th>Actions</th>
                     </tr>
@@ -38,7 +36,6 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{App\id2hash($user->id)}}</td>
-                        <td>{{$user->activate}}</td>
                         @if ($user->activate)
                         <td>{{$user->flows->used/MB }}</td>
                         <td>{{$user->flows->free/MB }} / {{$user->flows->combo_flows/MB }}</td>
@@ -46,7 +43,6 @@
                         <td>0</td>
                         <td>0</td>
                         @endif
-                        <td>{{$user->created_at}}</td>
                         <td>{{$user->updated_at}}</td>
                         <td>
                             <a href="{{ route('admin/users/activate', $user->id) }}" class="label label-info">Activate</a>
