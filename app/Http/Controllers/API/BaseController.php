@@ -12,6 +12,8 @@ class BaseController extends Controller
     public function __construct()
     {
         $token = ApiToken::where('token', '=', request()->token)->first();
-        $this->user = User::find($token->user_id);
+        if ($token) {
+            $this->user = User::find($token->user_id);
+        }
     }
 }
