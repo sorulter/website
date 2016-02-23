@@ -135,6 +135,10 @@
                             <td>Email</td>
                             <td><a href="mailto:master@iProxier.com?Subject=Please help me!" target="_blank">Send Mail to get Support.</a></td>
                         </tr>
+                        <tr>
+                            <td>QQ</td>
+                            <td><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c46a231370e89b87bcc9e1355d6852c355ba9866b012a78c94eca520cc207486"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="iProxier" title="iProxier"></a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
