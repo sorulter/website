@@ -131,6 +131,10 @@
                             <td>Twitter</td>
                             <td><a target="_blank" href="http://twitter.com/iProxier">@iPorxier</a></td>
                         </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><a href="mailto:master@iProxier.com?Subject=Please help me!" target="_blank">Send Mail to get Support.</a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
