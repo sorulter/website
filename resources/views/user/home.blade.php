@@ -125,6 +125,14 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Twitter</td>
+                            <td><a target="_blank" href="http://twitter.com/iProxier">@iPorxier</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <!-- /.box-body -->
 
