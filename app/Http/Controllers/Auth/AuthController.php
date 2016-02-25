@@ -48,8 +48,28 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
+
+        Validator::extend('black', function ($attribute, $value, $parameters) {
+            $black = [
+                'sharklasers.com',
+                'guerrillamail.info',
+                'grr.la',
+                'guerrillamail.biz',
+                'guerrillamail.com',
+                'guerrillamail.de',
+                'guerrillamail.net',
+                'guerrillamail.org',
+                'guerrillamailblock.com',
+                'spam4.me',
+            ];
+            // in the black list.
+            if (in_array(mb_split('@', $value)[1], $black)) {
+                return false;
+            }
+            return true;
+        });
         return Validator::make($data, [
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users|black',
             'password' => 'required|min:6',
         ]);
     }
