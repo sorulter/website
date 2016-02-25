@@ -27,6 +27,15 @@ class HelpsController extends Controller
      */
     public function show($id)
     {
+        // Forbidden user to read that not activate.
+        if (request()->user()->activate == 0) {
+            return view('pub.redirect')->withType('danger')
+                ->withTo('/user')
+                ->withTime(5)
+                ->withTitle('Notice!')
+                ->withContent('Please activate your account first.');
+        }
+
         $help = Articles::find($id);
         return view('user.helps.show')->withHelp($help);
     }
