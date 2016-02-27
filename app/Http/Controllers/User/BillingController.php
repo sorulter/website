@@ -42,7 +42,7 @@ class BillingController extends Controller
     public function postCharge()
     {
         if (!in_array(request()->input('amount'),
-            ['0.01', '9', '10', '30', '55', '80', '100', '300', '500', '1000']
+            ['0.01', '9', '10', '27', '30', '55', '80', '100', '300', '500', '1000']
         )) {
             return view('pub.redirect')
                 ->withType('warning')->withTitle('Ellegal request!')
@@ -204,6 +204,10 @@ class BillingController extends Controller
                     // combo flows
                     case '9.00':
                         $flows->ComboFlowsCharge(4.5 * GB, 1);
+                        break;
+
+                    case '27.00':
+                        $flows->ComboFlowsCharge(4.5 * GB, 3);
                         break;
 
                     case '30.00':
