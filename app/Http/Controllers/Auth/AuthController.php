@@ -51,6 +51,7 @@ class AuthController extends Controller
 
         Validator::extend('black', function ($attribute, $value, $parameters) {
             $black = [
+                'mailnesia.com',
                 'sharklasers.com',
                 'guerrillamail.info',
                 'grr.la',
@@ -61,6 +62,38 @@ class AuthController extends Controller
                 'guerrillamail.org',
                 'guerrillamailblock.com',
                 'spam4.me',
+
+                'mailnesia.com',
+                'mailinator.com',
+                # Airmail
+                'thrma.com',
+                'zetmail.com',
+                'anappthat.com',
+                'eelmail.com',
+                'tafmail.com',
+                'grandmamail.com',
+                'abyssmail.com',
+                'boximail.com',
+                '6paq.com',
+                'getairmail.com',
+                # TempMail
+                'dlemail.ru',
+                'flemail.ru',
+                'walkmail.ru',
+                'shotmail.ru',
+                # YopMail
+                'yopmail.fr',
+                'cool.fr.nf',
+                'jetable.fr.nf',
+                'nospam.ze.tc',
+                'nomail.xl.cx',
+                'mega.zik.dj',
+                'speed.1s.fr',
+                'courriel.fr.nf',
+                'moncourrier.fr.nf',
+                'monemail.fr.nf',
+                'monmail.fr.nf',
+
             ];
             // in the black list.
             if (in_array(mb_split('@', $value)[1], $black)) {
