@@ -17,4 +17,13 @@ class HomeController extends Controller
         return view('user.home');
     }
 
+    /**
+     * Check account and server status.
+     *
+     */
+    public function status()
+    {
+        return view('user.status');
+    }
+
 }

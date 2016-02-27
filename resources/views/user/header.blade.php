@@ -14,7 +14,9 @@
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <!-- User Wallet -->
+        <li>
+          <a href="/user/status">Status</a>
+        </li>
         <li class="dropdown tasks-menu">
           <a href="/user/billing/charge" style="color: white;">Charge</a>
         </li>
