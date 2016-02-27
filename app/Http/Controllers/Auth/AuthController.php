@@ -94,6 +94,10 @@ class AuthController extends Controller
                 'monemail.fr.nf',
                 'monmail.fr.nf',
 
+                'www.bccto.me',
+                'bccto.me',
+                'mail.bccto.me',
+
             ];
             // in the black list.
             if (in_array(mb_split('@', $value)[1], $black)) {
