@@ -48,7 +48,7 @@
                         <td>0</td>
                         <td>0</td>
                         @endif
-                        <td>{{$item->updated_at->format('y/m/d H:i:s')}} | @if($item->activate){{ $item->flows->updated_at->format('y/m/d H:i:s') }}@else
+                        <td>{{$item->updated_at->format('y/m/d H:i:s')}} | @if($item->activate == 1){{ $item->flows->updated_at->format('y/m/d H:i:s') }}@else
                             not connected @endif</td>
                         <td>
                             <a href="{{ route('admin/users/sendmail', $item->id) }}" class="label label-success">Mail</a>
