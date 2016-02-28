@@ -24,6 +24,9 @@ abstract class Controller extends BaseController
 
             // share user info to global
             if (request()->user() != null) {
+                if (request()->user()->activate == -1) {
+                    exit(view("pub.msg")->withType('danger')->withTitle(trans("base.blocked"))->withContent(trans("base.break_the_eual")));
+                }
                 View::share('user', request()->user());
             }
         }
