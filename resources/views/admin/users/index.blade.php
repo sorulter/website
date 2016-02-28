@@ -37,7 +37,7 @@
                         <td>{{$item->id}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{App\id2hash($item->id)}}</td>
-                        @if ($item->activate)
+                        @if ($item->activate == 1)
                         <td><span class="label label-info">{{$item->port->node_name }}</span><span class="label label-warning">{{$item->port->port }}</span></td>
                         <td>{{$item->flows->used/MB }}</td>
                         <td>{{$item->flows->free/MB }} / {{$item->flows->combo_flows/MB }}</td>
