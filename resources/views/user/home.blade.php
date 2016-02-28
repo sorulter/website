@@ -16,7 +16,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <p> &emsp;&emsp;Welcome to use IPX(iPorxier).There is the guide for you.</p>
-                @if (!$user->activate)
+                @if ($user->activate == 0)
                     <p>&emsp;&emsp;Click follow button,we will send a activate mail to you.Open your mailbox, click the link in your activate mail,activate before <span class="label label-info">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->addDays(2) }}</span> you can get <span class="label label-info">{{env('FREE_FLOWS')/MB}} MBytes</span> flows to try.</p>
                         <a href="{{ route('activate/send') }}" class="btn btn-success col-xs-12"><b>Send activate mail</b></a>
 
@@ -43,7 +43,7 @@
             <div class="box-body">
                 <table class="table table-striped">
                     <tbody>
-                        @if ($user->activate)
+                        @if ($user->activate == 1)
                             <tr>
                                 <td><span><i class="fa fa-btc"></i>&emsp;Free Flows</span></td>
                                 <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->free/MB}} MB</span></td>
@@ -98,7 +98,7 @@
                                     <td><a href="{{route('user/cellular')}}">Download</a></td>
                                 </tr>
                             @endif
-                        @else
+                        @elseif ($user->activate == 0)
                             <tr>Please activate.</tr>
                         @endif
 
