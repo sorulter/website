@@ -41,9 +41,15 @@
                         <td><span class="label label-info">{{$item->port->node_name }}</span><span class="label label-warning">{{$item->port->port }}</span></td>
                         <td>{{$item->flows->used/MB }}</td>
                         <td>{{$item->flows->free/MB }} / {{$item->flows->combo_flows/MB }}</td>
-                        @else
+                        @elseif ($item->activate == 0)
                         <td>
                             <a href="{{ route('admin/users/activate', $item->id) }}" class="label label-info">Activate</a>
+                        </td>
+                        <td>0</td>
+                        <td>0</td>
+                        @elseif ($item->activate == -1)
+                        <td>
+                            <span class="label label-danger">Blocked</span>
                         </td>
                         <td>0</td>
                         <td>0</td>
@@ -52,7 +58,9 @@
                             not connected @endif</td>
                         <td>
                             <a href="{{ route('admin/users/sendmail', $item->id) }}" class="label label-success">Mail</a>
+                            @if ($item->activate == 1)
                             <a href="{{ route('admin/users/gift', $item->id) }}" class="label label-warning">Gift</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
