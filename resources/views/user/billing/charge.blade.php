@@ -77,6 +77,16 @@
 
         </div>
         <!-- /.box -->
+
+        <div class="box">
+            <div class="box-header"><h3 class="box-title">{{ trans("billing.howtobuy") }}</h3></div><!-- /.box-header -->
+            <div class="box-footer clearfix">
+                <span class="col-xs-11"><i class="fa fa-circle-o text-red"></i> 选择产品，点击【charge】购买 → <i class="fa fa-circle-o text-yellow"></i> 支付宝付款 → <i class="fa fa-circle-o text-light-blue"></i> 确认收货 → <i class="fa fa-circle-o text-green"></i> 返回iProxier查看流量</span>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
     </div>
     <!-- /.col -->
 </div>
