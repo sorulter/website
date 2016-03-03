@@ -21,7 +21,7 @@
                     <div class="input-group">
                         <input class="form-control" value="PAC Server status" style="font-weight: bolder;" readonly>
                         <div class="input-group-btn">
-                            <button type="button" class="btn btn-danger hidden" id="pac-status-danger"><i class="fa fa-times-circle"></i></button>
+                            <button type="button" class="btn btn-danger" id="pac-status-danger"><i class="fa fa-times-circle"></i></button>
                             <button type="button" class="btn btn-success hidden" id="pac-status-success"><i class="fa fa-check-circle"></i></button>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="input-group">
                         <input class="form-control" value="Proxy Server status" style="font-weight: bolder;" readonly>
                         <div class="input-group-btn">
-                            <button type="button" class="btn btn-danger hidden" id="proxy-status-danger"><i class="fa fa-times-circle"></i></button>
+                            <button type="button" class="btn btn-danger" id="proxy-status-danger"><i class="fa fa-times-circle"></i></button>
                             <button type="button" class="btn btn-success hidden" id="proxy-status-success"><i class="fa fa-check-circle"></i></button>
                         </div>
                     </div>
@@ -55,17 +55,15 @@
 $(function() {
 
     var pac = '{{env('PAC_PING_URL')}}';
-    $.get(pac).fail(function(e) {
+    $.get(pac).success(function(data){
         $('#pac-status-danger').toggleClass('hidden');
-    }).success(function(data){
         $('#pac-status-success').toggleClass('hidden');
     });
 
     setTimeout(function() {
-        var proxy = 'http://{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}:{{$user->port->port}}/ping';
-        $.get(proxy).fail(function(e) {
+        var proxy = 'https://{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}:{{env('PING_PORT')}}/ping';
+        $.get(proxy).success(function(data){
             $('#proxy-status-danger').toggleClass('hidden');
-        }).success(function(data){
             $('#proxy-status-success').toggleClass('hidden');
         });
 
