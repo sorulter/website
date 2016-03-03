@@ -54,7 +54,7 @@
 <script type="text/javascript">
 $(function() {
 
-    var pac = '{{env('PAC_BASE_URL')}}';
+    var pac = '{{env('PAC_PING_URL')}}';
     $.get(pac).fail(function(e) {
         $('#pac-status-danger').toggleClass('hidden');
     }).success(function(data){
