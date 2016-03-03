@@ -59,17 +59,15 @@ $(function() {
         $('#pac-status-danger').toggleClass('hidden');
         $('#pac-status-success').toggleClass('hidden');
     });
+    var proxy = 'https://{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}:{{env('PING_PORT')}}/ping';
+    $.get(proxy).success(function(data){
+        $('#proxy-status-danger').toggleClass('hidden');
+        $('#proxy-status-success').toggleClass('hidden');
+    });
 
     setTimeout(function() {
-        var proxy = 'https://{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}:{{env('PING_PORT')}}/ping';
-        $.get(proxy).success(function(data){
-            $('#proxy-status-danger').toggleClass('hidden');
-            $('#proxy-status-success').toggleClass('hidden');
-        });
-
         $('#overlay').toggleClass('hidden');
         $('#status').toggleClass('hidden');
-
     }, 1500);
 
 });
