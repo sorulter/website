@@ -211,15 +211,15 @@ class BillingController extends Controller
                         break;
 
                     case '30.00':
-                        $flows->ComboFlowsCharge(20 * GM, 1);
+                        $flows->ComboFlowsCharge(15 * GB, 1);
                         break;
 
                     case '80.00':
-                        $flows->ComboFlowsCharge(20 * GB, 3);
+                        $flows->ComboFlowsCharge(15 * GB, 3);
                         break;
 
                     case '300.00':
-                        $flows->ComboFlowsCharge(20 * GB, 12);
+                        $flows->ComboFlowsCharge(15 * GB, 12);
                         break;
                 }
 
