@@ -21,3 +21,10 @@ function shortcode($content = null)
 
     return $content;
 }
+
+function logshash($id)
+{
+    $tab = ['a', 'b', 'c', 'd', 'e'];
+    $offset = $id % 5;
+    return $tab[$offset];
+}
