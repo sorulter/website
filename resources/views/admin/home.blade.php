@@ -18,12 +18,14 @@
                     <tbody>
                         <tr>
                             <td>Used</td>
+                            <td>ID</td>
                             <td>Email</td>
                             <td>Last Date</td>
                         </tr>
                         @foreach ($top_used as $flows)
                         <tr>
                             <td>{{ $flows->used/MB }} MB</td>
+                            <td>{{ $flows->user->id }}</td>
                             <td>{{ $flows->user->email }}</td>
                             <td>{{ $flows->updated_at }}</td>
                         </tr>
