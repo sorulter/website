@@ -62,6 +62,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
         Route::get('status', ['as' => '/status', 'uses' => 'HomeController@status']);
 
+        Route::get('logs', ['as' => '/logs', 'uses' => 'LogsController@index']);
+
     });
 
     // Without auth middleware.
