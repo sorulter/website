@@ -1,0 +1,32 @@
+@extends('user.dashboard')
+
+@section('content')
+<div class="box">
+    <div class="box-header"><h3 class="box-title">{{ trans("logs.title") }}</h3></div><!-- /.box-header -->
+    <div class="box-body no-padding table-responsive">
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr>
+                    {{-- <th style="width: 10px">#</th> --}}
+                    <th>{{ trans('billing.flows') }}</th>
+                    <th>{{ trans('billing.ip') }}</th>
+                    <th>{{ trans("billing.time") }}</th>
+                </tr>
+                @foreach ($logs as $log)
+                <tr>
+                    <td>{{$log->flows}}</td>
+                    <td>{{$log->client_ip}}</td>
+                    <td>{{$log->used_at}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div class="box-footer clearfix">
+        @include('pagination.large', ['paginator' => $logs])
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+
+@stop
