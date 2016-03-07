@@ -16,7 +16,7 @@ class CreateLogsTables extends Migration
             Schema::create('logs_' . $suffix, function ($table) {
                 $table->integer('user_id')->unsigned();
                 $table->integer('flows');
-                $table->integer('client_ip');
+                $table->bigInteger('client_ip');
                 $table->string('node');
                 $table->timestamp('used_at');
 
