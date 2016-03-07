@@ -8,9 +8,9 @@
             <tbody>
                 <tr>
                     {{-- <th style="width: 10px">#</th> --}}
-                    <th>{{ trans('billing.flows') }}</th>
-                    <th>{{ trans('billing.ip') }}</th>
-                    <th>{{ trans("billing.time") }}</th>
+                    <th>{{ trans('logs.flows') }}</th>
+                    <th>{{ trans('logs.ip') }}</th>
+                    <th>{{ trans("logs.time") }}</th>
                 </tr>
                 @foreach ($logs as $log)
                 <tr>
