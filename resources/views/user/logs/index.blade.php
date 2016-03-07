@@ -7,13 +7,15 @@
         <table class="table table-striped table-hover">
             <tbody>
                 <tr>
-                    <th>{{ trans('logs.flows')/MB }}</th>
+                    <th>{{ trans('logs.flows') }} (MB)</th>
+                    <th>{{ trans('logs.node') }}</th>
                     <th>{{ trans('logs.ip') }}</th>
                     <th>{{ trans("logs.time") }}</th>
                 </tr>
                 @foreach ($logs as $log)
                 <tr>
-                    <td>{{$log->flows}}</td>
+                    <td>{{$log->flows/MB}}</td>
+                    <td>{{$log->node}}</td>
                     <td>{{long2ip($log->client_ip)}}</td>
                     <td>{{$log->used_at}}</td>
                 </tr>
