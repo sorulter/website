@@ -17,6 +17,7 @@ class CreateLogsTables extends Migration
                 $table->integer('user_id')->unsigned();
                 $table->integer('flows');
                 $table->integer('client_ip');
+                $table->string('node');
                 $table->timestamp('used_at');
 
                 $table->foreign('user_id')->references('id')->on('users');
