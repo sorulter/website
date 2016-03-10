@@ -42,7 +42,6 @@ class LogsController extends Controller
                 break;
         }
         return view('user.logs.index')->withLogs($logs->where("user_id", "=", request()->user()->id)->orderBy('used_at', 'desc')->paginate(env('PERPAGE')));
-        dd($logs);
     }
 
 }
