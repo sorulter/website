@@ -9,6 +9,7 @@
                 <tr>
                     <th>{{ trans('logs.flows') }} (MB)</th>
                     <th>{{ trans('logs.node') }}</th>
+                    <th>{{ trans('logs.location') }}</th>
                     <th>{{ trans('logs.ip') }}</th>
                     <th>{{ trans("logs.time") }}</th>
                 </tr>
@@ -16,6 +17,7 @@
                 <tr>
                     <td>{{$log->flows/MB}}</td>
                     <td>{{$log->node}}</td>
+                    <td><?php $record = QQWry::query(long2ip($log->client_ip));?>{{$record['country']}}/{{$record['area']}}</td>
                     <td>{{long2ip($log->client_ip)}}</td>
                     <td>{{$log->used_at}}</td>
                 </tr>
