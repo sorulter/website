@@ -152,6 +152,7 @@ return [
         Nathanmac\Utilities\Parser\ParserServiceProvider::class,
         Vinkla\Hashids\HashidsServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Latrell\QQWry\QQWryServiceProvider::class,
 
     ],
 
