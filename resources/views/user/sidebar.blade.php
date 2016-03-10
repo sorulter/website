@@ -32,6 +32,14 @@
           <span>Helps</span>
         </a>
       </li>
+      <li id="user-logs" class="fa-lg">
+        <a href="/user/logs">
+          <span class="fa-stack">
+            <i class="fa fa-history fa-stack-1x"></i>
+          </span>
+          <span>Logs</span>
+        </a>
+      </li>
       <li id="user-settings" class="fa-lg">
         <a href="/user/settings">
           <span class="fa-stack">
