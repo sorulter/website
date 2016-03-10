@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="box">
-    <div class="box-header"><h3 class="box-title">{{ trans("logs.title") }}</h3></div><!-- /.box-header -->
+    <div class="box-header"><h3 class="box-title">{{ trans("logs.title") }} [{{ trans("logs.current") }}: {{ $ip }}]</h3></div><!-- /.box-header -->
     <div class="box-body no-padding table-responsive">
         <table class="table table-striped table-hover">
             <tbody>
