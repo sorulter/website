@@ -6,4 +6,6 @@ return [
     'time' => 'Time',
     'title' => 'Logs',
     'current' => 'Current IP',
+    'node' => 'Node',
+    'location' => 'Location',
 ];
