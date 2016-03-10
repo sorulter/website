@@ -5,4 +5,5 @@ return [
     'ip' => 'IP',
     'time' => 'Time',
     'title' => 'Logs',
+    'current' => 'Current IP',
 ];
