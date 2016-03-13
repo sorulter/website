@@ -98,6 +98,8 @@ class AuthController extends Controller
                 'bccto.me',
                 'mail.bccto.me',
 
+                'euaqa.com',
+
             ];
             // in the black list.
             if (in_array(mb_split('@', $value)[1], $black)) {
