@@ -96,6 +96,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::post('articles/update/{id}', ['as' => '/articles/update', 'uses' => 'ArticlesController@update'])->where('id', '[0-9]+');
 
     Route::get('orders', ['as' => '/orders', 'uses' => 'OrdersController@index']);
+    Route::get('orders/index/paid', ['as' => '/orders/index/paid', 'uses' => 'OrdersController@paid']);
 });
 
 Route::group(['prefix' => 'api/v1', 'as' => 'api', 'namespace' => 'API'], function () {
