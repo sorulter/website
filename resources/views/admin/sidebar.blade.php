@@ -50,6 +50,14 @@
             <a href="{{ route('admin/category') }}"><i class="fa fa-circle-o"></i> Category</a>
           </li>
         </ul>
+        <li id="user-orders" class="fa-lg">
+          <a href="/{{ env('ADMINNS') }}/orders">
+            <span class="fa-stack">
+              <i class="fa fa-cny fa-stack-1x"></i>
+            </span>
+            <span>Orders</span>
+          </a>
+        </li>
       </li>
 
     </ul><!-- /.sidebar-menu -->
