@@ -7,6 +7,10 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Orders List({{$orders->total()}})</h3>
+            <div class="box-tools">
+                <a href="{{route('admin/orders')}}"><span class="label label-success">All</span></a>
+                <a href="{{route('admin/orders/index/paid')}}"><span class="label label-success">Paid</span></a>
+            </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
