@@ -97,6 +97,8 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
 
     Route::get('orders', ['as' => '/orders', 'uses' => 'OrdersController@index']);
     Route::get('orders/index/paid', ['as' => '/orders/index/paid', 'uses' => 'OrdersController@paid']);
+    Route::get('orders/index/unpaid', ['as' => '/orders/index/unpaid', 'uses' => 'OrdersController@unpaid']);
+
 });
 
 Route::group(['prefix' => 'api/v1', 'as' => 'api', 'namespace' => 'API'], function () {

@@ -10,6 +10,7 @@
             <div class="box-tools">
                 <a href="{{route('admin/orders')}}"><span class="label label-success">All</span></a>
                 <a href="{{route('admin/orders/index/paid')}}"><span class="label label-success">Paid</span></a>
+                <a href="{{route('admin/orders/index/unpaid')}}"><span class="label label-success">Unpaid</span></a>
             </div>
         </div>
         <!-- /.box-header -->

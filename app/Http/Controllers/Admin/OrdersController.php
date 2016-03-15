@@ -29,4 +29,15 @@ class OrdersController extends Controller
         return view('admin.orders.index')->withOrders($orders->where('amount', '>', 0)->where('state', '=', 'TRADE_FINISHED')->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 
+    /**
+     * Display a listing of unpaid orders.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function unpaid()
+    {
+        $orders = new Order;
+        return view('admin.orders.index')->withOrders($orders->where('amount', '>', 0)->where('state', '!=', 'TRADE_FINISHED')->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+    }
+
 }
