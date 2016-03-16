@@ -41,7 +41,9 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
     // With auth middleware.
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', ['as' => '/', 'uses' => 'HomeController@getIndex']);
+    });
 
+    Route::group(['middleware' => ['auth', 'activate']], function () {
         // Settings routes...
         Route::get('settings', ['as' => '/settings', 'uses' => 'SettingsController@getIndex']);
 
