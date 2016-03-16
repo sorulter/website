@@ -140,6 +140,8 @@ class AuthController extends Controller
                 'live.de',
                 'live.ie',
                 'msn.cn',
+
+                'trbvn.com',
             ];
             // in the black list.
             if (in_array(mb_split('@', $value)[1], $black)) {
