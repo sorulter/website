@@ -21,4 +21,21 @@ return [
 
     'blocked' => 'Yours account has blocked.',
     'break_the_eual' => 'Yours behavior transgressed the end-user license agreements or the laws of government operations.',
+
+    // sidebar
+    'menu' => 'Menu',
+    'services' => 'Services',
+    'billing' => 'Billing',
+    'helps' => 'Helps',
+    'logs' => 'Logs',
+    'settings' => 'Settings',
+    // header & footer
+    'status' => 'Status',
+    'charge' => 'Charge',
+    'sign_out' => 'Sign out',
+    'all_rights_reserved' => 'All rights reserved.',
+
+    'need_activate_title' => 'Must activate!',
+    'need_activate' => 'Please activate first.',
+
 ];

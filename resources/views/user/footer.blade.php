@@ -4,5 +4,5 @@
         Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright © 2015 <a href="{{url('/')}}">iProxier.com</a>.</strong> All rights reserved.
+    <strong>Copyright © 2015 <a href="{{url('/')}}">iProxier.com</a>.</strong> {{trans('base.all_rights_reserved')}}
 </footer>

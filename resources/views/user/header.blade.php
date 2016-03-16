@@ -15,10 +15,10 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <li>
-          <a href="/user/status">Status</a>
+          <a href="/user/status">{{trans('base.status')}}</a>
         </li>
         <li class="dropdown tasks-menu">
-          <a href="/user/billing/charge" style="color: white;">Charge</a>
+          <a href="/user/billing/charge" style="color: white;">{{trans('base.charge')}}</a>
         </li>
         @if (in_array($user['id'], mb_split(',', env('ADMINIDS'))))
         <li>
@@ -47,10 +47,10 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="{{ url('/user/settings') }}" class="btn btn-default btn-flat">Settings</a>
+                <a href="{{ url('/user/settings') }}" class="btn btn-default btn-flat">{{trans('base.settings')}}</a>
               </div>
               <div class="pull-right">
-                <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">{{trans('base.sign_out')}}</a>
               </div>
             </li>
           </ul>
