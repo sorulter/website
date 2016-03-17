@@ -33,7 +33,7 @@
 
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Account Info</h3>
+                <h3 class="box-title">{{trans('account_info')}}</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -45,19 +45,19 @@
                     <tbody>
                         @if ($user->activate == 1)
                             <tr>
-                                <td><span><i class="fa fa-btc"></i>&emsp;Free Flows</span></td>
+                                <td><span><i class="fa fa-btc"></i>&emsp;{{trans('home.free_flows')}}</span></td>
                                 <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->free/MB}} MB</span></td>
                             </tr>
                             <tr>
-                                <td><span><i class="fa fa-rmb"></i>&emsp;Combo Flows</span></td>
+                                <td><span><i class="fa fa-rmb"></i>&emsp;{{trans('home.combo_flows')}}</span></td>
                                 <td><span title="{{$user->flows->combo_flows}} Bytes">{{$user->flows->combo_flows/MB}} MB</span></td>
                             </tr>
                             <tr>
-                                <td><span><i class="fa fa-tachometer"></i>&emsp;Used Flows</span></td>
+                                <td><span><i class="fa fa-tachometer"></i>&emsp;{{trans('home.used_flows')}}</span></td>
                                 <td><span title="{{$user->flows->used}} Bytes">{{$user->flows->used/MB}} MB</span></td>
                             </tr>
                             <tr>
-                                <td><span><i class="fa fa-sign-in"></i>&emsp;Front End</span></td>
+                                <td><span><i class="fa fa-sign-in"></i>&emsp;{{trans('home.front_end')}}</span></td>
                                 @if ($user->port)
                                 <td>{{$user->port->node_name}}</td>
                                 @else
@@ -65,15 +65,15 @@
                                 @endif
                             </tr>
                             <tr>
-                                <td><span><i class="fa fa-clock-o"></i>&emsp;Combo EndDate</span></td>
+                                <td><span><i class="fa fa-clock-o"></i>&emsp;{{trans('home.combo_end_date')}}</span></td>
                                 <td>@if ($user->flows->combo_end_date > date('Y-m-d H:i:s'))
                                     {{$user->flows->combo_end_date}}
                                 @else
-                                    <a href="/user/billing/charge" class="label label-warning">No combo flows.Order now!</a>
+                                    <a href="/user/billing/charge" class="label label-warning">{{trans('home.no_combo')}}</a>
                                 @endif
                             </tr>
                             <tr>
-                                <td><span><i class="fa fa-server"></i>&emsp;Proxy Server</span></td>
+                                <td><span><i class="fa fa-server"></i>&emsp;{{trans('home.proxy_server')}}</span></td>
                                 @if ($user->port)
                                 <td>{{$user->port->node_name}}.{{env('NODE_BASE_NAME')}}</td>
                                 @else
@@ -81,7 +81,7 @@
                                 @endif
                             </tr>
                             <tr>
-                                <td><span><i class="fa fa-share-alt"></i>&emsp;Proxy Port</span></td>
+                                <td><span><i class="fa fa-share-alt"></i>&emsp;{{trans('home.proxy_port')}}</span></td>
                                 @if ($user->port)
                                 <td>{{$user->port->port}}</td>
                                 @else
@@ -89,7 +89,7 @@
                                 @endif
                             </tr>
                             <tr>
-                                <td><span><i class="fa fa-ticket"></i>&emsp;Pac URL</span></td>
+                                <td><span><i class="fa fa-ticket"></i>&emsp;{{trans('home.pac_url')}}</span></td>
                                 <td>{{env('PAC_BASE_URL')}}{{ App\id2hash($user->id)}}</td>
                             </tr>
                             @if (Agent::is('iPhone') && Agent::is('Safari'))
@@ -117,7 +117,7 @@
     <div class="col-md-6">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Support</h3>
+                <h3 class="box-title">{{trans('home.support')}}</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -155,7 +155,7 @@
 
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">How to Configure</h3>
+                <h3 class="box-title">{{trans('home.how_to_configure')}}</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
