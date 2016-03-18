@@ -144,7 +144,7 @@ class AuthController extends Controller
                 'trbvn.com',
             ];
             // in the black list.
-            if (in_array(mb_split('@', $value)[1], $black)) {
+            if (in_array(mb_split('@', mb_strtolower($value))[1], $black)) {
                 return false;
             }
             return true;
