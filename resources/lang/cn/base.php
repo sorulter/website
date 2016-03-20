@@ -1,8 +1,10 @@
 <?php
 return [
+    'success' => '成功',
     'login' => '登录',
     'email' => '邮箱',
     'password' => '密码',
+    'password_confirmation' => '确认密码',
     'rememberme' => '记住登录',
     'signin' => '登录',
     'forget_password' => '忘记密码',

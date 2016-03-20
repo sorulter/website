@@ -48,6 +48,8 @@ return [
     'unique' => ':attribute已被占用.',
     'black' => '请使用其它邮件地址.',
 
+    'required' => '请填写:attribute.',
+    'captcha' => '验证码错误',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -79,6 +81,7 @@ return [
     'attributes' => [
         'email' => '邮箱',
         'password' => '密码',
+        'captcha' => '验证码',
     ],
 
 ];
