@@ -11,7 +11,7 @@ return [
 
     'captcha' => '验证码',
     'reset_via_email' => '通过邮件找回密码',
-    'send_reset_mail' => '密码重置邮件已发送',
+    'send_reset_mail' => '发送密码重置邮件',
 
     'reset_password' => '重置密码',
     'submit' => '提交',
