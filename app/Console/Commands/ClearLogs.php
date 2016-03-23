@@ -2,7 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Model\LogsA;
+use App\Model\LogsB;
+use App\Model\LogsC;
+use App\Model\LogsD;
+use App\Model\LogsE;
 use Illuminate\Console\Command;
+use League\Csv\Writer;
 
 class ClearLogs extends Command
 {
@@ -37,6 +43,25 @@ class ClearLogs extends Command
      */
     public function handle()
     {
-        //
+        $time = date('Y-m', time() - 7200);
+        @mkdir(storage_path() . '/used');
+        $csv = Writer::createFromPath(new \SplFileObject(storage_path() . "/used/logs_{$time}.csv", 'a+'));
+        $csv->insertOne(['id', 'used', 'ip', 'node', 'time']);
+
+        LogsA::all()->each(function ($log) use ($csv) {
+            $csv->insertOne($log->toArray());
+        });
+        LogsB::all()->each(function ($log) use ($csv) {
+            $csv->insertOne($log->toArray());
+        });
+        LogsC::all()->each(function ($log) use ($csv) {
+            $csv->insertOne($log->toArray());
+        });
+        LogsD::all()->each(function ($log) use ($csv) {
+            $csv->insertOne($log->toArray());
+        });
+        LogsE::all()->each(function ($log) use ($csv) {
+            $csv->insertOne($log->toArray());
+        });
     }
 }
