@@ -63,5 +63,12 @@ class ClearLogs extends Command
         LogsE::all()->each(function ($log) use ($csv) {
             $csv->insertOne($log->toArray());
         });
+
+        // delete
+        LogsA::where('used_at', 'like', "%{$time}%")->delete();
+        LogsB::where('used_at', 'like', "%{$time}%")->delete();
+        LogsC::where('used_at', 'like', "%{$time}%")->delete();
+        LogsD::where('used_at', 'like', "%{$time}%")->delete();
+        LogsE::where('used_at', 'like', "%{$time}%")->delete();
     }
 }
