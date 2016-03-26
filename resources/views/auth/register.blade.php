@@ -46,3 +46,16 @@ iProxier › Register
   </div>
   <!-- /.login-box -->
 @stop
+
+@section('js')
+<style>
+.sugg {
+  z-index: 9999;
+  color: #ccc;
+}
+</style>
+<script src="{{ env('CDN_BASE') }}/static/js/jquery.email-autocomplete.js"></script>
+<script type="text/javascript">
+$("#email").emailautocomplete();
+</script>
+@stop
