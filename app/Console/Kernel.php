@@ -30,5 +30,7 @@ class Kernel extends ConsoleKernel
             ->hourly();
         $schedule->command('flows:reset')
             ->monthly();
+        $schedule->command('logs:clear')
+            ->monthly();
     }
 }
