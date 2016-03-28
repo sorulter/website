@@ -58,6 +58,14 @@
             <span>Orders</span>
           </a>
         </li>
+        <li id="user-products" class="fa-lg">
+          <a href="/{{ env('ADMINNS') }}/products">
+            <span class="fa-stack">
+              <i class="fa fa-archive fa-stack-1x"></i>
+            </span>
+            <span>Products</span>
+          </a>
+        </li>
       </li>
 
     </ul><!-- /.sidebar-menu -->
