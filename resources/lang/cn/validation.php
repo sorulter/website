@@ -33,7 +33,7 @@ return [
     'date_format' => ':attribute不是:format这种格式.',
     'different' => ':attribute和:other必须不同.',
     'digits' => ':attribute必须是:digits位.',
-    'digits_between' => ':attribute必须介于:min到:max位.',
+    'digits_between' => ':attribute必须介于:min到:max之间.',
     'email' => ':attribute不是有效的邮件地址.',
     'exists' => '选择的:attribute无效.',
     'filled' => ':attribute字段必须.',
