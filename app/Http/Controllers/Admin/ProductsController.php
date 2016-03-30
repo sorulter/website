@@ -18,4 +18,14 @@ class ProductsController extends Controller
         return view('admin.products.index')->withProducts($products->paginate(env('PERPAGE')));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin/products.create');
+    }
+
 }
