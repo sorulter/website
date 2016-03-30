@@ -103,6 +103,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
 
     Route::get('products', ['as' => '/products', 'uses' => 'ProductsController@index']);
     Route::get('products/create', ['as' => '/products/create', 'uses' => 'ProductsController@create']);
+    Route::post('products/store', ['as' => '/products/store', 'uses' => 'ProductsController@store']);
 
 });
 

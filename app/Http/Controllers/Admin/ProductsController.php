@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Products;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -26,6 +27,34 @@ class ProductsController extends Controller
     public function create()
     {
         return view('admin/products.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:products|max:255',
+            'price' => 'required|digits_between:1,9999',
+            'amount' => 'required|digits_between:1,999999',
+            'describe' => 'required|max:500',
+        ]);
+        // dd($request->all());
+        $products = new Products;
+        $products->name = $request->name;
+        $products->price = $request->price;
+        $products->amount = $request->amount;
+        $products->describe = $request->describe;
+
+        if ($products->save()) {
+            return redirect()->route('admin/products')->withMsg("Create product 《{$request->name}》 success.");
+        } else {
+            return redirect()->back()->withInput()->withMsg("Create product 《{$request->name}》 failed.");
+        }
     }
 
 }
