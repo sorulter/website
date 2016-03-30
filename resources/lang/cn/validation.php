@@ -45,6 +45,12 @@ return [
     'min' => [
         'string' => ':attribute 至少应该包含 :min 字符.',
     ],
+    'max' => [
+        'numeric' => ':attribute不应该大于:max.',
+        'file' => ':attribute不应该大于:maxkib.',
+        'string' => ':attribute不应该大于:max字符.',
+        'array' => ':attribute不应该大于:max项.',
+    ],
     'unique' => ':attribute已被占用.',
     'black' => '请使用其它邮件地址.',
 
