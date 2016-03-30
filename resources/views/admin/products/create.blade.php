@@ -30,7 +30,7 @@
                         <div class="input-group-addon">
                             <i class="fa fa-tag"></i>
                         </div>
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="name"  value="{{old('name')}}">
                     </div>
                     <!-- /.input group -->
                 </div>
@@ -45,7 +45,7 @@
                     @endif
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-cny"></i></span>
-                        <input type="text" class="form-control" name="price">
+                        <input type="text" class="form-control" name="price" value="{{old('price')}}">
                         <span class="input-group-addon">.00</span>
                     </div>
                     <!-- /.input group -->
@@ -59,7 +59,7 @@
                     @endif
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-bars"></i></span>
-                        <input type="text" class="form-control" name="amount">
+                        <input type="text" class="form-control" name="amount" value="{{old('amount')}}">
                         <span class="input-group-addon">M</span>
                     </div>
                     <!-- /.input group -->
@@ -86,7 +86,8 @@
                     @if ($errors->has('describe'))
                         <span class="label label-danger">{{$errors->first('describe')}}</span>
                     @endif
-                    <textarea class="form-control" rows="3" name="describe" placeholder="Enter ..."></textarea>
+                    <textarea class="form-control" rows="3" name="describe" placeholder="Enter ...">{{old('describe')}}
+                    </textarea>
                 </div>
             </div>
         </div>
