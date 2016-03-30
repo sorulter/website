@@ -9,6 +9,8 @@
             <h3 class="box-title">Products List({{$products->total()}})</h3>
             <div class="box-tools">
                 <a href="{{route('admin/products')}}"><span class="label label-success">All</span></a>
+
+                <a href="{{route('admin/products/create')}}"><span class="label label-info">Create</span></a>
             </div>
         </div>
         <!-- /.box-header -->
