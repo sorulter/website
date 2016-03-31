@@ -40,6 +40,7 @@
                         <td>{{$product->updated_at}}</td>
                         <td>
                             <a href="products/edit/{{$product->id}}"><label class="label label-success">Edit</label></a>
+                            <a href="products/destroy/{{$product->id}}"><label class="label label-warning">Destroy</label></a>
                         </td>
                     </tr>
                     @endforeach
