@@ -104,4 +104,20 @@ class ProductsController extends Controller
         }
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request, $id)
+    {
+        $product = Products::find($id);
+        if ($product->destroy($id)) {
+            return redirect()->route('admin/products')->withMsg("Destroy product 《{$id}.{$product->name}》 success.");
+        } else {
+            return redirect()->route('admin/products')->withMsg("Destroy product 《{$id}.{$product->name}》 failed.");
+        }
+    }
 }
