@@ -47,6 +47,7 @@ class ProductsController extends Controller
         $products = new Products;
         $products->name = $request->name;
         $products->price = $request->price;
+        $products->type = $request->type;
         $products->amount = $request->amount;
         $products->describe = $request->describe;
 
