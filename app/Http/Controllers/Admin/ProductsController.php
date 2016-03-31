@@ -70,4 +70,38 @@ class ProductsController extends Controller
         return view('admin.products.edit')->withProduct($product);
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $product = Products::find($id);
+
+        if ($product->name != $request->name) {
+            $this->validate($request, ['name' => 'required|unique:products|max:255']);
+        }
+
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'price' => 'required|digits_between:1,9999',
+            'amount' => 'required|digits_between:1,999999',
+            'describe' => 'required|max:500',
+        ]);
+
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->type = $request->type;
+        $product->amount = $request->amount;
+        $product->describe = $request->describe;
+        if ($product->save()) {
+            return redirect()->route('admin/products')->withMsg("Edit product 《{$request->name}》 success.");
+        } else {
+            return redirect()->back()->withInput()->withMsg("Edit product 《{$request->name}》 failed.");
+        }
+    }
+
 }
