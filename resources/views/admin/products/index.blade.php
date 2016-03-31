@@ -32,6 +32,9 @@
                         <td>{{$product->price}}</td>
                         <td>{{$product->created_at}}</td>
                         <td>{{$product->updated_at}}</td>
+                        <td>
+                            <a href="products/edit/{{$product->id}}"><label class="label label-success">Edit</label></a>
+                        </td>
                     </tr>
                     @endforeach
 
