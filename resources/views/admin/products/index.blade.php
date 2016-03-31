@@ -3,6 +3,12 @@
 @section('content')
 <div class='row'>
   <div class="col-md-12">
+            @if ( !empty(Session::get('msg')) )
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <b>{{Session::get('msg')}}</b>
+            </div>
+            @endif
 
     <div class="box">
         <div class="box-header with-border">
