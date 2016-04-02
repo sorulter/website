@@ -16,7 +16,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = new Products;
-        return view('admin.products.index')->withProducts($products->paginate(env('PERPAGE')));
+        return view('admin.products.index')->withProducts($products->withTrashed()->paginate(env('PERPAGE')));
     }
 
     /**
