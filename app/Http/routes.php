@@ -107,6 +107,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('products/edit/{id}', ['as' => '/products/edit', 'uses' => 'ProductsController@edit'])->where('id', '[0-9]+');
     Route::post('products/update/{id}', ['as' => '/products/update', 'uses' => 'ProductsController@update'])->where('id', '[0-9]+');
     Route::get('products/destroy/{id}', ['as' => '/products/destroy', 'uses' => 'ProductsController@destroy'])->where('id', '[0-9]+');
+    Route::get('products/restore/{id}', ['as' => '/products/restore', 'uses' => 'ProductsController@restore'])->where('id', '[0-9]+');
 
 });
 

@@ -40,7 +40,11 @@
                         <td>{{$product->updated_at}}</td>
                         <td>
                             <a href="products/edit/{{$product->id}}"><label class="label label-success">Edit</label></a>
+                            @if($product->trashed())
+                            <a href="products/restore/{{$product->id}}"><label class="label label-info">Restore</label></a>
+                            @else
                             <a href="products/destroy/{{$product->id}}"><label class="label label-warning">Destroy</label></a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
