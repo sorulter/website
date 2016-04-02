@@ -137,4 +137,21 @@ class ProductsController extends Controller
             return redirect()->route('admin/products')->withMsg("Restore product 《{$id}.{$product->name}》 failed.");
         }
     }
+
+    /**
+     * Delete the specified resource from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Request $request, $id)
+    {
+        $product = Products::withTrashed()->find($id);
+        if ($product->forceDelete()) {
+            return redirect()->route('admin/products')->withMsg("Delete product 《{$id}.{$product->name}》 success.");
+        } else {
+            return redirect()->route('admin/products')->withMsg("Delete product 《{$id}.{$product->name}》 failed.");
+        }
+    }
 }

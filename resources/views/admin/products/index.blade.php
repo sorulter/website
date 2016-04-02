@@ -45,6 +45,7 @@
                             @else
                             <a href="products/destroy/{{$product->id}}"><label class="label label-warning">Destroy</label></a>
                             @endif
+                            <a href="products/delete/{{$product->id}}"><label class="label label-danger">Delete</label></a>
                         </td>
                     </tr>
                     @endforeach
