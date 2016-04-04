@@ -86,8 +86,7 @@
                     @if ($errors->has('describe'))
                         <span class="label label-danger">{{$errors->first('describe')}}</span>
                     @endif
-                    <textarea class="form-control" rows="3" name="describe" placeholder="Enter ...">{{old('describe')}}
-                    </textarea>
+                    <textarea class="form-control" rows="3" name="describe" placeholder="Enter ...">{{old('describe')}}</textarea>
                 </div>
             </div>
         </div>
