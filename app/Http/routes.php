@@ -102,6 +102,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('orders/index/unpaid', ['as' => '/orders/index/unpaid', 'uses' => 'OrdersController@unpaid']);
 
     Route::get('products', ['as' => '/products', 'uses' => 'ProductsController@index']);
+    Route::get('products/trashed', ['as' => '/products/trashed', 'uses' => 'ProductsController@trashed']);
     Route::get('products/create', ['as' => '/products/create', 'uses' => 'ProductsController@create']);
     Route::post('products/store', ['as' => '/products/store', 'uses' => 'ProductsController@store']);
     Route::get('products/edit/{id}', ['as' => '/products/edit', 'uses' => 'ProductsController@edit'])->where('id', '[0-9]+');

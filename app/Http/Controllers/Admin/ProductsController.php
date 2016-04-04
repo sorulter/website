@@ -20,6 +20,17 @@ class ProductsController extends Controller
     }
 
     /**
+     * Display a listing of the trashed resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function trashed()
+    {
+        $products = new Products;
+        return view('admin.products.index')->withProducts($products->onlyTrashed()->paginate(env('PERPAGE')));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
