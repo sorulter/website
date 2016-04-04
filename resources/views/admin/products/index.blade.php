@@ -40,13 +40,13 @@
                         <td>{{$product->created_at}}</td>
                         <td>{{$product->updated_at}}</td>
                         <td>
-                            <a href="products/edit/{{$product->id}}"><label class="label label-success">Edit</label></a>
+                            <a href="{{route('admin/products/edit', $product->id)}}"><label class="label label-success">Edit</label></a>
                             @if($product->trashed())
-                            <a href="products/restore/{{$product->id}}"><label class="label label-info">Restore</label></a>
+                            <a href="{{route('admin/products/restore', $product->id)}}"><label class="label label-info">Restore</label></a>
                             @else
-                            <a href="products/destroy/{{$product->id}}"><label class="label label-warning">Destroy</label></a>
+                            <a href="{{route('admin/products/destroy', $product->id)}}"><label class="label label-warning">Destroy</label></a>
                             @endif
-                            <a href="products/delete/{{$product->id}}"><label class="label label-danger">Delete</label></a>
+                            <a href="{{route('admin/products/delete', $product->id)}}"><label class="label label-danger">Delete</label></a>
                         </td>
                     </tr>
                     @endforeach
