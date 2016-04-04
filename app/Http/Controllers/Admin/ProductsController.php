@@ -126,9 +126,9 @@ class ProductsController extends Controller
     {
         $product = Products::find($id);
         if ($product->destroy($id)) {
-            return redirect()->route('admin/products')->withMsg("Destroy product 《{$id}.{$product->name}》 success.");
+            return redirect()->back()->withMsg("Destroy product 《{$id}.{$product->name}》 success.");
         } else {
-            return redirect()->route('admin/products')->withMsg("Destroy product 《{$id}.{$product->name}》 failed.");
+            return redirect()->back()->withMsg("Destroy product 《{$id}.{$product->name}》 failed.");
         }
     }
 
@@ -143,9 +143,9 @@ class ProductsController extends Controller
     {
         $product = Products::withTrashed()->find($id);
         if ($product->restore($id)) {
-            return redirect()->route('admin/products')->withMsg("Restore product 《{$id}.{$product->name}》 success.");
+            return redirect()->back()->withMsg("Restore product 《{$id}.{$product->name}》 success.");
         } else {
-            return redirect()->route('admin/products')->withMsg("Restore product 《{$id}.{$product->name}》 failed.");
+            return redirect()->back()->withMsg("Restore product 《{$id}.{$product->name}》 failed.");
         }
     }
 
@@ -160,9 +160,9 @@ class ProductsController extends Controller
     {
         $product = Products::withTrashed()->find($id);
         if ($product->forceDelete()) {
-            return redirect()->route('admin/products')->withMsg("Delete product 《{$id}.{$product->name}》 success.");
+            return redirect()->back()->withMsg("Delete product 《{$id}.{$product->name}》 success.");
         } else {
-            return redirect()->route('admin/products')->withMsg("Delete product 《{$id}.{$product->name}》 failed.");
+            return redirect()->back()->withMsg("Delete product 《{$id}.{$product->name}》 failed.");
         }
     }
 }
