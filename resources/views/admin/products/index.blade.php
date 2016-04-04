@@ -27,7 +27,9 @@
                     <tr>
                         <th style="width: 10px">#</th>
                         <th>Name</th>
-                        <th style="min-width: 40px">Price</th>
+                        <th style="min-width: 40px">Unit price</th>
+                        <th>Amount(MB)</th>
+                        <th>Type</th>
                         <th>Created</th>
                         <th>Updated</th>
                         <th>Actions</th>
@@ -37,6 +39,8 @@
                         <td>{{$product->id}}</td>
                         <td>{{$product->name}}</td>
                         <td>{{$product->price}}</td>
+                        <td>{{$product->amount}}</td>
+                        <td>{{$product->type}}</td>
                         <td>{{$product->created_at}}</td>
                         <td>{{$product->updated_at}}</td>
                         <td>
