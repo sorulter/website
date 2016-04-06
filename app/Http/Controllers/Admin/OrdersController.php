@@ -15,7 +15,7 @@ class OrdersController extends Controller
     public function index()
     {
         $orders = new Order;
-        return view('admin.orders.index')->withOrders($orders->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+        return view('admin.orders.index')->withOrders($orders->orderBy('updated_at', 'DESC')->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 
     /**
