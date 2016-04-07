@@ -66,6 +66,9 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
         Route::get('logs', ['as' => '/logs', 'uses' => 'LogsController@index']);
 
+        // Mall routes...
+        Route::get('mall', ['as' => '/mall', 'uses' => 'MallController@index']);
+
     });
 
     // Without auth middleware.
