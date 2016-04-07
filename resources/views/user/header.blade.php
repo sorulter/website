@@ -27,7 +27,7 @@
         @endif
         @if (in_array($user['id'], mb_split(',', env('ADMINIDS'))))
         <li>
-          <a href="/{{ env('ADMINNS') }}">Admin Panel</a>
+          <a href="/{{ env('ADMINNS') }}">{{trans('base.admin')}}</a>
         </li>
         @endif
 
