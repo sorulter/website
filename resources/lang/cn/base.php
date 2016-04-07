@@ -34,6 +34,7 @@ return [
     // header & footer
     'status' => '状态',
     'charge' => '购买',
+    'buy' => '续费',
     'sign_out' => '登出',
     'all_rights_reserved' => '保留最终解释权.',
 
