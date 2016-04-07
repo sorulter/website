@@ -22,6 +22,11 @@
         </li>
         @if (in_array($user['id'], mb_split(',', env('ADMINIDS'))))
         <li>
+          <a href="{{route('user/mall')}}">{{trans('base.buy')}}</a>
+        </li>
+        @endif
+        @if (in_array($user['id'], mb_split(',', env('ADMINIDS'))))
+        <li>
           <a href="/{{ env('ADMINNS') }}">Admin Panel</a>
         </li>
         @endif
