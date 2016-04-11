@@ -36,6 +36,9 @@ Route::post('reset', 'Auth\PasswordController@postReset');
 Route::get('activate/{token}', 'Auth\ActivationController@getActivate')->where('token', '[0-9A-Za-z]{60}');
 Route::get('activate/send', ['as' => 'activate/send', 'uses' => 'Auth\ActivationController@getSend']);
 
+// Track
+Route::get('ad/{name}', ['as' => '/ad', 'uses' => 'TrackerController@ad'])->where('name', '[0-9A-Za-z]{3,20}');
+
 // user group routes...
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], function () {
     // With auth middleware.
