@@ -66,6 +66,14 @@
             <span>Products</span>
           </a>
         </li>
+        <li id="user-tracks" class="fa-lg">
+          <a href="/{{ env('ADMINNS') }}/tracks">
+            <span class="fa-stack">
+              <i class="fa fa-history fa-stack-1x"></i>
+            </span>
+            <span>Tracks</span>
+          </a>
+        </li>
       </li>
 
     </ul><!-- /.sidebar-menu -->

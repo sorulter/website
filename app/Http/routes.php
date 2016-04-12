@@ -118,6 +118,8 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('products/restore/{id}', ['as' => '/products/restore', 'uses' => 'ProductsController@restore'])->where('id', '[0-9]+');
     Route::get('products/delete/{id}', ['as' => '/products/delete', 'uses' => 'ProductsController@delete'])->where('id', '[0-9]+');
 
+    Route::get('tracks', ['as' => '/tracks', 'uses' => 'TracksController@index']);
+
 });
 
 Route::group(['prefix' => 'api/v1', 'as' => 'api', 'namespace' => 'API'], function () {
