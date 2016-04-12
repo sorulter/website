@@ -38,6 +38,7 @@ Route::get('activate/send', ['as' => 'activate/send', 'uses' => 'Auth\Activation
 
 // Track
 Route::get('ad/{name}', ['as' => '/ad', 'uses' => 'TrackerController@ad'])->where('name', '[0-9A-Za-z]{3,20}');
+Route::get('promote/{name}', ['as' => '/promote', 'uses' => 'TrackerController@promote'])->where('name', '[0-9A-Za-z]{3,20}');
 
 // user group routes...
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], function () {
