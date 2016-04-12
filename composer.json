@@ -19,7 +19,7 @@
         "webpatser/laravel-uuid": "2.*",
         "nesbot/Carbon": "^1.21",
         "doctrine/dbal": "^2.5",
-        "latrell/qqwry": "^1.2",
+        "latrell/qqwry": "dev-master",
         "league/csv": "^8.0"
     },
     "require-dev": {
