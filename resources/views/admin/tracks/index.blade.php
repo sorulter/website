@@ -46,7 +46,8 @@
                         <td>{{$track->id}}</td>
                         <td>{{$track->type}}</td>
                         <td>{{$track->source}}</td>
-                        <td>{{$track->ip}}</td>
+                        <?php $record = QQWry::query($track->ip);?>
+                        <td>{{$track->ip}}({{$record['country']}})</td>
                         <td><span class="cut">{{$track->referrer}}</span></td>
                         <td>{{$track->status}}</td>
                         <td>{{$track->count}}</td>
