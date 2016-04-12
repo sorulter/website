@@ -39,6 +39,7 @@ class TrackerController extends Controller
      */
     private function track($type, $name)
     {
+        session(['referrer', request()->server('HTTP_REFERER')]);
         $tracker = Track::firstOrNew([
             'day' => Carbon::now()->toDateString(),
             'type' => $type,
@@ -49,7 +50,7 @@ class TrackerController extends Controller
         $tracker->day = Carbon::now()->toDateString();
         $tracker->type = $type;
         $tracker->source = $name;
-        $tracker->source = $name;
+        $tracker->referrer = request()->server('HTTP_REFERER');
         $tracker->ip = request()->ip();
         $tracker->count += 1;
         $tracker->save();
