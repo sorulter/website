@@ -1,6 +1,14 @@
 @extends('admin.dashboard')
 
 @section('content')
+<style type="text/css">
+.cut {
+    white-space: nowrap;
+      width: 15em;
+      overflow: hidden;display: -webkit-box;
+      text-overflow: ellipsis;
+}
+</style>
 <div class='row'>
   <div class="col-md-12">
             @if ( !empty(Session::get('msg')) )
@@ -39,7 +47,7 @@
                         <td>{{$track->type}}</td>
                         <td>{{$track->source}}</td>
                         <td>{{$track->ip}}</td>
-                        <td>{{$track->referrer}}</td>
+                        <td><span class="cut">{{$track->referrer}}</span></td>
                         <td>{{$track->status}}</td>
                         <td>{{$track->count}}</td>
                         <td>{{$track->created_at}}</td>
