@@ -34,7 +34,7 @@ class TrackerController extends Controller
         ]);
 
         $tracker->day = Carbon::now()->toDateString();
-        $tracker->type = 'ad';
+        $tracker->type = $type;
         $tracker->source = $name;
         $tracker->source = $name;
         $tracker->ip = request()->ip();
