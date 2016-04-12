@@ -15,9 +15,20 @@ class TrackerController extends Controller
      */
     public function ad($name)
     {
+        session(['ad_source' => $name]);
+        $this->track('ad', $name);
+
+        return redirect()->route('register');
+    }
+
+    /**
+     * Save the track.
+     */
+    private function track($type, $name)
+    {
         $tracker = Track::firstOrNew([
             'day' => Carbon::now()->toDateString(),
-            'type' => 'ad',
+            'type' => $type,
             'source' => $name,
             'ip' => request()->ip(),
         ]);
@@ -29,10 +40,7 @@ class TrackerController extends Controller
         $tracker->ip = request()->ip();
         $tracker->count += 1;
         $tracker->save();
-
-        session(['ad_source' => $name]);
-
-        return redirect()->route('register');
+        session(['track_id' => $tracker->id]);
     }
 
 }
