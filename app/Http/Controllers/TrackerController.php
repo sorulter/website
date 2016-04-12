@@ -22,6 +22,19 @@ class TrackerController extends Controller
     }
 
     /**
+     * Log ad source name and redirect to register page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function promote($name)
+    {
+        session(['ad_source' => $name]);
+        $this->track('promote', $name);
+
+        return redirect()->route('register');
+    }
+
+    /**
      * Save the track.
      */
     private function track($type, $name)
