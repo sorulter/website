@@ -15,7 +15,7 @@ class TracksController extends Controller
     public function index()
     {
         $tracks = new Track;
-        return view('admin.tracks.index')->withTracks($tracks->paginate(env('PERPAGE')));
+        return view('admin.tracks.index')->withTracks($tracks->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 
 }
