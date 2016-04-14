@@ -37,7 +37,7 @@ class OrdersController extends Controller
     public function unpaid()
     {
         $orders = new Order;
-        return view('admin.orders.index')->withOrders($orders->where('amount', '>', 0)->where('state', '!=', 'TRADE_FINISHED')->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+        return view('admin.orders.index')->withOrders($orders->where('amount', '>', 0)->where('state', '!=', 'TRADE_FINISHED')->orderBy('updated_at', 'DESC')->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 
 }
