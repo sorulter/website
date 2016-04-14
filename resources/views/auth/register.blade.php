@@ -1,7 +1,7 @@
 @extends('front')
 
 @section('title')
-iProxier › Register
+iProxier › {{trans('base.register')}}
 @stop
 
 @section('body-class') hold-transition login-page @stop
@@ -9,7 +9,7 @@ iProxier › Register
 @section('content')
     <div class="login-box">
     <div class="login-box-body">
-      <p class="login-box-msg"><b>Register your account</b></p>
+      <p class="login-box-msg"><b>{{trans('base.register_tips')}}</b></p>
 
       <form method="post" action="/register">
         {!! csrf_field() !!}
@@ -19,7 +19,7 @@ iProxier › Register
           <span>{{ $errors->default->first('email') }}</span>
         </label>
         <div class="input-group @if ($errors->default->has('email')) has-error @endif">
-          <input type="email" class="form-control" placeholder="Email" name="email" id="email" value="{{ old('email') }}">
+          <input type="email" class="form-control" placeholder="{{trans('base.email')}}" name="email" id="email" value="{{ old('email') }}">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-envelope"></i>
           </span>
@@ -31,14 +31,14 @@ iProxier › Register
           <span>{{ $errors->default->first('password') }}</span>
         </label>
         <div class="input-group">
-          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+          <input type="password" class="form-control" placeholder="{{trans('base.password')}}" name="password" id="password">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-lock"></i>
           </span>
         </div>
         <br>
 
-        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+        <button type="submit" class="btn btn-primary btn-block btn-flat">{{trans('base.register')}}</button>
       </form>
     </div>
 

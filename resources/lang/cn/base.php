@@ -10,6 +10,8 @@ return [
     'forget_password' => '忘记密码',
     'regsiter_account' => '注册新帐号',
     'login_subtitle' => '开启新的世界',
+    'register' => '注册',
+    'register_tips' => '获取你的帐号，拿到开启世界的钥匙',
 
     'captcha' => '验证码',
     'reset_via_email' => '通过邮件找回密码',
