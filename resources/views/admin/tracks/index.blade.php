@@ -23,6 +23,7 @@
             <h3 class="box-title">Tracks List({{$tracks->total()}})</h3>
             <div class="box-tools">
                 <a href="{{route('admin/tracks')}}"><span class="label label-success">All</span></a>
+                <a href="{{route('admin/tracks/today')}}"><span class="label label-info">Today</span></a>
 
             </div>
         </div>

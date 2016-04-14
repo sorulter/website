@@ -119,6 +119,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('products/delete/{id}', ['as' => '/products/delete', 'uses' => 'ProductsController@delete'])->where('id', '[0-9]+');
 
     Route::get('tracks', ['as' => '/tracks', 'uses' => 'TracksController@index']);
+    Route::get('tracks/today', ['as' => '/tracks/today', 'uses' => 'TracksController@today']);
 
 });
 
