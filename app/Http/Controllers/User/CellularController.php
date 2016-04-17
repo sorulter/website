@@ -46,9 +46,9 @@ class CellularController extends Controller
             ->render();
 
         $path = base_path() . DIRECTORY_SEPARATOR; // my actual directory
-        $signcert = file_get_contents($path . 'certs/iproxier.crt'); // my certificate to sign
-        $privkey = file_get_contents($path . 'certs/iproxier.com.key'); // my private key of the certificate
-        $extracerts = $path . 'certs/iproxier.chained.crt'; // the cert chain of my CA
+        $signcert = file_get_contents($path . env('CERT_PATH')); // my certificate to sign
+        $privkey = file_get_contents($path . env('CERT_KEY_PATH')); // my private key of the certificate
+        $extracerts = $path . env('CERT_PATH'); // the cert chain of my CA
 
         // write to tmp file
         file_put_contents('/tmp/' . $ApnUUID, $data);
