@@ -1,6 +1,6 @@
 <?php
 return [
-    'combo_flows' => '套餐流量',
-    'forever_flows' => '永久流量',
     'title' => 'iProxier 流量',
+    'combo_flows' => '包年包月',
+    'forever_flows' => '按量付费',
 ];
