@@ -13,6 +13,6 @@ class MallController extends Controller
      */
     public function index()
     {
-        return view('user.mall.index');
+        return view('user.mall.index')->withTitle(trans('mall.title'));
     }
 }
