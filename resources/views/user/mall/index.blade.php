@@ -5,7 +5,6 @@
     <div class="col-xs-12">
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="pull-left header"><i class="fa fa-cart-plus"></i> {{trans('mall.choose_goods_type')}}</li>
                 <li class="active"><a href="#combo" data-toggle="tab">{{trans('mall.combo_flows')}}</a></li>
                 <li><a href="#free" data-toggle="tab">{{trans('mall.forever_flows')}}</a></li>
             </ul>
