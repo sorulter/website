@@ -5,8 +5,8 @@
     <div class="col-xs-12">
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#combo" data-toggle="tab">{{trans('mall.combo_flows')}}</a></li>
-                <li><a href="#free" data-toggle="tab">{{trans('mall.forever_flows')}}</a></li>
+                <li class="active"><a href="#combo" data-toggle="tab" class="fa-lg">{{trans('mall.combo_flows')}}</a></li>
+                <li><a href="#free" data-toggle="tab" class="fa-lg">{{trans('mall.forever_flows')}}</a></li>
             </ul>
         </div>
         <div class="tab-content">
