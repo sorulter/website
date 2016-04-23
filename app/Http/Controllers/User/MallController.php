@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Model\Products;
 
 class MallController extends Controller
 {
@@ -13,6 +14,7 @@ class MallController extends Controller
      */
     public function index()
     {
-        return view('user.mall.index')->withTitle(trans('mall.title'));
+        $products = Products::all();
+        return view('user.mall.index')->withTitle(trans('mall.title'))->withProducts($products);
     }
 }
