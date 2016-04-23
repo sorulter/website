@@ -121,7 +121,7 @@ $(function() {
         $('#subtotal').text(subtotal);
     };
     $('input[name=product]')[0].checked = true;
-    $('input[name=product]').on("change", function() {price()});
+    $('input[name=product]').on("ifChecked", function() {price()});
     price();
 
     $("#slider-date-combo").sliderDate({
