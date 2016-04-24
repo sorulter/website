@@ -18,7 +18,7 @@
                         <div class="col-xs-12 col-md-8">
                             <div class="box box-solid table-responsive no-padding">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">{{trans('mall.chose')}}</h3>
+                                    <h3 class="box-title">{{trans('mall.products')}}</h3>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
