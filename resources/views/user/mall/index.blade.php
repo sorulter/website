@@ -121,7 +121,7 @@
 
 @section('script')
 <script src="{{env('CDN_BASE')}}/static/js/price.jquery.js"></script>
-<script src="{{ asset("/static/plugins/iCheck/icheck.min.js") }}"></script>
+<script src="{{env('CDN_BASE')}}/static/plugins/iCheck/icheck.min.js"></script>
 <script type="text/javascript">
 $(function() {
     function price() {
