@@ -14,7 +14,8 @@ class MallController extends Controller
      */
     public function index()
     {
-        $products = Products::all();
-        return view('user.mall.index')->withTitle(trans('mall.title'))->withProducts($products);
+        $products = new Products;
+        return view('user.mall.index')->withTitle(trans('mall.title'))
+            ->withCombos($products->where('type', '=', 'combo')->orderBy('price', 'DESC')->get());
     }
 }
