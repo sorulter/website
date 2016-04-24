@@ -84,7 +84,7 @@
                                     <span>{{ trans('mall.subtotal') }}</span>
                                     <h3><i class="fa">￥ <span id="subtotal">9.00</span></i></h3>
                                     <div class="checkbox icheck">
-                                        <input type="radio" name="payment" class="flat-red" checked />
+                                        <input type="radio" name="payment" class="flat-red" data-rate="0.01" value="alipay" checked />
                                         <span><img style="height: 3em;" src="{{env('CDN_BASE')}}/static/images/alipay.gif"></span>
                                     </div>
                                     <button type="submit" class="btn btn-warning btn-flat col-xs-12">{{trans('mall.pay')}}</button>
