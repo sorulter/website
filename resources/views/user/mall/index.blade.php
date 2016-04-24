@@ -81,8 +81,19 @@
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <span>{{ trans('mall.subtotal') }}</span>
-                                    <h3><i class="fa">￥ <span id="subtotal">9.00</span></i></h3>
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6">
+                                            <small>{{ trans('mall.orig') }}</small>
+                                            <h5><i class="fa text-red">￥ <span id="orig">0.00</span></i></h5>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <small>{{ trans('mall.discount') }}</small>
+                                            <h5><i class="fa text-green">￥ <span id="discount">0.00</span></i></h5>
+                                        </div>
+                                    </div>
+                                    <small>{{ trans('mall.subtotal') }}</small>
+                                    <h3><i class="fa text-yellow">￥ <span id="subtotal">0.00</span></i></h3>
+
                                     <div class="checkbox icheck">
                                         <input type="radio" name="payment" class="flat-red" data-rate="0.01" value="alipay" checked />
                                         <span><img style="height: 3em;" src="{{env('CDN_BASE')}}/static/images/alipay.gif"></span>
@@ -114,11 +125,24 @@
 <script type="text/javascript">
 $(function() {
     function price() {
-        unit_price = Number($('input[name=product]:checked').attr('data-price'));
+        unit_price = Number($('input[name=product]:checked').attr('data-price')).toFixed(2);
+        fee_rate = Number($('input[name=payment]:checked').attr('data-rate')).toFixed(2);
         index = Number($('input[name=index]').val());
-        subtotal = ((index+1)*unit_price*1.006).toFixed(2);
-        console.log(index, unit_price, subtotal);
-        $('#subtotal').text(subtotal);
+        fee = (index+1)*unit_price*fee_rate;
+        orig = (index+1)*unit_price+fee;
+
+        // Calc discount.
+        discount = 0;
+        if ($('input[name=payment]:checked').val() == 'alipay') {
+            discount = discount+fee;
+        }
+
+        // subtotal
+        subtotal = orig - discount;
+
+        $('#orig').text(orig);
+        $('#discount').text(discount.toFixed(2));
+        $('#subtotal').text(subtotal.toFixed(2));
     };
     $('input[name=product]')[0].checked = true;
     $('input[name=product]').on("ifChecked", function() {price()});
