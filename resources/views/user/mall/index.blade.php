@@ -24,12 +24,14 @@
                                 <div class="box-body">
                                     <label>{{trans('mall.flows_per_month')}}</label>
                                     <div class="checkbox icheck">
-                                        <label>
+                                        <div class="row">
                                         @foreach ($combos as $combo)
-                                            <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" />
-                                            <span style="font-weight: 900;font-size: 1.2em;">{{$combo->name}}</span>
+                                            <div class="col-xs-6 col-md-3">
+                                                <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" />
+                                                <span style="font-weight: 900;font-size: 1.2em;">{{$combo->name}}</span>
+                                            </div>
                                         @endforeach
-                                        </label>
+                                        </div>
                                     </div>
 
                                     <label>{{trans('mall.duration')}}</label>
