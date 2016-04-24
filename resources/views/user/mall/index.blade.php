@@ -25,9 +25,9 @@
                                     <label>{{trans('mall.flows_per_month')}}</label>
                                     <div class="checkbox icheck">
                                         <label>
-                                        @foreach ($products as $product)
-                                            <input type="radio" name="product" data-price="{{$product->price}}" class="flat-blue" />
-                                            <span style="font-weight: 900;font-size: 1.2em;">{{$product->name}}</span>
+                                        @foreach ($combos as $combo)
+                                            <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" />
+                                            <span style="font-weight: 900;font-size: 1.2em;">{{$combo->name}}</span>
                                         @endforeach
                                         </label>
                                     </div>
