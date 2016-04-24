@@ -46,9 +46,9 @@
                                             <li>7</li>
                                             <li>8</li>
                                             <li>9</li>
+                                            <li>10</li>
+                                            <li>11</li>
                                             <li>1{{trans('mall.years')}}</li>
-                                            <li>2{{trans('mall.years')}}</li>
-                                            <li>3{{trans('mall.years')}}</li>
                                         </ul>
 
                                         <div class="slider-bar">
@@ -62,9 +62,9 @@
                                                 <li>7<span>7{{trans('mall.months')}}</span></li>
                                                 <li>8<span>8{{trans('mall.months')}}</span></li>
                                                 <li>9<span>9{{trans('mall.months')}}</span></li>
+                                                <li>10<span>10{{trans('mall.months')}}</span></li>
+                                                <li>11<span>11{{trans('mall.months')}}</span></li>
                                                 <li>1{{trans('mall.years')}}<span>1{{trans('mall.years')}}</span></li>
-                                                <li>2{{trans('mall.years')}}<span>2{{trans('mall.years')}}</span></li>
-                                                <li>3{{trans('mall.years')}}<span>3{{trans('mall.years')}}</span></li>
                                             </ul>
                                             <a class="slider-bar-btn"><i></i><i></i></a>
                                         </div>
