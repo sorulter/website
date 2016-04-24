@@ -77,7 +77,7 @@
                         <div class="col-xs-12 col-md-4">
                             <div class="box box-solid table-responsive no-padding">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">{{trans('mall.price')}}</h3>
+                                    <h3 class="box-title">{{trans('mall.fees')}}</h3>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
