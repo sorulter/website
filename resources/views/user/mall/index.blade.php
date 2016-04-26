@@ -14,7 +14,8 @@
         <div class="tab-content">
             <div class="tab-pane active" id="combo">
                 <div class="row">
-                    <form class="form-group" action="#" method="post">
+                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post" target="_blank">
+                        {!! csrf_field() !!}
                         <div class="col-xs-12 col-md-8">
                             <div class="box box-solid table-responsive no-padding">
                                 <div class="box-header with-border">
@@ -27,7 +28,7 @@
                                         <div class="row">
                                         @foreach ($combos as $combo)
                                             <div class="col-xs-6 col-md-3">
-                                                <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" />
+                                                <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" value="{{$combo->id}}"/>
                                                 <span style="font-weight: 900;font-size: 1.2em;">{{$combo->name}}</span>
                                             </div>
                                         @endforeach
