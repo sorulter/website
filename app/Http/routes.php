@@ -72,6 +72,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
         // Mall routes...
         Route::get('mall', ['as' => '/mall', 'uses' => 'MallController@index']);
+        Route::post('mall/payment', ['as' => '/mall/payment', 'uses' => 'MallController@payment']);
 
     });
 
