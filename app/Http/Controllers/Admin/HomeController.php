@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function getIndex()
     {
-        $minutes = 0;
+        $minutes = 1;
         $topUsed = Cache::remember('topUsed', $minutes, function () {
             return Flows::orderBy('used', 'desc')->take(env('TOPNUM'))->get();
         });
