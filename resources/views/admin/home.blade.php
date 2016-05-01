@@ -65,6 +65,10 @@
                             <td>PaidDAU</td>
                             <td>{{ $paid_dau }}</td>
                         </tr>
+                        <tr>
+                            <td>Revenue</td>
+                            <td>￥ {{ $revenue }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
