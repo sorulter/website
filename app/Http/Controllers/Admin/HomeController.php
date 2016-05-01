@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Flows;
+use App\Model\Order;
 use Cache;
 use DB;
 
@@ -26,7 +27,11 @@ class HomeController extends Controller
         $paid_dau = Cache::remember('PaidDAU', $minutes, function () {
             return Flows::where('used', '>', 0)->where(DB::raw('(free + combo_flows)'), '>', env('FREE_FLOWS'))->where('updated_at', '>', DB::raw('CURDATE()'))->count('user_id');
         });
+        $revenue = Cache::remember('revenue', $minutes, function () {
+            return Order::where('state', '=', 'TRADE_FINISHED')->where(DB::raw("date_format(updated_at, '%Y-%m')"), ">=", DB::raw("date_format(DATE_ADD(UTC_TIMESTAMP(),INTERVAL 8 HOUR),'%Y-%m-%d')"))->sum('amount');
+        });
         return view('admin.home')
+            ->withRevenue($revenue)
             ->withPaidDau($paid_dau)
             ->withDau($dau)
             ->withTopUsed($topUsed);
