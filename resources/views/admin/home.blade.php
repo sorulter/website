@@ -54,10 +54,6 @@
                 <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <td>Title</td>
-                            <td>Content</td>
-                        </tr>
-                        <tr>
                             <td>DAU</td>
                             <td>{{ $dau }}</td>
                         </tr>
