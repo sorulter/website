@@ -73,7 +73,7 @@
                     @endif
                     <select class="form-control" name="type">
                         <option value="combo">Combo</option>
-                        <option value="free">Free</option>
+                        <option value="forever">Forever</option>
                     </select>
                     <!-- /.input group -->
                 </div>

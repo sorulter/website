@@ -8,7 +8,7 @@
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#combo" data-toggle="tab" class="fa-lg">{{trans('mall.combo_flows')}}</a></li>
-                <li><a href="#free" data-toggle="tab" class="fa-lg">{{trans('mall.forever_flows')}}</a></li>
+                <li><a href="#forever" data-toggle="tab" class="fa-lg">{{trans('mall.forever_flows')}}</a></li>
             </ul>
         </div>
         <div class="tab-content">
@@ -111,8 +111,8 @@
 
             </div>
             <!-- /.tab-pane -->
-            <div class="tab-pane" id="free">
             	<h1>forever</h1>
+            <div class="tab-pane" id="forever">
             </div>
             <!-- /.tab-pane -->
         </div>

@@ -73,7 +73,7 @@
                     @endif
                     <select class="form-control" name="type">
                         <option value="combo" @if ($product->type=="combo") selected @endif>Combo</option>
-                        <option value="free" @if ($product->type=="free") selected @endif>Free</option>
+                        <option value="forever" @if ($product->type=="forever") selected @endif>Forever</option>
                     </select>
                     <!-- /.input group -->
                 </div>
