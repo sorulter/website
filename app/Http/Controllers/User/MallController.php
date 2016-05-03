@@ -16,6 +16,7 @@ class MallController extends Controller
     {
         $products = new Products;
         return view('user.mall.index')->withTitle(trans('mall.title'))
+            ->withForevers($products->where('type', '=', 'forever')->orderBy('price', 'DESC')->get())
             ->withCombos($products->where('type', '=', 'combo')->orderBy('price', 'DESC')->get());
     }
 
