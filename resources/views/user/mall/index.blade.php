@@ -87,15 +87,15 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xs-6">
                                             <small>{{ trans('mall.orig') }}</small>
-                                            <h5><i class="fa text-red">￥ <span id="orig">0.00</span></i></h5>
+                                            <h5><i class="fa text-red">￥ <span class="orig">0.00</span></i></h5>
                                         </div>
                                         <div class="col-md-6 col-xs-6">
                                             <small>{{ trans('mall.discount') }}</small>
-                                            <h5><i class="fa text-green">￥ <span id="discount">0.00</span></i></h5>
+                                            <h5><i class="fa text-green">￥ <span class="discount">0.00</span></i></h5>
                                         </div>
                                     </div>
                                     <small>{{ trans('mall.subtotal') }}</small>
-                                    <h3><i class="fa text-yellow">￥ <span id="subtotal">0.00</span></i></h3>
+                                    <h3><i class="fa text-yellow">￥ <span class="subtotal">0.00</span></i></h3>
 
                                     <div class="checkbox icheck">
                                         <input type="radio" name="payment" class="flat-red" data-rate="0.01" value="alipay" checked />
