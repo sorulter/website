@@ -238,8 +238,12 @@ function price(id) {
 
 $(function() {
 
-    $('#combo input[name=product]')[0].checked = true;
-    $('#forever input[name=product]')[0].checked = true;
+    if ($('#combo input[name=product]').length > 0) {
+    	$('#combo input[name=product]')[0].checked = true;
+    }
+    if ($('#forever input[name=product]').length) {
+    	$('#forever input[name=product]')[0].checked = true;
+    }
 
     $('#combo input[name=product]').on("ifChecked", function() {price('#combo')});
     $('#forever input[name=product]').on("ifChecked", function() {price('#forever')});
