@@ -13,4 +13,7 @@ return [
     'discount' => '优惠',
     'subtotal' => '应付',
     'pay' => '立即购买',
+
+    'flows_package' => '流量包',
+    'quantity' => '购买数量',
 ];
