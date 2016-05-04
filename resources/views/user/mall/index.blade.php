@@ -215,27 +215,28 @@
 <script src="{{env('CDN_BASE')}}/static/js/price.jquery.js"></script>
 <script src="{{env('CDN_BASE')}}/static/plugins/iCheck/icheck.min.js"></script>
 <script type="text/javascript">
+function price(id) {
+    unit_price = Number($(id +' input[name=product]:checked').attr('data-price')).toFixed(2);
+    fee_rate = Number($(id +' input[name=payment]:checked').attr('data-rate')).toFixed(2);
+    index = Number($(id +' input[name=index]').val());
+    fee = (index+1)*unit_price*fee_rate;
+    orig = (index+1)*unit_price+fee;
+
+    // Calc discount.
+    discount = 0;
+    if ($(id + ' input[name=payment]:checked').val() == 'alipay') {
+        discount = discount+fee;
+    }
+
+    // subtotal
+    subtotal = orig - discount;
+
+    $(id + ' .orig').text(orig);
+    $(id + ' .discount').text(discount.toFixed(2));
+    $(id + ' .subtotal').text(subtotal.toFixed(2));
+};
+
 $(function() {
-    function price(id) {
-        unit_price = Number($(id +' input[name=product]:checked').attr('data-price')).toFixed(2);
-        fee_rate = Number($(id +' input[name=payment]:checked').attr('data-rate')).toFixed(2);
-        index = Number($(id +' input[name=index]').val());
-        fee = (index+1)*unit_price*fee_rate;
-        orig = (index+1)*unit_price+fee;
-
-        // Calc discount.
-        discount = 0;
-        if ($(id + ' input[name=payment]:checked').val() == 'alipay') {
-            discount = discount+fee;
-        }
-
-        // subtotal
-        subtotal = orig - discount;
-
-        $(id + ' .orig').text(orig);
-        $(id + ' .discount').text(discount.toFixed(2));
-        $(id + ' .subtotal').text(subtotal.toFixed(2));
-    };
 
     $('#combo input[name=product]')[0].checked = true;
     $('#forever input[name=product]')[0].checked = true;
