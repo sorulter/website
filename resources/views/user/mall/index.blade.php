@@ -216,36 +216,54 @@
 <script src="{{env('CDN_BASE')}}/static/plugins/iCheck/icheck.min.js"></script>
 <script type="text/javascript">
 $(function() {
-    function price() {
-        unit_price = Number($('input[name=product]:checked').attr('data-price')).toFixed(2);
-        fee_rate = Number($('input[name=payment]:checked').attr('data-rate')).toFixed(2);
-        index = Number($('input[name=index]').val());
+    function price(id) {
+        unit_price = Number($(id +' input[name=product]:checked').attr('data-price')).toFixed(2);
+        fee_rate = Number($(id +' input[name=payment]:checked').attr('data-rate')).toFixed(2);
+        index = Number($(id +' input[name=index]').val());
         fee = (index+1)*unit_price*fee_rate;
         orig = (index+1)*unit_price+fee;
 
         // Calc discount.
         discount = 0;
-        if ($('input[name=payment]:checked').val() == 'alipay') {
+        if ($(id + ' input[name=payment]:checked').val() == 'alipay') {
             discount = discount+fee;
         }
 
         // subtotal
         subtotal = orig - discount;
 
-        $('#orig').text(orig);
-        $('#discount').text(discount.toFixed(2));
-        $('#subtotal').text(subtotal.toFixed(2));
+        $(id + ' .orig').text(orig);
+        $(id + ' .discount').text(discount.toFixed(2));
+        $(id + ' .subtotal').text(subtotal.toFixed(2));
     };
-    $('input[name=product]')[0].checked = true;
-    $('input[name=product]').on("ifChecked", function() {price()});
-    price();
+
+    $('#combo input[name=product]')[0].checked = true;
+    $('#forever input[name=product]')[0].checked = true;
+
+    $('#combo input[name=product]').on("ifChecked", function() {price('#combo')});
+    $('#forever input[name=product]').on("ifChecked", function() {price('#forever')});
+    price('#combo');
+
+    $('a[data-toggle=tab][href="#combo"]').on("click", function() {
+        price('#combo');
+    });
+    $('a[data-toggle=tab][href="#forever"]').on("click", function() {
+        price('#forever');
+    });
 
     $("#slider-date-combo").sliderDate({
         callback: function(index){
-            $('input[name=index]').val(index);
-            price();
+            $('#combo input[name=index]').val(index);
+            price('#combo');
         }
     });
+    $("#slider-quantity-forever").sliderDate({
+        callback: function(index){
+            $('#forever input[name=index]').val(index);
+            price('#forever');
+        }
+    });
+
 
     $('input[type=radio]').iCheck({
         checkboxClass: 'icheckbox_square-blue',
