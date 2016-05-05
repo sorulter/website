@@ -180,25 +180,25 @@ class BillingController extends Controller
 
                 switch ($order->amount) {
 
-                    // free flows
+                    // forever flows
                     case '10.00':
-                        $flows->increment('free', 1 * GB);
+                        $flows->increment('forever', 1 * GB);
                         break;
 
                     case '55.00':
-                        $flows->increment('free', 6 * GB);
+                        $flows->increment('forever', 6 * GB);
                         break;
 
                     case '100.00':
-                        $flows->increment('free', 12 * GB);
+                        $flows->increment('forever', 12 * GB);
                         break;
 
                     case '500.00':
-                        $flows->increment('free', 60 * GB);
+                        $flows->increment('forever', 60 * GB);
                         break;
 
                     case '1000.00':
-                        $flows->increment('free', 120 * GB);
+                        $flows->increment('forever', 120 * GB);
                         break;
 
                     // combo flows
