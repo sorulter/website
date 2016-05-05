@@ -54,30 +54,32 @@ class ResetFlows extends Command
 
             foreach ($flows as $flow) {
 
-                $overflow = $flow->used - ($flow->free + $flow->combo_flows);
+                $overflow = $flow->used - ($flow->forever + $flow->combo + $flow->extra);
                 $raw = clone $flow;
 
                 // 1. Enough or overflow.
                 if ($overflow >= 0) {
                     $flow->used = $overflow;
-                    $flow->free = 0;
+                    $flow->forever = 0;
                 }
 
                 // 2. Not used all,but combo is enough or overflow.
-                if ($overflow < 0 && $raw->used >= $raw->combo_flows) {
-                    $flow->free = $flow->free - $flow->used + $flow->combo_flows;
+                if ($overflow < 0 && $raw->used >= $raw->combo + $raw->extra) {
+                    $flow->forever = $flow->forever - $flow->used + $flow->combo + $flow->extra;
                     $flow->used = 0;
                 }
 
                 // 3. Combo is not used all.
-                if ($overflow < 0 && $raw->used < $raw->combo_flows) {
+                if ($overflow < 0 && $raw->used < $raw->combo) {
                     $flow->used = 0;
                 }
 
                 // User no combo flows.
                 if ($flow->combo_end_date <= $today) {
-                    $flow->combo_flows = 0;
+                    $flow->combo = 0;
                 }
+
+                $flow->extra = 0;
 
                 // Store to db.
                 $flow->save();
