@@ -28,7 +28,7 @@
                         <th>Hash ID</th>
                         <th>Node/Port</th>
                         <th>Used(MB)</th>
-                        <th>Free/Combo(MB)</th>
+                        <th>F/C/E(MB)</th>
                         <th>Last Login | Conn</th>
                         <th>Actions</th>
                     </tr>
@@ -40,7 +40,7 @@
                         @if ($item->activate == 1)
                         <td><span class="label label-info">{{$item->port->node_name }}</span><span class="label label-warning">{{$item->port->port }}</span></td>
                         <td>{{$item->flows->used/MB }}</td>
-                        <td>{{$item->flows->free/MB }} / {{$item->flows->combo_flows/MB }}</td>
+                        <td>{{$item->flows->forever/MB }} / {{$item->flows->combo/MB }} / {{$item->flows->extra}}</td>
                         @elseif ($item->activate == 0)
                         <td>
                             <a href="{{ route('admin/users/activate', $item->id) }}" class="label label-info">Activate</a>

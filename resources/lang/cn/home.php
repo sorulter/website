@@ -1,7 +1,7 @@
 <?php
 return [
     'account_info' => '帐户信息',
-    'free_flows' => '永久流量',
+    'forever_flows' => '永久流量',
     'combo_flows' => '套餐流量',
     'used_flows' => '已经使用',
     'front_end' => '接入点',

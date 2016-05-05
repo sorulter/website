@@ -1,7 +1,7 @@
 <?php
 return [
     'account_info' => 'Account Info',
-    'free_flows' => 'Free Flows',
+    'forever_flows' => 'Forever Flows',
     'combo_flows' => 'Combo Flows',
     'used_flows' => 'Used Flows',
     'front_end' => 'Front End',

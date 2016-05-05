@@ -30,7 +30,7 @@ class Flows extends Model
             $end = $end->add(new DateInterval("P{$month}M"));
         }
 
-        $this->combo_flows = $flows;
+        $this->combo = $flows;
         $this->combo_end_date = $end;
         return $this->save();
     }
