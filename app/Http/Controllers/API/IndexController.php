@@ -67,8 +67,8 @@ class IndexController extends BaseController
                 'node' => $this->user->port->node_name,
                 'port' => $this->user->port->port,
                 'used' => $this->user->flows->used,
-                'free' => $this->user->flows->free,
-                'combo_flows' => $this->user->flows->combo_flows,
+                'free' => $this->user->flows->forever,
+                'combo_flows' => $this->user->flows->combo,
                 'combo_end_date' => $this->user->flows->combo_end_date,
             ];
             $api->data = (object) $data;
