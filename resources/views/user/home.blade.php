@@ -45,7 +45,7 @@
                     <tbody>
                         @if ($user->activate == 1)
                             <tr>
-                                <td><span><i class="fa fa-btc"></i>&emsp;{{trans('home.free_flows')}}</span></td>
+                                <td><span><i class="fa fa-btc"></i>&emsp;{{trans('home.forever_flows')}}</span></td>
                                 <td><span title="{{$user->flows->Free}} Bytes">{{$user->flows->forever/MB}} MB</span></td>
                             </tr>
                             <tr>
