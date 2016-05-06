@@ -37,7 +37,7 @@ class ActivationController extends Controller
                 $order->save();
 
                 $flows = Flows::where('user_id', '=', $user->id)->first();
-                $flows->free = env('FREE_FLOWS');
+                $flows->forever = env('FREE_FLOWS');
                 $flows->save();
             }
 
