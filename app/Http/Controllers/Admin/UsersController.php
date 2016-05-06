@@ -112,14 +112,14 @@ class UsersController extends Controller
         $title = trans('base.gift_to_user', ['flows' => $flows]);
         $msg = trans('base.gift_msg', ['flows' => $flows, 'email' => $to->email]);
 
-        // charge free flows to try.
+        // Gift forever flows.
         $order = new Order;
         $order->order(0, $to->id);
         $order->state = 'TRADE_FINISHED';
         $order->save();
 
         $flowsModel = Flows::where('user_id', '=', $to->id)->first();
-        $flowsModel->free += $flows * MB;
+        $flowsModel->forever += $flows * MB;
         $flowsModel->save();
 
         Mail::laterOn('default', 10, 'emails.msg', ['user' => $to, 'title' => $title, 'msg' => $msg], function ($m) use ($to, $title) {
