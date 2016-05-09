@@ -4,6 +4,7 @@ namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Model\Products;
+use App\Model\Flows;
 
 class MallController extends Controller
 {
@@ -15,7 +16,13 @@ class MallController extends Controller
     public function index()
     {
         $products = new Products;
+        $hasCombo = Flows::where('user_id', '=', request()->user()->id)
+        ->where('combo', '>', 0)
+        ->where('combo_end_date', '>', date('Y-m-d'))
+        ->first();
+
         return view('user.mall.index')->withTitle(trans('mall.title'))
+            ->withHasCombo($hasCombo)
             ->withForevers($products->where('type', '=', 'forever')->orderBy('price', 'DESC')->get())
             ->withCombos($products->where('type', '=', 'combo')->orderBy('price', 'DESC')->get());
     }
