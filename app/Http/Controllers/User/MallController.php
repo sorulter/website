@@ -23,6 +23,7 @@ class MallController extends Controller
 
         return view('user.mall.index')->withTitle(trans('mall.title'))
             ->withHasCombo($hasCombo)
+            ->withExtras($products->where('type', '=', 'extra')->orderBy('price', 'DESC')->get())
             ->withForevers($products->where('type', '=', 'forever')->orderBy('price', 'DESC')->get())
             ->withCombos($products->where('type', '=', 'combo')->orderBy('price', 'DESC')->get());
     }

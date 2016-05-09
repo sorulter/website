@@ -9,6 +9,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#combo" data-toggle="tab" class="fa-lg">{{trans('mall.combo_flows')}}</a></li>
                 <li><a href="#forever" data-toggle="tab" class="fa-lg">{{trans('mall.forever_flows')}}</a></li>
+                <li><a href="#extra" data-toggle="tab" class="fa-lg">{{trans('mall.extra_flows')}}</a></li>
             </ul>
         </div>
         <div class="tab-content">
@@ -165,6 +166,104 @@
                                             <a class="slider-bar-btn"><i></i><i></i></a>
                                         </div>
                                     </div>
+
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="box box-solid table-responsive no-padding">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">{{trans('mall.fees')}}</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6">
+                                            <small>{{ trans('mall.orig') }}</small>
+                                            <h5><i class="fa text-red">￥ <span class="orig">0.00</span></i></h5>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <small>{{ trans('mall.discount') }}</small>
+                                            <h5><i class="fa text-green">￥ <span class="discount">0.00</span></i></h5>
+                                        </div>
+                                    </div>
+                                    <small>{{ trans('mall.subtotal') }}</small>
+                                    <h3><i class="fa text-yellow">￥ <span class="subtotal">0.00</span></i></h3>
+
+                                    <div class="checkbox icheck">
+                                        <input type="radio" name="payment" class="flat-red" data-rate="0.01" value="alipay" checked />
+                                        <span><img style="height: 3em;" src="{{env('CDN_BASE')}}/static/images/alipay.gif"></span>
+                                    </div>
+                                    <button type="submit" class="btn btn-warning btn-flat col-xs-12">{{trans('mall.pay')}}</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <!-- /.tab-pane -->
+
+            <div class="tab-pane" id="extra">
+                <div class="row">
+                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post" target="_blank">
+                        {!! csrf_field() !!}
+                        <div class="col-xs-12 col-md-8">
+                            <div class="box box-solid table-responsive no-padding">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">{{trans('mall.products')}}</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                @if ($has_combo)
+                                    <label>{{trans('mall.extra_flows_package')}}</label>
+                                    <div class="checkbox icheck">
+                                        <div class="row">
+                                        @foreach ($extras as $extra)
+                                            <div class="col-xs-6 col-md-3">
+                                                <input type="radio" name="product" data-price="{{$extra->price}}" class="flat-blue" value="{{$extra->id}}"/>
+                                                <span style="font-weight: 900;font-size: 1.2em;">{{$extra->name}}</span>
+                                            </div>
+                                        @endforeach
+                                        </div>
+                                    </div>
+
+                                    <label>{{trans('mall.quantity')}}</label><br>
+                                    <div class="slider-date" id="slider-quantity-forever">
+                                        <input type="hidden" name="index" value="0" />
+                                        <!--底层-->
+                                        <ul class="slider-bg clearfix" style="width: 450px;">
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                        </ul>
+
+                                        <div class="slider-bar">
+                                            <ul class="slider-bg clearfix">
+                                                <li>1<span>1{{trans('mall.months')}}</span></li>
+                                                <li>2<span>2{{trans('mall.months')}}</span></li>
+                                                <li>3<span>3{{trans('mall.months')}}</span></li>
+                                                <li>4<span>4{{trans('mall.months')}}</span></li>
+                                                <li>5<span>5{{trans('mall.months')}}</span></li>
+                                                <li>6<span>6{{trans('mall.months')}}</span></li>
+                                                <li>7<span>7{{trans('mall.months')}}</span></li>
+                                                <li>8<span>8{{trans('mall.months')}}</span></li>
+                                                <li>9<span>8{{trans('mall.months')}}</span></li>
+                                            </ul>
+                                            <a class="slider-bar-btn"><i></i><i></i></a>
+                                        </div>
+                                    </div>
+                                @else
+                                    <h2>{{trans('mall.only_for_user_bought_combo')}}</h2>
+                                @endif
 
                                 </div>
                                 <!-- /.box-body -->
