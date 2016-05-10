@@ -231,7 +231,7 @@
                                     </div>
 
                                     <label>{{trans('mall.quantity')}}</label><br>
-                                    <div class="slider-date" id="slider-quantity-forever">
+                                    <div class="slider-date" id="slider-quantity-extra">
                                         <input type="hidden" name="index" value="0" />
                                         <!--底层-->
                                         <ul class="slider-bg clearfix" style="width: 450px;">
@@ -341,11 +341,15 @@ $(function() {
     	$('#combo input[name=product]')[0].checked = true;
     }
     if ($('#forever input[name=product]').length) {
-    	$('#forever input[name=product]')[0].checked = true;
+        $('#forever input[name=product]')[0].checked = true;
+    }
+    if ($('#extra input[name=product]').length) {
+    	$('#extra input[name=product]')[0].checked = true;
     }
 
     $('#combo input[name=product]').on("ifChecked", function() {price('#combo')});
     $('#forever input[name=product]').on("ifChecked", function() {price('#forever')});
+    $('#extra input[name=product]').on("ifChecked", function() {price('#extra')});
     price('#combo');
 
     $('a[data-toggle=tab][href="#combo"]').on("click", function() {
@@ -353,6 +357,9 @@ $(function() {
     });
     $('a[data-toggle=tab][href="#forever"]').on("click", function() {
         price('#forever');
+    });
+    $('a[data-toggle=tab][href="#extra"]').on("click", function() {
+        price('#extra');
     });
 
     $("#slider-date-combo").sliderDate({
@@ -365,6 +372,12 @@ $(function() {
         callback: function(index){
             $('#forever input[name=index]').val(index);
             price('#forever');
+        }
+    });
+    $("#slider-quantity-extra").sliderDate({
+        callback: function(index){
+            $('#extra input[name=index]').val(index);
+            price('#extra');
         }
     });
 
