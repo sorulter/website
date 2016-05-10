@@ -74,6 +74,7 @@
                     <select class="form-control" name="type">
                         <option value="combo">Combo</option>
                         <option value="forever">Forever</option>
+                        <option value="extra">Extra</option>
                     </select>
                     <!-- /.input group -->
                 </div>
