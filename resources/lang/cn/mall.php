@@ -16,4 +16,7 @@ return [
 
     'flows_package' => '流量包',
     'quantity' => '购买数量',
+    'extra_flows' => '加油包',
+    'extra_flows_package' => '流量加油包',
+    'only_for_user_bought_combo' => '仅限包年包月用户购买',
 ];
