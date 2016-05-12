@@ -102,7 +102,7 @@
                                         <input type="radio" name="payment" class="flat-red" data-rate="0.01" value="alipay" checked />
                                         <span><img style="height: 3em;" src="{{env('CDN_BASE')}}/static/images/alipay.gif"></span>
                                     </div>
-                                    <button type="submit" class="btn btn-warning btn-flat col-xs-12">{{trans('mall.pay')}}</button>
+                                    <button type="submit" class="btn btn-warning buy btn-flat col-xs-12">{{trans('mall.pay')}}</button>
 
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                                         <input type="radio" name="payment" class="flat-red" data-rate="0.01" value="alipay" checked />
                                         <span><img style="height: 3em;" src="{{env('CDN_BASE')}}/static/images/alipay.gif"></span>
                                     </div>
-                                    <button type="submit" class="btn btn-warning btn-flat col-xs-12">{{trans('mall.pay')}}</button>
+                                    <button type="submit" class="btn btn-warning buy btn-flat col-xs-12">{{trans('mall.pay')}}</button>
 
                                 </div>
                             </div>
@@ -293,7 +293,7 @@
                                         <input type="radio" name="payment" class="flat-red" data-rate="0.01" value="alipay" checked />
                                         <span><img style="height: 3em;" src="{{env('CDN_BASE')}}/static/images/alipay.gif"></span>
                                     </div>
-                                    <button type="submit" class="btn btn-warning btn-flat col-xs-12">{{trans('mall.pay')}}</button>
+                                    <button type="submit" class="btn btn-warning buy btn-flat col-xs-12">{{trans('mall.pay')}}</button>
 
                                 </div>
                             </div>
@@ -333,6 +333,11 @@ function price(id) {
     $(id + ' .orig').text(orig);
     $(id + ' .discount').text(discount.toFixed(2));
     $(id + ' .subtotal').text(subtotal.toFixed(2));
+    if (subtotal>0) {
+        $('.buy').attr('type', 'submit');
+    } else {
+        $('.buy').attr('type', 'button');
+    }
 };
 
 $(function() {
