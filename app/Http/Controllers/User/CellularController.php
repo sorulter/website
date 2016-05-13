@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace app\Http\Controllers\User;
 
 use Agent;
 use App;
@@ -14,7 +14,7 @@ class CellularController extends Controller
     public function __construct()
     {
         parent::__construct();
-        if (!(Agent::is('iPhone') && Agent::is('Safari')) && !App::runningInConsole()) {
+        if (!(Agent::is('iOS') && Agent::is('Safari')) && !App::runningInConsole()) {
             return abort(404);
         }
     }

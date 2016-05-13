@@ -92,7 +92,7 @@
                                 <td><span><i class="fa fa-ticket"></i>&emsp;{{trans('home.pac_url')}}</span></td>
                                 <td>{{env('PAC_BASE_URL')}}{{ App\id2hash($user->id)}}</td>
                             </tr>
-                            @if (Agent::is('iPhone') && Agent::is('Safari'))
+                            @if (Agent::is('iOS') && Agent::is('Safari'))
                                 <tr>
                                     <td><span><i class="fa fa-apple"></i>&emsp;iOS 3/4G</span></td>
                                     <td><a href="{{route('user/cellular')}}">Download</a></td>
