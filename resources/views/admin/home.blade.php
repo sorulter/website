@@ -24,7 +24,7 @@
                         </tr>
                         @foreach ($top_used as $flows)
                         <tr>
-                            <td>{{ $flows->used/MB }} MB</td>
+                            <td>{{ number_format($flows->used/MB, 2) }}MB</td>
                             <td>{{ $flows->user->id }}</td>
                             <td>{{ $flows->user->email }}</td>
                             <td>{{ $flows->updated_at }}</td>
