@@ -15,7 +15,7 @@
                 </tr>
                 @foreach ($logs as $log)
                 <tr>
-                    <td>{{$log->flows/MB}}</td>
+                    <td>{{number_format($log->flows/MB,4)}}</td>
                     <td>{{$log->node}}</td>
                     <td><?php $record = QQWry::query(long2ip($log->client_ip));?>{{$record['country']}}/{{$record['area']}}</td>
                     <td>{{long2ip($log->client_ip)}}</td>

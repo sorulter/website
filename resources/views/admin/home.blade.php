@@ -31,7 +31,7 @@
                             @else
                             <td>{{ $flows->user->email }}</td>
                             @endif
-                            <td>{{ $flows->updated_at }}</td>
+                            <td>{{ mb_substr($flows->updated_at ,5) }}</td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -33,7 +33,7 @@
                         <td>{{$order->user_id}}</td>
                         <td>￥{{ $order->amount }}</td>
                         <td>{{$order->state}}</td>
-                        <td>{{$order->created_at}}</td>
+                        <td>{{mb_substr($order->created_at, 5)}}</td>
                         <td>{{$order->updated_at}}</td>
                     </tr>
                     @endforeach
