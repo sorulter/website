@@ -3,8 +3,8 @@
 namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Model\Products;
 use App\Model\Flows;
+use App\Model\Products;
 
 class MallController extends Controller
 {
@@ -17,9 +17,9 @@ class MallController extends Controller
     {
         $products = new Products;
         $hasCombo = Flows::where('user_id', '=', request()->user()->id)
-        ->where('combo', '>', 0)
-        ->where('combo_end_date', '>', date('Y-m-d'))
-        ->first();
+            ->where('combo', '>', 0)
+            ->where('combo_end_date', '>', date('Y-m-d'))
+            ->first();
 
         return view('user.mall.index')->withTitle(trans('mall.title'))
             ->withHasCombo($hasCombo)
@@ -30,11 +30,23 @@ class MallController extends Controller
 
     public function payment()
     {
+        $this->validate(request(), [
+            'product' => 'exists:products,id',
+            'index' => 'required|in:0,1,2,3,4,5,6,7,8,9,10,11',
+            'payment' => 'required|in:alipay',
+        ]);
+
         $discount = 0;
         $input = request()->all();
+        $product = Products::find($input['product']);
+        if ($product->type !== 'combo') {
+            $this->validate(request(), [
+                'index' => 'required|in:0,1,2,3,4,5,6,7,8',
+            ]);
+        }
 
         $fee_rate = 0.01;
-        $unit_price = Products::find($input['product'])->price;
+        $unit_price = $product->price;
         $fee = ($input['index'] + 1) * $unit_price * $fee_rate;
         $orig = ($input['index'] + 1) * $unit_price + $fee;
 
