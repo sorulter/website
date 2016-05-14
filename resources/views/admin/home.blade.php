@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{ number_format($flows->used/MB, 2) }}MB</td>
                             <td>{{ $flows->user->id }}</td>
-                            @if (mb_strlen($flows->user->email) > 20)
+                            @if (mb_strlen($flows->user->email) > 19)
                             <td>{{ mb_substr(mb_split('@', $flows->user->email)[0], 0, 19) }}</td>
                             @else
                             <td>{{ $flows->user->email }}</td>
