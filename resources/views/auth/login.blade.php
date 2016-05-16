@@ -7,7 +7,7 @@ iProxier › {{ trans('base.login') }}
 
 @section('content')
 <!-- iCheck -->
-<link rel="stylesheet" href="{{ asset("/static/plugins/iCheck/square/blue.css") }}">
+<link rel="stylesheet" href="{{env('CDN_BASE')}}/static/plugins/iCheck/square/blue.css">
   <div class="login-box">
     <div class="login-box-body">
       <p class="login-box-msg">{{ trans('base.login_subtitle') }}</p>
@@ -53,7 +53,7 @@ iProxier › {{ trans('base.login') }}
 
 @section('js')
 <!-- iCheck -->
-<script src="{{ asset("/static/plugins/iCheck/icheck.min.js") }}"></script>
+<script src="{{env('CDN_BASE')}}/static/plugins/iCheck/icheck.min.js"></script>
 
   <script type="text/javascript">
   $(function () {

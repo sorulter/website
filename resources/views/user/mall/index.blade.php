@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="{{env('CDN_BASE')}}/static/css/price.jquery.css">
-<link rel="stylesheet" href="{{ asset("/static/plugins/iCheck/square/blue.css") }}">
+<link rel="stylesheet" href="{{env('CDN_BASE')}}/static/plugins/iCheck/square/blue.css">
 <div class="row">
     <div class="col-xs-12">
         <div class="nav-tabs-custom">

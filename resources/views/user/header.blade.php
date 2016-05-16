@@ -36,14 +36,14 @@
           <!-- Menu Toggle Button -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- The user image in the navbar-->
-            <img src="{{ $user['avatar'] or asset("/static/default/img/noavatar.png") }}" class="user-image" alt="User Image"/>
+            <img src="{{ env('CDN_BASE') }}{{ $user['avatar'] or "/static/default/img/noavatar.png" }}" class="user-image" alt="User Image"/>
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
             <span class="hidden-xs">{{ $user['email'] or 'Email' }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- The user image in the menu -->
             <li class="user-header">
-              <img src="{{ $user['avatar'] or asset("/static/default/img/noavatar.png") }}" class="img-circle" alt="User Image" />
+              <img src="{{ env('CDN_BASE') }}{{ $user['avatar'] or "/static/default/img/noavatar.png" }}" class="img-circle" alt="User Image" />
               <p>
                 {{ $user['email'] or 'Email' }}
                 <small>{{ $user['created_at'] or 'Member since Nov. 2012' }}</small>

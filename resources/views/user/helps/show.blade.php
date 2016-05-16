@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
-<link rel="stylesheet" type="text/css" href="{{url('/static/css/article.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ env('CDN_BASE')}}/static/css/article.css">
 <div class="box box-widget">
     <div class="box-header with-border">
         <h2 class="box-title">

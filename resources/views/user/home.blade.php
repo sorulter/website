@@ -166,42 +166,42 @@
                 <div class="row">
                     <div class="col-xs-4 text-center">
                         <a href="{{ route('user/helps', env('CONF_IOS_AID')) }}">
-                            <img src="/static/images/icon/ios.png" alt="ios">
+                            <img src="{{ env('CDN_BASE')}}/static/images/icon/ios.png" alt="ios">
                             <span><h4>ios</h4></span>
                         </a>
                     </div>
 
                     <div class="col-xs-4 text-center">
                         <a href="{{ route('user/helps', env('CONF_ANDROID_AID')) }}">
-                            <img src="/static/images/icon/android.png" alt="android">
+                            <img src="{{ env('CDN_BASE')}}/static/images/icon/android.png" alt="android">
                             <span><h4>android</h4></span>
                         </a>
                     </div>
 
                     <div class="col-xs-4 text-center">
                         <a href="{{ route('user/helps', env('CONF_MAC_AID')) }}">
-                            <img src="/static/images/icon/mac.png" alt="mac">
+                            <img src="{{ env('CDN_BASE')}}/static/images/icon/mac.png" alt="mac">
                             <span><h4>mac</h4></span>
                         </a>
                     </div>
 
                     <div class="col-xs-4 text-center">
                         <a href="{{ route('user/helps', env('CONF_WIN_AID')) }}">
-                            <img src="/static/images/icon/windows.png" alt="windows">
+                            <img src="{{ env('CDN_BASE')}}/static/images/icon/windows.png" alt="windows">
                             <span><h4>windows</h4></span>
                         </a>
                     </div>
 
                     <div class="col-xs-4 text-center">
                         <a href="">
-                            <img src="/static/images/icon/control.png" alt="control">
+                            <img src="{{ env('CDN_BASE')}}/static/images/icon/control.png" alt="control">
                             <span><h4>control</h4></span>
                         </a>
                     </div>
 
                     <div class="col-xs-4 text-center">
                         <a href="{{ route('user/helps', '') }}">
-                            <img src="/static/images/icon/more.png" alt="more">
+                            <img src="{{ env('CDN_BASE')}}/static/images/icon/more.png" alt="more">
                             <span><h4>more</h4></span>
                         </a>
                     </div>
