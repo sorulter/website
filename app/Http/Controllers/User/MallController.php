@@ -54,6 +54,19 @@ class MallController extends Controller
             $discount = $discount + $fee;
         }
 
-        $subtotal = $orig - $discount;
+        $amount = $orig - $discount;
+
+        $order = new Order();
+        $order->user_id = request()->user()->id;
+        $order->order_id = date("Ymd-His") . '-' . substr((string) microtime(), 2, 6);
+        $order->state = 'ORDER_CREATED';
+        $order->amount = $amount;
+        $order->quantity = $input['index'] + 1;
+        $order->original = $orig;
+        $order->discount = $discount;
+        $order->product_id = $product->id;
+        $order->unit_price = $product->price;
+        $order->flows_type = $product->type;
+        $order->flows_amount = $product->amount;
     }
 }
