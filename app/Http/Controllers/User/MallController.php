@@ -4,6 +4,7 @@ namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Model\Flows;
+use App\Model\Order;
 use App\Model\Products;
 
 class MallController extends Controller
@@ -20,8 +21,10 @@ class MallController extends Controller
             ->where('combo', '>', 0)
             ->where('combo_end_date', '>', date('Y-m-d'))
             ->first();
+        $count = Order::where('created_at', '>', date('Y-m'))->where('user_id', '=', request()->user()->id)->count();
 
         return view('user.mall.index')->withTitle(trans('mall.title'))
+            ->withCount($count)
             ->withHasCombo($hasCombo)
             ->withExtras($products->where('type', '=', 'extra')->orderBy('price', 'DESC')->get())
             ->withForevers($products->where('type', '=', 'forever')->orderBy('price', 'DESC')->get())
