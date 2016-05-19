@@ -13,6 +13,9 @@
             </ul>
         </div>
         <div class="tab-content">
+        @if ($count != 5)
+            <h1>{{ trans('mall.orders_limit_per_month', ['limit' => env('ORDERS_LIMIT_PER_MONTH')]) }}</h1>
+        @else
             <div class="tab-pane active" id="combo">
                 <div class="row">
                     <form class="form-group" action="{{ route('user/mall/payment') }}" method="post" target="_blank">
@@ -303,6 +306,7 @@
                 </div>
             </div>
             <!-- /.tab-pane -->
+        @endif
         </div>
         <!-- /.tab-content -->
 

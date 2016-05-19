@@ -48,6 +48,10 @@ class MallController extends Controller
             ]);
         }
 
+        if (Order::where('created_at', '>', date('Y-m'))->where('user_id', '=', request()->user()->id)->count() >= 5) {
+            return trans('mall.orders_limit_per_month', ['limit' => env('ORDERS_LIMIT_PER_MONTH')]);
+        }
+
         $fee_rate = 0.01;
         $unit_price = $product->price;
         $fee = ($input['index'] + 1) * $unit_price * $fee_rate;
