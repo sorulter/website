@@ -31,10 +31,19 @@
                                     <div class="checkbox icheck">
                                         <div class="row">
                                         @foreach ($combos as $combo)
+                                        @if ($hasCombo)
+                                            @if ($combo->amount == $hasCombo->combo)
+                                                <div class="col-xs-6 col-md-3">
+                                                    <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" value="{{$combo->id}}"/>
+                                                    <span style="font-weight: 900;font-size: 1.2em;">{{$combo->name}}</span>
+                                                </div>
+                                            @endif
+                                        @else
                                             <div class="col-xs-6 col-md-3">
                                                 <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" value="{{$combo->id}}"/>
                                                 <span style="font-weight: 900;font-size: 1.2em;">{{$combo->name}}</span>
                                             </div>
+                                        @endif
                                         @endforeach
                                         </div>
                                     </div>
