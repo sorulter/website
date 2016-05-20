@@ -31,8 +31,8 @@
                                     <div class="checkbox icheck">
                                         <div class="row">
                                         @foreach ($combos as $combo)
-                                        @if ($hasCombo)
-                                            @if ($combo->amount == $hasCombo->combo)
+                                        @if ($has_combo)
+                                            @if ($combo->amount == $has_combo->combo)
                                                 <div class="col-xs-6 col-md-3">
                                                     <input type="radio" name="product" data-price="{{$combo->price}}" class="flat-blue" value="{{$combo->id}}"/>
                                                     <span style="font-weight: 900;font-size: 1.2em;">{{$combo->name}}</span>
