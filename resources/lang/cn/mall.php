@@ -21,4 +21,5 @@ return [
     'only_for_user_bought_combo' => '仅限包年包月用户购买',
 
     'orders_limit_per_month' => '每月只能下:limit单',
+    'combo_upgrade_notice' => '如需升级套餐，请联系管理员补差价。',
 ];
