@@ -49,9 +49,8 @@ class MallController extends Controller
             ]);
         }
 
-        if (Order::where('created_at', '>', date('Y-m'))
-            ->where('user_id', '=', request()->user()->id)
-            ->count() >= env('ORDERS_LIMIT_PER_MONTH')) {
+        $count = Order::where('created_at', '>', date('Y-m'))->where('user_id', '=', request()->user()->id)->count();
+        if ($count >= env('ORDERS_LIMIT_PER_MONTH')) {
             return view('pub.redirect')
                 ->withTitle(trans('base.tips'))
                 ->withContent(trans('mall.orders_limit_per_month', ['limit' => env('ORDERS_LIMIT_PER_MONTH')]))
