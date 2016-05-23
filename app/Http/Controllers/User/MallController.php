@@ -84,7 +84,7 @@ class MallController extends Controller
         $order->flows_amount = $product->amount;
 
         if ($order->save()) {
-            $gateway = Omnipay::gateway();
+            $gateway = Omnipay::gateway('alipay_v2');
             $options = [
                 'out_trade_no' => $order->order_id,
                 'subject' => "iProxier charge {$order->type} flows: {$order->flows_amount} * {$order->quantity},Total: {$order->amount} RMB",
