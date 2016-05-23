@@ -22,4 +22,6 @@ return [
 
     'orders_limit_per_month' => '每月只能下:limit单',
     'combo_upgrade_notice' => '如需升级套餐，请联系管理员补差价。',
+    'create_order_failed' => '创建订单失败，请重试。',
+    'create_order_success' => '创建订单成功，订单号：:id。为了确保您能够及时收到订购的流量，请完成以下步骤：<h3>1.登录支付宝付款；</h3><h3>2.在支付宝确认收货。</h3>',
 ];
