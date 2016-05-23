@@ -18,7 +18,7 @@
         @else
             <div class="tab-pane active" id="combo">
                 <div class="row">
-                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post" target="_blank">
+                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post">
                         {!! csrf_field() !!}
                         <div class="col-xs-12 col-md-8">
                             <div class="box box-solid table-responsive no-padding">
@@ -127,7 +127,7 @@
             <!-- /.tab-pane -->
             <div class="tab-pane" id="forever">
                 <div class="row">
-                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post" target="_blank">
+                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post">
                         {!! csrf_field() !!}
                         <div class="col-xs-12 col-md-8">
                             <div class="box box-solid table-responsive no-padding">
@@ -221,7 +221,7 @@
 
             <div class="tab-pane" id="extra">
                 <div class="row">
-                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post" target="_blank">
+                    <form class="form-group" action="{{ route('user/mall/payment') }}" method="post">
                         {!! csrf_field() !!}
                         <div class="col-xs-12 col-md-8">
                             <div class="box box-solid table-responsive no-padding">
