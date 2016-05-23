@@ -49,7 +49,12 @@ class MallController extends Controller
         }
 
         if (Order::where('created_at', '>', date('Y-m'))->where('user_id', '=', request()->user()->id)->count() >= 5) {
-            return trans('mall.orders_limit_per_month', ['limit' => env('ORDERS_LIMIT_PER_MONTH')]);
+            return view('pub.redirect')
+                ->withTitle(trans('base.tips'))
+                ->withContent(trans('mall.orders_limit_per_month', ['limit' => env('ORDERS_LIMIT_PER_MONTH')]))
+                ->withType('warning')
+                ->withTime(10)
+                ->withTo(route('user/mall'));
         }
 
         $fee_rate = 0.01;
