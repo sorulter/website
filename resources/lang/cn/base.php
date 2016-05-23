@@ -43,5 +43,6 @@ return [
 
     'need_activate_title' => '务必激活!',
     'need_activate' => '请先激活您的帐号.',
+    'tips' => '提示',
 
 ];
