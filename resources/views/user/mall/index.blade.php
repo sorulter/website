@@ -13,7 +13,7 @@
             </ul>
         </div>
         <div class="tab-content">
-        @if ($count > 5)
+        @if ($count > env('ORDERS_LIMIT_PER_MONTH'))
             <h1>{{ trans('mall.orders_limit_per_month', ['limit' => env('ORDERS_LIMIT_PER_MONTH')]) }}</h1>
         @else
             <div class="tab-pane active" id="combo">
