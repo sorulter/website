@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Flows;
 use App\Model\Order;
 use App\Model\Products;
+use Omnipay;
 
 class MallController extends Controller
 {
@@ -82,5 +83,39 @@ class MallController extends Controller
         $order->unit_price = $product->price;
         $order->flows_type = $product->type;
         $order->flows_amount = $product->amount;
+
+        if ($order->save()) {
+            $gateway = Omnipay::gateway();
+            $options = [
+                'out_trade_no' => $order->order_id,
+                'subject' => "iProxier charge {$order->type} flows: {$order->flows_amount} * {$order->quantity},Total: {$order->amount} RMB",
+                'price' => $order->unit_price,
+                'quantity' => $order->quantity,
+                'payment_type' => '1',
+                'discount' => $discount,
+                'logistics_fee' => $discount,
+                'logistics_type' => 'EXPRESS',
+                'logistics_payment' => 'BUYER_PAY_AFTER_RECEIVE',
+                'receive_name' => request()->user()->email,
+                'receive_address' => 'user@iProxier',
+
+            ];
+            $gateway->setKey(env('ALIPAY_KEY'));
+
+            $response = $gateway->purchase($options)->send();
+
+            return view('pub.payment')
+                ->withTitle(trans('base.tips'))
+                ->withContent(trans('mall.create_order_success', ['id' => $order->order_id]))
+                ->withType('success')
+                ->withTo($response->getRedirectUrl());
+        } else {
+            return view('pub.redirect')
+                ->withTitle(trans('base.tips'))
+                ->withContent(trans('mall.create_order_failed'))
+                ->withType('danger')
+                ->withTime(10)
+                ->withTo(route('user/mall'));
+        };
     }
 }
