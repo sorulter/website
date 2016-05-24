@@ -42,6 +42,8 @@ class AddOrderFields extends Migration
             $table->dropColumn('unit_price');
             $table->dropColumn('flows_type');
             $table->dropColumn('flows_amount');
+            $table->dropColumn('trade_no');
+            $table->dropColumn('buyer_email');
         });
     }
 }
