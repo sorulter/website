@@ -84,30 +84,7 @@ class MallController extends Controller
         $order->flows_amount = $product->amount;
 
         if ($order->save()) {
-            $gateway = Omnipay::gateway('alipay_v2');
-            $options = [
-                'out_trade_no' => $order->order_id,
-                'subject' => "iProxier charge {$order->type} flows: {$order->flows_amount} * {$order->quantity},Total: {$order->amount} RMB",
-                'price' => $order->unit_price,
-                'quantity' => $order->quantity,
-                'payment_type' => '1',
-                'discount' => $discount,
-                'logistics_fee' => $discount,
-                'logistics_type' => 'EXPRESS',
-                'logistics_payment' => 'BUYER_PAY_AFTER_RECEIVE',
-                'receive_name' => request()->user()->email,
-                'receive_address' => 'user@iProxier',
-
-            ];
-            $gateway->setKey(env('ALIPAY_KEY'));
-
-            $response = $gateway->purchase($options)->send();
-
-            return view('pub.payment')
-                ->withTitle(trans('base.tips'))
-                ->withContent(trans('mall.create_order_success', ['id' => $order->order_id]))
-                ->withType('success')
-                ->withTo($response->getRedirectUrl());
+            return redirect()->route('user/mall/waitpay', [$order->id]);
         } else {
             return view('pub.redirect')
                 ->withTitle(trans('base.tips'))
@@ -116,5 +93,40 @@ class MallController extends Controller
                 ->withTime(10)
                 ->withTo(route('user/mall'));
         };
+    }
+
+    public function waitpay($id)
+    {
+        if ($id < 1) {
+            return redirect('user');
+        }
+        $order = Order::find($id);
+        if ($order == null) {
+            return redirect('user');
+        }
+        $gateway = Omnipay::gateway('alipay_v2');
+        $options = [
+            'out_trade_no' => $order->order_id,
+            'subject' => "iProxier charge {$order->type} flows: {$order->flows_amount} * {$order->quantity},Total: {$order->amount} RMB",
+            'price' => $order->unit_price,
+            'quantity' => $order->quantity,
+            'payment_type' => '1',
+            'discount' => $order->discount,
+            'logistics_fee' => $order->discount,
+            'logistics_type' => 'EXPRESS',
+            'logistics_payment' => 'BUYER_PAY_AFTER_RECEIVE',
+            'receive_name' => request()->user()->email,
+            'receive_address' => 'user@iProxier',
+
+        ];
+        $gateway->setKey(env('ALIPAY_KEY'));
+
+        $response = $gateway->purchase($options)->send();
+
+        return view('pub.payment')
+            ->withTitle(trans('base.tips'))
+            ->withContent(trans('mall.create_order_success', ['id' => $order->order_id]))
+            ->withType('success')
+            ->withTo($response->getRedirectUrl());
     }
 }
