@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace app\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 
@@ -15,5 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
         //
         'user/billing/result',
         'api/v1/*',
+        'user/callback/*',
     ];
 }
