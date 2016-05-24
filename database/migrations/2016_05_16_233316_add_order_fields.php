@@ -21,6 +21,9 @@ class AddOrderFields extends Migration
             $table->float('unit_price', 5, 2)->default(0)->after('product_id');
             $table->string('flows_type')->default('')->after('unit_price');
             $table->integer('flows_amount')->default(0)->after('flows_type');
+            // trade info.
+            $table->string('trade_no')->default('')->after('flows_amount');
+            $table->string('buyer_email')->default('')->after('trade_no');
         });
     }
 
