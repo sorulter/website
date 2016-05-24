@@ -79,7 +79,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
     // Without auth middleware.
     Route::any('billing/result', ['as' => '/billing/result', 'uses' => 'BillingController@result']);
-    Route::any('callback/alipay.v2', ['as' => 'callback/alipay.v2', 'uses' => 'CallbackController@alipayV2']);
+    Route::any('callback/alipay.v2', ['as' => '/callback/alipay.v2', 'uses' => 'CallbackController@alipayV2']);
 
 });
 
