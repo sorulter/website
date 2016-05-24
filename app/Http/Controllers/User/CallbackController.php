@@ -89,5 +89,16 @@ class CallbackController extends Controller
             Log::info('callback.alipay.v2 3.user>>redirect user to page for confirm good.');
             return redirect('https://lab.alipay.com/consume/queryTradeDetail.htm?actionName=CONFIRM_GOODS&tradeNo=' . Input::get('trade_no'));
         }
+
+        // 4.trade finished
+        if ($trade_status == 'TRADE_FINISHED' && $order->state == 'WAIT_BUYER_CONFIRM_GOODS') {
+            // todo
+
+            Order::where('order_id', '=', $order_id)->update(['state' => 'TRADE_FINISHED']);
+            Log::info('callback.alipay.v2 4.notify>>trade finished.');
+            return 'success';
+        }
+        Log::error('error trade notify/return.');
+        abort(404);
     }
 }
