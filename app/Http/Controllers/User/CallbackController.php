@@ -67,7 +67,7 @@ class CallbackController extends Controller
                 Log::info('callback.alipay.v2 2.notify>>auto send goods.');
                 return 'success';
             }
-
+        } elseif ($trade_status == 'WAIT_SELLER_SEND_GOODS' and request()->method() == 'GET') {
             // For user.
             Log::info('callback.alipay.v2 2.user>>redirect user to page for confirm good.');
             return redirect('https://lab.alipay.com/consume/queryTradeDetail.htm?actionName=CONFIRM_GOODS&tradeNo=' . $trade_no);
@@ -84,7 +84,7 @@ class CallbackController extends Controller
                 Log::info('callback.alipay.v2 3.notify>>wait user confirm good.');
                 return 'success';
             }
-
+        } elseif ($trade_status == 'WAIT_BUYER_CONFIRM_GOODS' and request()->method() == 'GET') {
             // For user.
             Log::info('callback.alipay.v2 3.user>>redirect user to page for confirm good.');
             return redirect('https://lab.alipay.com/consume/queryTradeDetail.htm?actionName=CONFIRM_GOODS&tradeNo=' . Input::get('trade_no'));
