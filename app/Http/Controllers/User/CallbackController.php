@@ -24,9 +24,9 @@ class CallbackController extends Controller
         config()->set('laravel-omnipay.gateways.alipay.driver', 'Alipay_SendGoods');
         $gateway = Omnipay::gateway();
         $order_id = Input::get('out_trade_no');
-        $trade_no = $request->input('trade_no');
+        $trade_no = Input::get('trade_no');
         $trade_status = Input::get('trade_status');
-        $buyer_email = $request->input('buyer_email');
+        $buyer_email = Input::get('buyer_email');
         $order = Order::where('order_id', '=', $order_id)->first();
 
         if (!$order) {
