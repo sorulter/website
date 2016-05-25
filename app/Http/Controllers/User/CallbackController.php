@@ -98,6 +98,13 @@ class CallbackController extends Controller
             Log::info('callback.alipay.v2 4.notify>>trade finished.');
             return 'success';
         }
+        // close trade.
+        if ($trade_status == 'TRADE_CLOSED') {
+            Order::where('order_id', '=', $order_id)->update(['state' => 'TRADE_CLOSED']);
+            Log::info('callback.alipay.v2 4.notify>>trade closed.');
+            return 'success';
+        }
+
         Log::error('error trade notify/return.');
         abort(404);
     }
