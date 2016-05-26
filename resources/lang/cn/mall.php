@@ -4,7 +4,7 @@ return [
     'combo_flows' => '包年包月',
     'products' => '产品',
     'forever_flows' => '按量付费',
-    'flows_per_month' => '每月流量',
+    'flows_per_month' => '自然月流量',
     'duration' => '购买时长',
     'years' => '年',
     'months' => '个月',
@@ -19,6 +19,7 @@ return [
     'extra_flows' => '加油包',
     'extra_flows_package' => '流量加油包',
     'only_for_user_bought_combo' => '仅限包年包月用户购买',
+    'only_current_month' => '当月有效，月底清空',
 
     'orders_limit_per_month' => '每月只能下:limit单',
     'combo_upgrade_notice' => '如需升级套餐，请联系管理员补差价。',

@@ -27,7 +27,7 @@
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <label>{{trans('mall.flows_per_month')}}</label>
+                                    <label class="label bg-red">{!!trans('mall.flows_per_month')!!}</label>
                                     <div class="checkbox icheck">
                                         <div class="row">
                                         @foreach ($combos as $combo)
@@ -231,7 +231,7 @@
                                 <!-- /.box-header -->
                                 <div class="box-body">
                                 @if ($has_combo)
-                                    <label>{{trans('mall.extra_flows_package')}}</label>
+                                    <label>{{trans('mall.extra_flows_package')}} <span class="label bg-red">{{ trans('mall.only_current_month') }}</span> </label>
                                     <div class="checkbox icheck">
                                         <div class="row">
                                         @foreach ($extras as $extra)
