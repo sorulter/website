@@ -92,7 +92,18 @@ class CallbackController extends Controller
 
         // 4.trade finished
         if ($trade_status == 'TRADE_FINISHED' && $order->state == 'WAIT_BUYER_CONFIRM_GOODS') {
-            // todo
+            // charge flows
+            switch ($order->flows_type) {
+                case 'combo':
+                    $flows->ComboFlowsCharge($order->flows_amount * MB, $order->quantity);
+                    break;
+
+                case 'forever':
+                case 'extra':
+                default:
+                    $flows->increment('forever', $order->flows_amount * $order->quantity * MB);
+                    break;
+            }
 
             Order::where('order_id', '=', $order_id)->update(['state' => 'TRADE_FINISHED']);
             Log::info('callback.alipay.v2 4.notify>>trade finished.');
