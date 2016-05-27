@@ -37,6 +37,7 @@ return [
     'order_id' => '订单号',
     'amount' => '总价',
     'discount' => '折扣',
+    'unit_price' => '单价',
     'quantity' => '数量',
     'created_at' => '创建于',
     'operation' => '操作',
