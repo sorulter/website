@@ -24,7 +24,11 @@
                     <td>{{$order->quantity}}</td>
                     <td>{{$order->created_at}}</td>
                     <td>@if ($order->state == 'ORDER_CREATED' || $order->state == 'WAIT_BUYER_PAY')
-                        <a href="{{ route('user/mall/waitpay', $order->id) }}" class="label label-warning" target="_blank">{{ trans('mall.continue_pay') }}</a>
+                        @if ($order->trade_no == "")
+                            <a href="{{ route('user/mall/waitpay', $order->id) }}" class="label label-warning" target="_blank">{{ trans('mall.continue_pay') }}</a>
+                        @else
+                            <a href="https://lab.alipay.com/consume/queryTradeDetail.htm?tradeNo={{ $order->trade_no }}" class="label label-danger" target="_blank">{{ trans('mall.confirm_goods') }}</a>
+                        @endif
                     @elseif($order->state == 'WAIT_SELLER_SEND_GOODS')
                         <span class="label label-info">{{ trans('mall.wait_seller_send_goods') }}</span>
                     @elseif($order->state == 'WAIT_BUYER_CONFIRM_GOODS')
