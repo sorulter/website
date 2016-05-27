@@ -34,7 +34,9 @@
                     @elseif($order->state == 'WAIT_BUYER_CONFIRM_GOODS')
                         <a href="https://lab.alipay.com/consume/queryTradeDetail.htm?actionName=CONFIRM_GOODS&tradeNo={{ $order->trade_no }}" class="label label-danger" target="_blank">{{ trans('mall.confirm_goods') }}</a>
                     @elseif($order->state == 'TRADE_FINISHED')
-                        <span class="label label-default">{{ trans('mall.trade_finished') }}</span>
+                        <span class="label label-success">{{ trans('mall.trade_finished') }}</span>
+                    @elseif($order->state == 'TRADE_CLOSED')
+                        <span class="label label-default">{{ trans('mall.trade_closed') }}</span>
                     @else
                         <span class="label label-danger">{{ trans('mall.error_trade') }}</span>
                     @endif</td>
