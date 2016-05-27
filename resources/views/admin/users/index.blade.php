@@ -29,7 +29,7 @@
                         <th>Node/Port</th>
                         <th>Used(MB)</th>
                         <th>F/C/E(MB)</th>
-                        <th>Last Login | Conn</th>
+                        <th>Combo End|Last Login | Conn</th>
                         <th>Actions</th>
                     </tr>
                     @foreach ($users as $item)
@@ -54,7 +54,7 @@
                         <td>0</td>
                         <td>0</td>
                         @endif
-                        <td><span title="{{$item->updated_at->format('y/m/d H:i:s')}}">{{$item->updated_at->format('y/m/d')}}</span> | @if($item->activate == 1)<span title="{{ $item->flows->updated_at->format('y/m/d H:i:s') }}">{{ $item->flows->updated_at->format('y/m/d') }}</span>@else
+                        <td>@if($item->activate == 1)<span>{{ date('y/m/d', strtotime($item->flows->combo_end_date)) }}</span> | <span title="{{$item->updated_at->format('y/m/d H:i:s')}}">{{$item->updated_at->format('y/m/d')}}</span> | <span title="{{ $item->flows->updated_at->format('y/m/d H:i:s') }}">{{ $item->flows->updated_at->format('y/m/d') }}</span>@else
                             not connected @endif</td>
                         <td>
                             <a href="{{ route('admin/users/sendmail', $item->id) }}" class="label label-success">Mail</a>
