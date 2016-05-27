@@ -28,6 +28,7 @@ return [
 
     'continue_pay' => '继续支付',
     'wait_seller_send_goods' => '等待发货',
+    'confirm_pay' => '确认付款',
     'confirm_goods' => '确认收货',
     'trade_finished' => '交易成功',
     'error_trade' => '交易异常',
