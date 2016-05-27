@@ -3,6 +3,7 @@
 namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Model\Flows;
 use App\Model\Order;
 use GuzzleHttp\Client;
 use Input;
@@ -93,6 +94,7 @@ class CallbackController extends Controller
         // 4.trade finished
         if ($trade_status == 'TRADE_FINISHED' && $order->state == 'WAIT_BUYER_CONFIRM_GOODS') {
             // charge flows
+            $flows = Flows::find($order->user_id);
             switch ($order->flows_type) {
                 case 'combo':
                     $flows->ComboFlowsCharge($order->flows_amount * MB, $order->quantity);
