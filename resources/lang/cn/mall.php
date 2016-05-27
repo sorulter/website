@@ -36,6 +36,7 @@ return [
     'history_order' => '历史订单',
     'order_id' => '订单号',
     'amount' => '总价',
+    'service_fee' => '手续费',
     'discount' => '折扣',
     'unit_price' => '单价',
     'quantity' => '数量',
