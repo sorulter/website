@@ -103,7 +103,7 @@ class CallbackController extends Controller
                 case 'forever':
                 case 'extra':
                 default:
-                    $flows->increment('forever', $order->flows_amount * $order->quantity * MB);
+                    $flows->increment($order->flows_type, $order->flows_amount * $order->quantity * MB);
                     break;
             }
 
