@@ -46,11 +46,15 @@
                         @if ($user->activate == 1)
                             <tr>
                                 <td><span><i class="fa fa-btc"></i>&emsp;{{trans('home.forever_flows')}}</span></td>
-                                <td><span title="{{$user->flows->Free}} Bytes">{{number_format($user->flows->forever/MB, 2)}} MB</span></td>
+                                <td><span title="{{$user->flows->forever}} Bytes">{{number_format($user->flows->forever/MB, 2)}} MB</span></td>
                             </tr>
                             <tr>
                                 <td><span><i class="fa fa-rmb"></i>&emsp;{{trans('home.combo_flows')}}</span></td>
-                                <td><span title="{{$user->flows->combo_flows}} Bytes">{{number_format($user->flows->combo/MB, 2)}} MB</span></td>
+                                <td><span title="{{$user->flows->combo}} Bytes">{{number_format($user->flows->combo/MB, 2)}} MB</span></td>
+                            </tr>
+                            <tr>
+                                <td><span><i class="fa fa-dollar"></i>&emsp;{{trans('home.extra_flows')}}</span></td>
+                                <td><span title="{{$user->flows->extra}} Bytes">{{number_format($user->flows->extra/MB, 2)}} MB</span></td>
                             </tr>
                             <tr>
                                 <td><span><i class="fa fa-tachometer"></i>&emsp;{{trans('home.used_flows')}}</span></td>

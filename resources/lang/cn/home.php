@@ -3,6 +3,7 @@ return [
     'account_info' => '帐户信息',
     'forever_flows' => '永久流量',
     'combo_flows' => '套餐流量',
+    'extra_flows' => '加油包流量',
     'used_flows' => '已经使用',
     'front_end' => '接入点',
     'combo_end_date' => '套餐截至',
