@@ -9,11 +9,11 @@
                 <tr>
                     <th style="width: 10px">#</th>
                     <th>{{ trans('mall.order_id') }}</th>
-                    <th>{{ trans('mall.amount') }}</th>
-                    <th>{{ trans('mall.service_fee') }}</th>
-                    <th>{{ trans('mall.discount') }}</th>
                     <th>{{ trans('mall.unit_price') }}</th>
                     <th>{{ trans('mall.quantity') }}</th>
+                    <th>{{ trans('mall.service_fee') }}</th>
+                    <th>{{ trans('mall.discount') }}</th>
+                    <th>{{ trans('mall.amount') }}</th>
                     <th>{{ trans('mall.created_at') }}</th>
                     <th>{{ trans('mall.operation') }}</th>
                 </tr>
@@ -21,11 +21,11 @@
                 <tr>
                     <td>{{$order->id}}</td>
                     <td>{{$order->order_id}}</td>
-                    <td>￥ {{$order->amount}}</td>
-                    <td>￥ {{$order->discount}}</td>
-                    <td>￥ {{$order->discount}}</td>
                     <td>{{$order->unit_price}}</td>
                     <td>{{$order->quantity}}</td>
+                    <td>￥ {{$order->discount}}</td>
+                    <td>￥ {{$order->discount}}</td>
+                    <td>￥ {{$order->amount}}</td>
                     <td>{{$order->created_at}}</td>
                     <td>@if ($order->state == 'ORDER_CREATED' || $order->state == 'WAIT_BUYER_PAY')
                         @if ($order->trade_no == "")
