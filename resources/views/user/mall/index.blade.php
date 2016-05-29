@@ -333,7 +333,7 @@ function price(id) {
     fee_rate = Number($(id +' input[name=payment]:checked').attr('data-rate')).toFixed(2);
     index = Number($(id +' input[name=index]').val());
     fee = (index+1)*unit_price*fee_rate;
-    orig = (index+1)*unit_price+fee;
+    orig = ((index+1)*unit_price+fee).toFixed(2);
 
     // Calc discount.
     discount = 0;
