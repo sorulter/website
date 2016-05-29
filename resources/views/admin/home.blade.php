@@ -69,6 +69,10 @@
                             <td>Revenue</td>
                             <td>￥ {{ $revenue }}</td>
                         </tr>
+                        <tr>
+                            <td>Used</td>
+                            <td>{{ $total }} MB</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
