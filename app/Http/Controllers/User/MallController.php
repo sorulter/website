@@ -105,7 +105,7 @@ class MallController extends Controller
             return redirect('user');
         }
         // check owner.
-        if ($order->user_id == request()->user()->id) {
+        if ($order->user_id != request()->user()->id) {
             return redirect('user');
         }
         $gateway = Omnipay::gateway('alipay_v2');
