@@ -35,6 +35,7 @@ return [
     'wait_buyer_confirm_goods' => '确认收货',
     'trade_finished' => '交易成功',
     'trade_closed' => '交易关闭',
+    'order_closed' => '订单关闭',
     'error_trade' => '交易异常',
     'history_order' => '历史订单',
     'order_id' => '订单号',
