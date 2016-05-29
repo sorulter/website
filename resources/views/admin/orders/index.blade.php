@@ -40,7 +40,7 @@
                         <td>￥{{ $order->unit_price }}</td>
                         <td>{{ $order->quantity }}</td>
                         <td>￥{{ $order->amount }}</td>
-                        <td class="label label-info">{{ trans("mall." . mb_strtolower($order->state)) }}</td>
+                        <td><span class="label label-info">{{ trans("mall." . mb_strtolower($order->state)) }}</span></td>
                         <td>{{mb_substr($order->created_at, 5)}}</td>
                         <td>{{$order->updated_at}}</td>
                     </tr>
