@@ -40,7 +40,13 @@
                         <td>￥{{ $order->unit_price }}</td>
                         <td>{{ $order->quantity }}</td>
                         <td>￥{{ $order->amount }}</td>
-                        <td><span class="label label-info">{{ trans("mall." . mb_strtolower($order->state)) }}</span></td>
+                        <td><span class="label
+                        @if ($order->state == 'ORDER_CREATED') label-info
+                        @elseif ($order->state == 'WAIT_BUYER_PAY' || $order->state == 'WAIT_SELLER_SEND_GOODS' || $order->state == 'WAIT_BUYER_CONFIRM_GOODS') label-warning
+                        @elseif ($order->state == 'TRADE_FINISHED') label-success
+                        @else label-default
+                        @endif
+                        ">{{ trans("mall." . mb_strtolower($order->state)) }}</span></td>
                         <td>{{mb_substr($order->created_at, 5)}}</td>
                         <td>{{$order->updated_at}}</td>
                     </tr>
