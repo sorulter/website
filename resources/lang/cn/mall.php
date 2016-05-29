@@ -26,10 +26,12 @@ return [
     'create_order_failed' => '创建订单失败，请重试。',
     'create_order_success' => '创建订单成功，订单号：:id。为了确保您能够及时收到订购的流量，请完成以下步骤：<h3>1.登录支付宝付款；</h3><h3>2.在支付宝确认收货。</h3>',
 
+    'order_created' => '已建订单',
     'continue_pay' => '继续支付',
     'wait_seller_send_goods' => '等待发货',
     'confirm_pay' => '确认付款',
     'confirm_goods' => '确认收货',
+    'wait_buyer_confirm_goods' => '确认收货',
     'trade_finished' => '交易成功',
     'trade_closed' => '交易关闭',
     'error_trade' => '交易异常',
