@@ -35,8 +35,8 @@
                         <td>{{$order->id}}</td>
                         <td>{{$order->order_id}}</td>
                         <td>{{$order->user_id}}</td>
-                        <td>{{$order->flow_type}}</td>
-                        <td>{{$order->flow_amount}}</td>
+                        <td>{{$order->flows_type}}</td>
+                        <td>{{$order->flows_amount}}</td>
                         <td>￥{{ $order->unit_price }}</td>
                         <td>{{ $order->quantity }}</td>
                         <td>￥{{ $order->amount }}</td>
