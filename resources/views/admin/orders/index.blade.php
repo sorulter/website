@@ -21,6 +21,10 @@
                         <th style="width: 10px">#</th>
                         <th>Order ID</th>
                         <th>User ID</th>
+                        <th>Flows Type</th>
+                        <th>Flows Amount</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
                         <th>Amount</th>
                         <th>Status</th>
                         <th>Created</th>
@@ -31,6 +35,10 @@
                         <td>{{$order->id}}</td>
                         <td>{{$order->order_id}}</td>
                         <td>{{$order->user_id}}</td>
+                        <td>{{$order->flow_type}}</td>
+                        <td>{{$order->flow_amount}}</td>
+                        <td>￥{{ $order->unit_price }}</td>
+                        <td>{{ $order->quantity }}</td>
                         <td>￥{{ $order->amount }}</td>
                         <td>{{$order->state}}</td>
                         <td>{{mb_substr($order->created_at, 5)}}</td>
