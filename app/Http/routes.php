@@ -53,10 +53,13 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
         // Billing routes...
         Route::get('billing', ['as' => '/billing', 'uses' => 'BillingController@getIndex']);
-        Route::get('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@getCharge']);
-        Route::post('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@postCharge']);
-        Route::get('billing/payment', ['as' => '/billing/payment', 'uses' => 'BillingController@getPayment']);
-        Route::get('billing/continue/{orderid}', ['as' => '/billing/continue', 'uses' => 'BillingController@getContinue']);
+        // Route::get('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@getCharge']);
+        // Route::post('billing/charge', ['as' => '/billing/charge', 'uses' => 'BillingController@postCharge']);
+        // Route::get('billing/payment', ['as' => '/billing/payment', 'uses' => 'BillingController@getPayment']);
+        // Route::get('billing/continue/{orderid}', ['as' => '/billing/continue', 'uses' => 'BillingController@getContinue']);
+        Route::any('billing/charge', ['as' => '/mall/payment', 'uses' => function () {
+            return redirect()->route('user/mall');
+        }]);
 
         // Cellular routes...
         Route::get('cellular', ['as' => '/cellular', 'uses' => 'CellularController@getIndex']);
