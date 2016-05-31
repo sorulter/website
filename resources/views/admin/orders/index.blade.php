@@ -48,7 +48,7 @@
                         @endif
                         ">{{ trans("mall." . mb_strtolower($order->state)) }}</span></td>
                         <td>{{mb_substr($order->created_at, 5)}}</td>
-                        <td>{{$order->updated_at}}</td>
+                        <td>{{mb_substr($order->updated_at, 2)}}</td>
                     </tr>
                     @endforeach
 
