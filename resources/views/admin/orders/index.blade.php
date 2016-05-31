@@ -27,7 +27,6 @@
                         <th>Quantity</th>
                         <th>Amount</th>
                         <th>Status</th>
-                        <th>Created</th>
                         <th>Updated</th>
                     </tr>
                     @foreach ($orders as $order)
@@ -47,7 +46,6 @@
                         @else label-default
                         @endif
                         ">{{ trans("mall." . mb_strtolower($order->state)) }}</span></td>
-                        <td>{{mb_substr($order->created_at, 5)}}</td>
                         <td>{{mb_substr($order->updated_at, 2)}}</td>
                     </tr>
                     @endforeach
