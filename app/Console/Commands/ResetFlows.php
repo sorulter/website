@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Console\Commands;
+namespace app\Console\Commands;
 
 use App\Model\Flows;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use League\Csv\Writer;
 use Log;
 
 class ResetFlows extends Command
@@ -49,10 +50,14 @@ class ResetFlows extends Command
             return;
         }
 
-        Flows::chunk(100, function ($flows) use ($today) {
-            Log::info("user flows info backup: {$flows}");
+        $time = date('Y-m', time() - 720000);
+        @mkdir(storage_path() . '/used');
+        $csv = Writer::createFromPath(new \SplFileObject(storage_path() . "/flows/flows_log_{$time}.csv", 'a+'));
+        $csv->insertOne(['user_id', 'used', 'forever', 'combo', 'extra', 'combo_end_date', 'created_at', 'updated_at']);
 
+        Flows::chunk(100, function ($flows) use ($today, $csv) {
             foreach ($flows as $flow) {
+                $csv->insertOne($flow->toArray());
 
                 $overflow = $flow->used - ($flow->forever + $flow->combo + $flow->extra);
                 $raw = clone $flow;
