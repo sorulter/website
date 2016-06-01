@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace app\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Flows;
@@ -87,7 +87,6 @@ class UsersController extends Controller
 
             // Restore your original mailer
             Mail::setSwiftMailer($default_mailer); # code...
-
         } else {
             Mail::laterOn('default', 10, 'emails.msg', ['user' => $to, 'title' => $title, 'msg' => $msg], function ($m) use ($to) {
                 $m->to($to->email)->subject('Your Message from master at ' . date('Y-m-d h:i:s T'));
@@ -115,11 +114,13 @@ class UsersController extends Controller
         // Gift forever flows.
         $order = new Order;
         $order->order(0, $to->id);
+        $order->flows_type = 'extra';
+        $order->flows_amount = $flows;
         $order->state = 'TRADE_FINISHED';
         $order->save();
 
         $flowsModel = Flows::where('user_id', '=', $to->id)->first();
-        $flowsModel->forever += $flows * MB;
+        $flowsModel->extra += $flows * MB;
         $flowsModel->save();
 
         Mail::laterOn('default', 10, 'emails.msg', ['user' => $to, 'title' => $title, 'msg' => $msg], function ($m) use ($to, $title) {
@@ -127,7 +128,5 @@ class UsersController extends Controller
         });
 
         return redirect()->back()->with('msg', 'gift flows success.');
-
     }
-
 }
