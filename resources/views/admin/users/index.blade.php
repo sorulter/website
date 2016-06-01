@@ -40,7 +40,7 @@
                         @if ($item->activate == 1)
                         <td><span class="label label-info">{{$item->port->node_name }}</span><span class="label label-warning">{{$item->port->port }}</span></td>
                         <td>{{number_format($item->flows->used/MB, 2) }}</td>
-                        <td>{{number_format($item->flows->forever/MB, 2) }} / {{number_format($item->flows->combo/MB, 2) }} / {{number_format($item->flows->extra, 2)}}</td>
+                        <td>{{number_format($item->flows->forever/MB, 2) }} / {{number_format($item->flows->combo/MB, 2) }} / {{number_format($item->flows->extra/MB, 2)}}</td>
                         @elseif ($item->activate == 0)
                         <td>
                             <a href="{{ route('admin/users/activate', $item->id) }}" class="label label-info">Activate</a>
