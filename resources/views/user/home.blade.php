@@ -6,6 +6,7 @@
     <div class="col-md-6">
 
         <div class="box box-info">
+        @if ($user->activate == 0)
             <div class="box-header with-border">
                 <h3 class="box-title">Free to Try</h3>
                 <div class="box-tools pull-right">
@@ -16,14 +17,22 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <p> &emsp;&emsp;Welcome to use IPX(iPorxier).There is the guide for you.</p>
-                @if ($user->activate == 0)
+
                     <p>&emsp;&emsp;Click follow button,we will send a activate mail to you.Open your mailbox, click the link in your activate mail,activate before <span class="label label-info">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->addDays(2) }}</span> you can get <span class="label label-info">{{env('FREE_FLOWS')/MB}} MBytes</span> flows to try.</p>
                         <a href="{{ route('activate/send') }}" class="btn btn-success col-xs-12"><b>Send activate mail</b></a>
-
-                @else
-                    {{-- false expr --}}
-                @endif
             </div>
+        @else
+            <div class="box-header with-border">
+                <h3 class="box-title">{{ trans('home.welcome') }}</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+            {!! trans('home.intro') !!}
+            </div>
+        @endif
             <!-- /.box-body -->
 
             <div class="box-footer no-padding" style="display: block;">
