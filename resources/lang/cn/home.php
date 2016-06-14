@@ -16,4 +16,12 @@ return [
 
     'welcome' => '欢迎使用iProxier',
     'intro' => '&emsp;&emsp;iProxier是一款优秀的国际网络加速工具，在您使用前请先阅读我们精心为您准备的《<a href="/user/helps">帮助信息</a>》.',
+    'activate' => '请验证您的邮箱',
+    'activate_guide' => '<p> &emsp;&emsp;欢迎使用iProxier（IPX）。我们需要验证您的邮箱来激活账号。</p>
+    <ol>
+        <li> 点击下面的“发送激活邮件”按钮；</li>
+        <li> 稍后点击我们发送给您的激活邮件。</li>
+    </ol>
+    <p>&emsp;&emsp;您在<span class="label label-info">:before</span> 之前激活，将会获赠 <span class="label label-info">:free_flows MB</span> 试用流量。</p>
+    <a href=":activate_send_url" class="btn btn-danger col-xs-12"><b>发送激活邮件</b></a>',
 ];
