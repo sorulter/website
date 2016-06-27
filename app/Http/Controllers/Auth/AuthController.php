@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace app\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
@@ -48,7 +48,6 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-
         Validator::extend('black', function ($attribute, $value, $parameters) {
             $black = [
                 'mailnesia.com',
@@ -101,45 +100,45 @@ class AuthController extends Controller
                 'euaqa.com',
 
                 // Outlook domain.
-                'hotmail.com.tw',
-                'hotmail.com.au',
-                'hotmail.com.hk',
-                'outlook.com.au',
-                'outlook.co.nz',
-                'hotmail.co.kr',
-                'hotmail.co.jp',
-                'hotmail.co.uk',
-                'hotmail.co.nz',
-                'live.com.au',
-                'live.com.sg',
-                'live.com.mx',
-                'outlook.com',
-                'hotmail.com',
-                'livemail.tw',
-                'hotmail.fr',
-                'hotmail.ca',
-                'hotmail.sg',
-                'hotmail.de',
-                'outlook.ie',
-                'outlook.fr',
-                'outlook.de',
-                'outlook.kr',
-                'outlook.jp',
-                'outlook.sg',
-                'outlook.in',
-                'live.co.kr',
-                'live.co.uk',
-                'live.co.in',
-                'live.com',
-                'msn.com',
-                'live.cn',
-                'live.hk',
-                'live.jp',
-                'live.fr',
-                'live.ca',
-                'live.de',
-                'live.ie',
-                'msn.cn',
+                // 'hotmail.com.tw',
+                // 'hotmail.com.au',
+                // 'hotmail.com.hk',
+                // 'outlook.com.au',
+                // 'outlook.co.nz',
+                // 'hotmail.co.kr',
+                // 'hotmail.co.jp',
+                // 'hotmail.co.uk',
+                // 'hotmail.co.nz',
+                // 'live.com.au',
+                // 'live.com.sg',
+                // 'live.com.mx',
+                // 'outlook.com',
+                // 'hotmail.com',
+                // 'livemail.tw',
+                // 'hotmail.fr',
+                // 'hotmail.ca',
+                // 'hotmail.sg',
+                // 'hotmail.de',
+                // 'outlook.ie',
+                // 'outlook.fr',
+                // 'outlook.de',
+                // 'outlook.kr',
+                // 'outlook.jp',
+                // 'outlook.sg',
+                // 'outlook.in',
+                // 'live.co.kr',
+                // 'live.co.uk',
+                // 'live.co.in',
+                // 'live.com',
+                // 'msn.com',
+                // 'live.cn',
+                // 'live.hk',
+                // 'live.jp',
+                // 'live.fr',
+                // 'live.ca',
+                // 'live.de',
+                // 'live.ie',
+                // 'msn.cn',
 
                 'trbvn.com',
             ];
