@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace app\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Model\Flows;
@@ -11,8 +11,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Mail;
-use Swift_Mailer;
-use Swift_SmtpTransport as SmtpTransport;
 
 class ActivationController extends Controller
 {
@@ -75,41 +73,13 @@ class ActivationController extends Controller
         $token = Str::random(60);
         $user = $request->user();
 
-        // set special mail poster
-        if (in_array(mb_split("@", $user->email)[1], ["qq.com", "foxmail.com"])
-            && env('MAIL_HOST') && env('MAIL_PORT') && env('MAIL_USERNAME') && env('MAIL_PASSWORD')) {
-            // Backup your default mailer
-            $default_mailer = Mail::getSwiftMailer();
-
-            // Setup backup mailer
-            $transport = SmtpTransport::newInstance(env('MAIL_HOST'), env('MAIL_PORT'), env('MAIL_ENCRYPTION'));
-            $transport->setUsername(env('MAIL_USERNAME'));
-            $transport->setPassword(env('MAIL_PASSWORD'));
-            // Any other mailer configuration stuff needed...
-
-            $backup_mailer = new Swift_Mailer($transport);
-
-            // Set the mailer to use
-            Mail::setSwiftMailer($backup_mailer);
-
-            // Send your message
-            Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
-                $name = mb_split('@', $user->email)[0];
-                $message->to($user->email, $name)->subject('Activate your iProxier account,' . $name);
-            });
-
-            // Restore your original mailer
-            Mail::setSwiftMailer($default_mailer);
-        } else {
-            Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
-                $name = mb_split('@', $user->email)[0];
-                $message->to($user->email, $name)->subject('Activate your iProxier account,' . $name);
-            });
-        };
+        Mail::laterOn('default', 10, 'emails.welcome', array('code' => $token), function ($message) use ($user) {
+            $name = mb_split('@', $user->email)[0];
+            $message->to($user->email, $name)->subject(trans('email.activate_account_title', ['email' => $user->email]));
+        });
 
         $user->activate_code = $token;
         $user->save();
         return view('pub.msg')->withType('success')->withTitle('Success!')->withContent('Send activate link mail success.');
-
     }
 }
