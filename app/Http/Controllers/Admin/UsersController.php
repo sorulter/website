@@ -35,6 +35,19 @@ class UsersController extends Controller
     }
 
     /**
+     * Display users list of forever flows.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getForever()
+    {
+        $users = new User;
+        return view('admin.users.index')->withUsers($users->whereHas('flows', function ($q) {
+            $q->where('forever', '>', env('FREE_FLOWS'));
+        })->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+    }
+
+    /**
      * Manual activate user.
      *
      * @return \Illuminate\Http\Response
