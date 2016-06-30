@@ -26,8 +26,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')
-            ->everyFiveMinutes();
+        // $schedule->command('inspire')
+        //     ->everyFiveMinutes();
         $schedule->command('flows:reset')
             ->monthly();
         $schedule->command('logs:clear')
