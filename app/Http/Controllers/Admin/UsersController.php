@@ -29,7 +29,7 @@ class UsersController extends Controller
     public function getCombo()
     {
         $users = new User;
-        return view('admin.users.index')->where('', '>', '')->withUsers($users->whereHas('flows', function ($q) {
+        return view('admin.users.index')->withUsers($users->whereHas('flows', function ($q) {
             $q->where('combo_end_date', '>', date('Y-m-d', time()));
         })->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
