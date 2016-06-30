@@ -14,8 +14,10 @@
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Users List</h3>
+            <h3 class="box-title">Users List({{$users->total()}})</h3>
             <div class="box-tools">
+                <a href="{{route('admin/users')}}"><span class="label label-success">All</span></a>
+                <a href="{{route('admin/users/index/combo')}}"><span class="label label-success">Combo</span></a>
             </div>
         </div>
         <!-- /.box-header -->
