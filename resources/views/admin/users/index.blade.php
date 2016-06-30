@@ -18,6 +18,7 @@
             <div class="box-tools">
                 <a href="{{route('admin/users')}}"><span class="label label-success">All</span></a>
                 <a href="{{route('admin/users/index/combo')}}"><span class="label label-success">Combo</span></a>
+                <a href="{{route('admin/users/index/forever')}}"><span class="label label-success">Forever</span></a>
             </div>
         </div>
         <!-- /.box-header -->
