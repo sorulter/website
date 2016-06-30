@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Flows;
 use App\Model\Order;
 use App\User;
+use Carbon\Carbon;
 use Mail;
 
 class UsersController extends Controller
@@ -44,6 +45,20 @@ class UsersController extends Controller
         $users = new User;
         return view('admin.users.index')->withUsers($users->whereHas('flows', function ($q) {
             $q->where('forever', '>', env('FREE_FLOWS'));
+        })->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+    }
+
+    /**
+     * Display users list who has bought last 2 month.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getBought()
+    {
+        $users = new User;
+        return view('admin.users.index')->withUsers($users->whereHas('flows', function ($q) {
+            $q->where('combo_end_date', '>', Carbon::now()->subMonths(2))
+                ->where('combo_end_date', '<', Carbon::now()->addMonth()->toDateString());
         })->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 

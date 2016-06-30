@@ -19,6 +19,8 @@
                 <a href="{{route('admin/users')}}"><span class="label label-success">All</span></a>
                 <a href="{{route('admin/users/index/combo')}}"><span class="label label-success">Combo</span></a>
                 <a href="{{route('admin/users/index/forever')}}"><span class="label label-success">Forever</span></a>
+
+                <a href="{{route('admin/users/index/bought')}}"><span class="label label-success">Has Bought</span></a>
             </div>
         </div>
         <!-- /.box-header -->
