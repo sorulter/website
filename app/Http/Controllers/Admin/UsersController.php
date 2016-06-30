@@ -22,6 +22,19 @@ class UsersController extends Controller
     }
 
     /**
+     * Display users list of combo.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCombo()
+    {
+        $users = new User;
+        return view('admin.users.index')->where('', '>', '')->withUsers($users->whereHas('flows', function ($q) {
+            $q->where('combo_end_date', '>', date('Y-m-d', time()));
+        })->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+    }
+
+    /**
      * Manual activate user.
      *
      * @return \Illuminate\Http\Response
