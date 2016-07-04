@@ -89,7 +89,7 @@
       <![endif]--><div style="margin:0 auto;max-width:600px;background:#2f323b;"><table cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#2f323b;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;font-size:0px;padding:20px 0px;padding-bottom:0px;padding-top:0px;"><!--[if mso | IE]>
       <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:594px;">
       <![endif]--><div aria-labelledby="mj-column-per-99" class="mj-column-per-99" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;"><table cellpadding="0" cellspacing="0" style="vertical-align:top;" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:10px 25px;padding-top:10px;padding-bottom:10px;padding-right:25px;padding-left:25px;" align="left"><div style="cursor:auto;color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
-            <p><span style="font-weight: bold;"><span style="font-size: 18px;"><span style="color: rgb(250, 135, 57);">{{ $title | '鹳狸猿通知' }}</span></span></span></p>
+            <p><span style="font-weight: bold;"><span style="font-size: 18px;"><span style="color: rgb(250, 135, 57);">{{ $title || '鹳狸猿通知' }}</span></span></span></p>
           </div></td></tr></tbody></table></div><!--[if mso | IE]>
       </td></tr></table>
       <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
