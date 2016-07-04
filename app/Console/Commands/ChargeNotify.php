@@ -42,9 +42,9 @@ class ChargeNotify extends Command
     public function handle()
     {
         $users = User::whereHas('flows', function ($q) {
-            $q->where('combo_end_date', '>', Carbon::today()->subMonths(2)->format('Y-m-01'))
+            $q->where('combo_end_date', '>=', Carbon::today()->subMonths(2)->format('Y-m-01'))
                 ->where('combo_end_date', '<', Carbon::today()->addMonth()->format('Y-m-01'))
-                ->where(DB::raw('combo + forever + extra'), '<', env('FREE_FLOWS'));
+                ->where(DB::raw('combo + forever + extra'), '<=', env('FREE_FLOWS'));
         })->orderBy('id', 'DESC')->get();
 
         $title = trans('email.charge_notify_title');
