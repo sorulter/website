@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\ResetFlows::class,
         \App\Console\Commands\ClearLogs::class,
+        \App\Console\Commands\ChargeNotify::class,
     ];
 
     /**
