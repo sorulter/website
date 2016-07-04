@@ -7,6 +7,7 @@ use App\Model\Flows;
 use App\Model\Order;
 use App\User;
 use Carbon\Carbon;
+use DB;
 use Mail;
 
 class UsersController extends Controller
@@ -58,7 +59,8 @@ class UsersController extends Controller
         $users = new User;
         return view('admin.users.index')->withUsers($users->whereHas('flows', function ($q) {
             $q->where('combo_end_date', '>', Carbon::today()->subMonths(2)->format('Y-m-01'))
-                ->where('combo_end_date', '<', Carbon::today()->addMonth()->format('Y-m-01'));
+                ->where('combo_end_date', '<', Carbon::today()->addMonth()->format('Y-m-01'))
+                ->where(DB::raw('combo + forever + extra'), '<', env('FREE_FLOWS'));
         })->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 
