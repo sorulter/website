@@ -57,8 +57,8 @@ class UsersController extends Controller
     {
         $users = new User;
         return view('admin.users.index')->withUsers($users->whereHas('flows', function ($q) {
-            $q->where('combo_end_date', '>', Carbon::now()->subMonths(2))
-                ->where('combo_end_date', '<', Carbon::now()->addMonth()->toDateString());
+            $q->where('combo_end_date', '>', Carbon::today()->subMonths(2)->format('Y-m-01'))
+                ->where('combo_end_date', '<', Carbon::today()->addMonth()->format('Y-m-01'));
         })->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
     }
 
