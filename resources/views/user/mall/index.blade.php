@@ -12,6 +12,12 @@
                 <li><a href="#extra" data-toggle="tab" class="fa-lg">{{trans('mall.extra_flows')}}</a></li>
             </ul>
         </div>
+
+        <div class="callout callout-danger">
+            <p><i class="fa fa-circle-o text-red"></i> 选择产品，点击【立即购买】 → <i class="fa fa-circle-o text-yellow"></i> 支付宝付款 → <i class="fa fa-circle-o text-light-blue"></i> 确认收货 → <i class="fa fa-circle-o text-green"></i> 返回iProxier查看流量</p>
+        </div>
+
+
         <div class="tab-content">
         @if ($count > env('ORDERS_LIMIT_PER_MONTH'))
             <h1>{{ trans('mall.orders_limit_per_month', ['limit' => env('ORDERS_LIMIT_PER_MONTH')]) }}</h1>
