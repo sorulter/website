@@ -48,7 +48,7 @@
                         <td>{{number_format($item->flows->forever/MB, 2) }} / {{number_format($item->flows->combo/MB, 2) }} / {{number_format($item->flows->extra/MB, 2)}}</td>
                         @elseif ($item->activate == 0)
                         <td>
-                            <a href="{{ route('admin/users/activate', $item->id) }}" class="label label-info">Activate</a>
+                            <a href="{{ route('admin/users/activate', $item->id) }}" class="label @if ($item->activate_code) label-warning @else label-info @endif ">Activate</a>
                         </td>
                         <td>0</td>
                         <td>0</td>
