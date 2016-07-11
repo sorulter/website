@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -27,9 +27,11 @@ abstract class Controller extends BaseController
                 if (request()->user()->activate == -1) {
                     exit(view("pub.msg")->withType('danger')->withTitle(trans("base.blocked"))->withContent(trans("base.break_the_eual")));
                 }
+                if (request()->user()->activate == -2) {
+                    exit(view("pub.msg")->withType('danger')->withTitle(trans("base.paused"))->withContent(trans("base.how_to_recovery", ['url' => env('QQ_QUN_URL'), 'no' => env('QQ_QUN_NO')])));
+                }
                 View::share('user', request()->user());
             }
         }
     }
-
 }
