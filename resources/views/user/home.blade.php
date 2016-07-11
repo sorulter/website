@@ -155,7 +155,7 @@
                         </tr>
                         <tr>
                             <td>QQ</td>
-                            <td><a target="_blank" href="{{ env('QQ_QUN_URL') }}"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="iProxier" title="iProxier"></a></td>
+                            <td><a target="_blank" href="{{ env('QQ_QUN_URL') }}">{{ env('QQ_QUN_NO') }}&emsp;<img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="iProxier" title="iProxier"></a></td>
                         </tr>
                     </tbody>
                 </table>
