@@ -65,6 +65,19 @@ class UsersController extends Controller
     }
 
     /**
+     * Display users list who has enough flows.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getUseable()
+    {
+        $users = new User;
+        return view('admin.users.index')->withUsers($users->whereHas('flows', function ($q) {
+            $q->where(DB::raw('combo + forever + extra'), '>', DB::raw('used'));
+        })->where('activate', '=', 1)->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+    }
+
+    /**
      * Manual activate user.
      *
      * @return \Illuminate\Http\Response
