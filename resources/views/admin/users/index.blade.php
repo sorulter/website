@@ -21,6 +21,7 @@
                 <a href="{{route('admin/users/index/forever')}}"><span class="label label-success">Forever</span></a>
 
                 <a href="{{route('admin/users/index/bought')}}"><span class="label label-success">Has Bought</span></a>
+                <a href="{{route('admin/users/index/useable')}}"><span class="label label-success">Useable</span></a>
             </div>
         </div>
         <!-- /.box-header -->
