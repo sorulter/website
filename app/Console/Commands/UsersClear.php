@@ -2,6 +2,7 @@
 
 namespace app\Console\Commands;
 
+use App\User;
 use Illuminate\Console\Command;
 
 class UsersClear extends Command
@@ -37,6 +38,18 @@ class UsersClear extends Command
      */
     public function handle()
     {
-        //
+        // dd(date('Y-m-01 00:00:03', time()));
+        User::where('activate', '=', 1)->get()->each(function ($user) {
+            $flows = $user->flows;
+            if ($flows->updated_at <= date('Y-m-01 00:00:03', time())
+                and ($flows->forever + $flows->combo + $flows->extra) <= env('FREE_FLOWS')
+                and $user->activate == 1) {
+                $user->port->user_id = 0;
+                $user->activate = -2;
+
+                $user->save();
+                $user->port->save();
+            }
+        });
     }
 }
