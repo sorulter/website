@@ -58,8 +58,12 @@
                         </td>
                         <td>0</td>
                         <td>0</td>
+                        @elseif ($item->activate == -2)
+                        <td><span class="label label-info">Recovery</span></td>
+                        <td>{{number_format($item->flows->used/MB, 2) }}</td>
+                        <td>{{number_format($item->flows->forever/MB, 2) }} / {{number_format($item->flows->combo/MB, 2) }} / {{number_format($item->flows->extra/MB, 2)}}</td>
                         @endif
-                        <td>@if($item->activate == 1)<span>{{ date('y/m/d', strtotime($item->flows->combo_end_date)) }}</span> | <span title="{{$item->updated_at->format('y/m/d H:i:s')}}">{{$item->updated_at->format('y/m/d')}}</span> | <span title="{{ $item->flows->updated_at->format('y/m/d H:i:s') }}">{{ $item->flows->updated_at->format('y/m/d') }}</span>@else
+                        <td>@if(in_array($item->activate, [-2, 1]))<span>{{ date('y/m/d', strtotime($item->flows->combo_end_date)) }}</span> | <span title="{{$item->updated_at->format('y/m/d H:i:s')}}">{{$item->updated_at->format('y/m/d')}}</span> | <span title="{{ $item->flows->updated_at->format('y/m/d H:i:s') }}">{{ $item->flows->updated_at->format('y/m/d') }}</span>@else
                             not connected @endif</td>
                         <td>
                             <a href="{{ route('admin/users/sendmail', $item->id) }}" class="label label-success">Mail</a>
