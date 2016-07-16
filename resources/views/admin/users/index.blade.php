@@ -60,7 +60,7 @@
                         <td>0</td>
                         <td>0</td>
                         @elseif ($item->activate == -2)
-                        <td><span class="label label-info">Recovery</span></td>
+                        <td><a href="{{ route('admin/users/activate', $item->id) }}" class="label label-info">Recovery</a></td>
                         <td>{{number_format($item->flows->used/MB, 2) }}</td>
                         <td>{{number_format($item->flows->forever/MB, 2) }} / {{number_format($item->flows->combo/MB, 2) }} / {{number_format($item->flows->extra/MB, 2)}}</td>
                         @endif
