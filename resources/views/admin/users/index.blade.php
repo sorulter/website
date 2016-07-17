@@ -1,5 +1,17 @@
 @extends('admin.dashboard')
 
+@section('content-header')
+<h1 class="box-title">Users List <small>Total ({{$users->total()}})</small></h1>
+<div class="breadcrumb">
+    <a href="{{route('admin/users')}}"><span class="label label-success">All</span></a>
+    <a href="{{route('admin/users/index/combo')}}"><span class="label label-success">Combo</span></a>
+    <a href="{{route('admin/users/index/forever')}}"><span class="label label-success">Forever</span></a>
+
+    <a href="{{route('admin/users/index/bought')}}"><span class="label label-success">Has Bought</span></a>
+    <a href="{{route('admin/users/index/useable')}}"><span class="label label-success">Useable</span></a>
+</div>
+@stop
+
 @section('content')
 <div class='row'>
   <div class="col-md-12">
@@ -14,14 +26,8 @@
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Users List({{$users->total()}})</h3>
-            <div class="box-tools">
-                <a href="{{route('admin/users')}}"><span class="label label-success">All</span></a>
-                <a href="{{route('admin/users/index/combo')}}"><span class="label label-success">Combo</span></a>
-                <a href="{{route('admin/users/index/forever')}}"><span class="label label-success">Forever</span></a>
 
-                <a href="{{route('admin/users/index/bought')}}"><span class="label label-success">Has Bought</span></a>
-                <a href="{{route('admin/users/index/useable')}}"><span class="label label-success">Useable</span></a>
+            <div class="box-tools">
             </div>
         </div>
         <!-- /.box-header -->
