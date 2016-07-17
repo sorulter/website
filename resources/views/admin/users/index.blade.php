@@ -26,8 +26,15 @@
 
     <div class="box">
         <div class="box-header with-border">
+            <h3></h3>
 
             <div class="box-tools">
+                <form class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="key" class="form-control pull-right" placeholder="Search">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default" id="search"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- /.box-header -->
@@ -93,3 +100,13 @@
   </div>
 </div><!-- /.row -->
 @endsection
+
+@section('script')
+    <script type="text/javascript">
+        var search_base="{{ route('admin/users') }}/s/";
+        $("#search").click(function(e){
+            event.preventDefault();
+            window.location.href=search_base+$('input[name=key]').val()
+        });
+    </script>
+@stop

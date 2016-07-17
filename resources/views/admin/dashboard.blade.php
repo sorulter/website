@@ -57,6 +57,7 @@
     <script type="text/javascript">
     var path = window.location.pathname;
     </script>
+    @yield('script')
 
   </body>
 </html>
