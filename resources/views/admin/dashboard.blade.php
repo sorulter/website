@@ -33,6 +33,9 @@
       <div class="content-wrapper">
 
         <!-- Main content -->
+        <section class="content-header">
+          @yield('content-header')
+        </section>
         <section class="content">
           @yield('content')
         </section><!-- /.content -->
