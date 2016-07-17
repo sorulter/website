@@ -95,6 +95,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('ports/add', ['as' => '/ports/add', 'uses' => 'PortsController@getAddPorts']);
     Route::post('ports/add', ['as' => '/ports/add', 'uses' => 'PortsController@postAddPorts']);
 
+    Route::get('users/s/{key}', ['as' => '/users/search', 'uses' => 'UsersController@getSearch'])->where('key', '[0-9A-Za-z]{1,20}');
     Route::get('users/activate/{id}', ['as' => '/users/activate', 'uses' => 'UsersController@getActivate'])->where('id', '[0-9]+');
     Route::get('users', ['as' => '/users', 'uses' => 'UsersController@getIndex']);
     Route::get('users/index/combo', ['as' => '/users/index/combo', 'uses' => 'UsersController@getCombo']);

@@ -155,4 +155,11 @@ class UsersController extends Controller
 
         return redirect()->back()->with('msg', 'gift flows success.');
     }
+
+    public function getSearch($key)
+    {
+        $users = new User;
+        return view('admin.users.index')->withUsers($users->where('email', 'like', "%{$key}%")
+                ->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+    }
 }
