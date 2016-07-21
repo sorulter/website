@@ -43,6 +43,7 @@
                 <tbody>
                     <tr>
                         <th style="width: 10px">#</th>
+                        <th>Src</th>
                         <th>Email</th>
                         <th>Hash ID</th>
                         <th>Node/Port</th>
@@ -54,6 +55,7 @@
                     @foreach ($users as $item)
                     <tr>
                         <td>{{$item->id}}</td>
+                        <td>{{$item->ad_source}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{App\id2hash($item->id)}}</td>
                         @if ($item->activate == 1)
