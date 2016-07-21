@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+$router->pattern('id', '[0-9]+');
+
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
@@ -67,7 +69,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
 
         // Helps routes...
         Route::get('helps', ['as' => '/helps', 'uses' => 'HelpsController@index']);
-        Route::get('helps/{id}', ['as' => '/helps', 'uses' => 'HelpsController@show'])->where('id', '[0-9]+');
+        Route::get('helps/{id}', ['as' => '/helps', 'uses' => 'HelpsController@show']);
 
         Route::get('status', ['as' => '/status', 'uses' => 'HomeController@status']);
 
@@ -76,7 +78,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
         // Mall routes...
         Route::get('mall', ['as' => '/mall', 'uses' => 'MallController@index']);
         Route::post('mall/payment', ['as' => '/mall/payment', 'uses' => 'MallController@payment']);
-        Route::get('mall/waitpay/{id}', ['as' => '/mall/waitpay', 'uses' => 'MallController@waitpay'])->where('id', '[0-9]+');
+        Route::get('mall/waitpay/{id}', ['as' => '/mall/waitpay', 'uses' => 'MallController@waitpay']);
 
     });
 
@@ -96,24 +98,24 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::post('ports/add', ['as' => '/ports/add', 'uses' => 'PortsController@postAddPorts']);
 
     Route::get('users/s/{key}', ['as' => '/users/search', 'uses' => 'UsersController@getSearch'])->where('key', '[0-9A-Za-z]{1,20}');
-    Route::get('users/activate/{id}', ['as' => '/users/activate', 'uses' => 'UsersController@getActivate'])->where('id', '[0-9]+');
+    Route::get('users/activate/{id}', ['as' => '/users/activate', 'uses' => 'UsersController@getActivate']);
     Route::get('users', ['as' => '/users', 'uses' => 'UsersController@getIndex']);
     Route::get('users/index/combo', ['as' => '/users/index/combo', 'uses' => 'UsersController@getCombo']);
     Route::get('users/index/forever', ['as' => '/users/index/forever', 'uses' => 'UsersController@getForever']);
     Route::get('users/index/bought', ['as' => '/users/index/bought', 'uses' => 'UsersController@getBought']);
     Route::get('users/index/useable', ['as' => '/users/index/useable', 'uses' => 'UsersController@getUseable']);
-    Route::get('users/sendmail/{id}', ['as' => '/users/sendmail', 'uses' => 'UsersController@getSendMail'])->where('id', '[0-9]+');
-    Route::post('users/sendmail/{id}', ['as' => '/users/sendmail', 'uses' => 'UsersController@postSendMail'])->where('id', '[0-9]+');
-    Route::get('users/gift/{id}', ['as' => '/users/gift', 'uses' => 'UsersController@getGift'])->where('id', '[0-9]+');
-    Route::post('users/gift/{id}', ['as' => '/users/gift', 'uses' => 'UsersController@postGift'])->where('id', '[0-9]+');
+    Route::get('users/sendmail/{id}', ['as' => '/users/sendmail', 'uses' => 'UsersController@getSendMail']);
+    Route::post('users/sendmail/{id}', ['as' => '/users/sendmail', 'uses' => 'UsersController@postSendMail']);
+    Route::get('users/gift/{id}', ['as' => '/users/gift', 'uses' => 'UsersController@getGift']);
+    Route::post('users/gift/{id}', ['as' => '/users/gift', 'uses' => 'UsersController@postGift']);
 
     Route::get('category', ['as' => '/category', 'uses' => 'CategoryController@index']);
 
     Route::get('articles', ['as' => '/articles', 'uses' => 'ArticlesController@index']);
     Route::get('articles/create', ['as' => '/articles/create', 'uses' => 'ArticlesController@create']);
     Route::post('articles/store', ['as' => '/articles/store', 'uses' => 'ArticlesController@store']);
-    Route::get('articles/edit/{id}', ['as' => '/articles/edit', 'uses' => 'ArticlesController@edit'])->where('id', '[0-9]+');
-    Route::post('articles/update/{id}', ['as' => '/articles/update', 'uses' => 'ArticlesController@update'])->where('id', '[0-9]+');
+    Route::get('articles/edit/{id}', ['as' => '/articles/edit', 'uses' => 'ArticlesController@edit']);
+    Route::post('articles/update/{id}', ['as' => '/articles/update', 'uses' => 'ArticlesController@update']);
 
     Route::get('orders', ['as' => '/orders', 'uses' => 'OrdersController@index']);
     Route::get('orders/index/paid', ['as' => '/orders/index/paid', 'uses' => 'OrdersController@paid']);
@@ -123,11 +125,11 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('products/trashed', ['as' => '/products/trashed', 'uses' => 'ProductsController@trashed']);
     Route::get('products/create', ['as' => '/products/create', 'uses' => 'ProductsController@create']);
     Route::post('products/store', ['as' => '/products/store', 'uses' => 'ProductsController@store']);
-    Route::get('products/edit/{id}', ['as' => '/products/edit', 'uses' => 'ProductsController@edit'])->where('id', '[0-9]+');
-    Route::post('products/update/{id}', ['as' => '/products/update', 'uses' => 'ProductsController@update'])->where('id', '[0-9]+');
-    Route::get('products/destroy/{id}', ['as' => '/products/destroy', 'uses' => 'ProductsController@destroy'])->where('id', '[0-9]+');
-    Route::get('products/restore/{id}', ['as' => '/products/restore', 'uses' => 'ProductsController@restore'])->where('id', '[0-9]+');
-    Route::get('products/delete/{id}', ['as' => '/products/delete', 'uses' => 'ProductsController@delete'])->where('id', '[0-9]+');
+    Route::get('products/edit/{id}', ['as' => '/products/edit', 'uses' => 'ProductsController@edit']);
+    Route::post('products/update/{id}', ['as' => '/products/update', 'uses' => 'ProductsController@update']);
+    Route::get('products/destroy/{id}', ['as' => '/products/destroy', 'uses' => 'ProductsController@destroy']);
+    Route::get('products/restore/{id}', ['as' => '/products/restore', 'uses' => 'ProductsController@restore']);
+    Route::get('products/delete/{id}', ['as' => '/products/delete', 'uses' => 'ProductsController@delete']);
 
     Route::get('tracks', ['as' => '/tracks', 'uses' => 'TracksController@index']);
     Route::get('tracks/today', ['as' => '/tracks/today', 'uses' => 'TracksController@today']);
