@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 $router->pattern('id', '[0-9]+');
+$router->pattern('name', '[0-9A-Za-z]{3,20}');
 
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
@@ -39,8 +40,8 @@ Route::get('activate/{token}', 'Auth\ActivationController@getActivate')->where('
 Route::get('activate/send', ['as' => 'activate/send', 'uses' => 'Auth\ActivationController@getSend']);
 
 // Track
-Route::get('ad/{name}', ['as' => '/ad', 'uses' => 'TrackerController@ad'])->where('name', '[0-9A-Za-z]{3,20}');
-Route::get('promote/{name}', ['as' => '/promote', 'uses' => 'TrackerController@promote'])->where('name', '[0-9A-Za-z]{3,20}');
+Route::get('ad/{name}', ['as' => '/ad', 'uses' => 'TrackerController@ad']);
+Route::get('promote/{name}', ['as' => '/promote', 'uses' => 'TrackerController@promote']);
 
 // user group routes...
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], function () {
