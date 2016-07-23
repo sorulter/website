@@ -2,8 +2,14 @@
 
 namespace app\Http\Controllers\Admin;
 
+use App;
 use App\Http\Controllers\Controller;
 use App\Model\Flows;
+use App\Model\LogsA;
+use App\Model\LogsB;
+use App\Model\LogsC;
+use App\Model\LogsD;
+use App\Model\LogsE;
 use App\Model\Order;
 use App\User;
 use Carbon\Carbon;
@@ -161,5 +167,34 @@ class UsersController extends Controller
         $users = new User;
         return view('admin.users.index')->withUsers($users->where('email', 'like', "%{$key}%")
                 ->orderBy('id', 'DESC')->paginate(env('PERPAGE')));
+    }
+
+    public function getLogs($id)
+    {
+        $users = new User;
+        switch (App\logshash($id)) {
+            case 'a':
+                $logs = new LogsA;
+                break;
+
+            case 'b':
+                $logs = new LogsB;
+                break;
+
+            case 'c':
+                $logs = new LogsC;
+                break;
+
+            case 'd':
+                $logs = new LogsD;
+                break;
+
+            case 'e':
+                $logs = new LogsE;
+                break;
+        }
+        return view('admin.users.logs')->withLuser($users->find($id))
+            ->withLogs($logs->where("user_id", "=", $id)->orderBy('used_at', 'desc')->paginate(env('PERPAGE')))
+            ->withIp(request()->ip());
     }
 }
