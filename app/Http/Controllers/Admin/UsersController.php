@@ -197,4 +197,10 @@ class UsersController extends Controller
             ->withLogs($logs->where("user_id", "=", $id)->orderBy('used_at', 'desc')->paginate(env('PERPAGE')))
             ->withIp(request()->ip());
     }
+
+    public function getOrders($id)
+    {
+        $order = new Order;
+        return view('admin.users.orders')->withOrders($order->where("user_id", "=", $id)->paginate(env('PERPAGE')));
+    }
 }
