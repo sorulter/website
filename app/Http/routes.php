@@ -110,6 +110,7 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
     Route::get('users/gift/{id}', ['as' => '/users/gift', 'uses' => 'UsersController@getGift']);
     Route::post('users/gift/{id}', ['as' => '/users/gift', 'uses' => 'UsersController@postGift']);
     Route::get('users/logs/{id}', ['as' => '/users/logs', 'uses' => 'UsersController@getLogs']);
+    Route::get('users/orders/{id}', ['as' => '/users/orders', 'uses' => 'UsersController@getOrders']);
 
     Route::get('category', ['as' => '/category', 'uses' => 'CategoryController@index']);
 
