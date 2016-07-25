@@ -83,6 +83,8 @@
                             not connected @endif</td>
                         <td>
                             <a href="{{ route('admin/users/sendmail', $item->id) }}" class="label label-success">Mail</a>
+                            <a href="{{ route('admin/users/logs', $item->id) }}" class="label label-success">Logs</a>
+                            <a href="{{ route('admin/users/orders', $item->id) }}" class="label label-success">Orders</a>
                             @if ($item->activate == 1)
                             <a href="{{ route('admin/users/gift', $item->id) }}" class="label label-warning">Gift</a>
                             @endif
