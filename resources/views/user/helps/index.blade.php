@@ -8,7 +8,7 @@
             <tbody>
                 <tr>
                     <th>{{ trans('articles.Title') }}</th>
-                    <th class="col-xs-1">{{ trans('articles.UpdatedAt') }}</th>
+                    <th class="col-xs-3">{{ trans('articles.UpdatedAt') }}</th>
                     <th class="col-xs-1">{{ trans('articles.Read') }}</th>
                 </tr>
                 @foreach ($helps as $help)
