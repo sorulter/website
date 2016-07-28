@@ -13,6 +13,9 @@ class SettingsController extends Controller
      */
     public function getIndex()
     {
-        return view('user.settings.index');
+        return view('user.settings.index')
+            ->withTitle(trans('settings.profiles'))
+            ->withAct('index');
+    }
     }
 }
