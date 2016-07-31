@@ -53,6 +53,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
     Route::group(['middleware' => ['auth', 'activate']], function () {
         // Settings routes...
         Route::get('settings', ['as' => '/settings', 'uses' => 'SettingsController@getIndex']);
+        Route::get('settings/pac', ['as' => '/settings/pac', 'uses' => 'SettingsController@getPAC']);
+        Route::get('settings/pac/remove/{name}', ['as' => '/settings/pac/remove', 'uses' => 'SettingsController@getRemovePAC']);
 
         // Billing routes...
         Route::get('billing', ['as' => '/billing', 'uses' => 'BillingController@getIndex']);
