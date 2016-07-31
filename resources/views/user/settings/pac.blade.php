@@ -41,7 +41,7 @@
 				<form method="post" action="">
 							{!! csrf_field() !!}
 							<div class="input-group">
-								<input name="domain" type="text" class="form-control" placeholder="{{ trans('settings.domain') }}">
+								<input name="domain" type="text" class="form-control" placeholder="{{ trans('settings.input_url') }}">
 								<div class="input-group-btn">
 									<button id="add-new-pac" type="submit" class="btn btn-primary btn-flat">{{ trans('settings.add') }}</button>
 								</div>

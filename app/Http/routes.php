@@ -54,6 +54,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
         // Settings routes...
         Route::get('settings', ['as' => '/settings', 'uses' => 'SettingsController@getIndex']);
         Route::get('settings/pac', ['as' => '/settings/pac', 'uses' => 'SettingsController@getPAC']);
+        Route::post('settings/pac', ['as' => '/settings/pac', 'uses' => 'SettingsController@postAddPAC']);
         Route::get('settings/pac/remove/{name}', ['as' => '/settings/pac/remove', 'uses' => 'SettingsController@getRemovePAC']);
 
         // Billing routes...

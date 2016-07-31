@@ -53,4 +53,23 @@ class SettingsController extends Controller
             return redirect()->back()->withMsg(trans('settings.remove_rule_failed', ['domain' => $domain]));
         }
     }
+
+    public function postAddPAC()
+    {
+        $domain = parse_url(request()->input('domain'), PHP_URL_HOST);
+        if (!$domain) {
+            return redirect()->back()->withMsg(trans('settings.invalid_URL', ['domain' => $domain]));
+        }
+
+        $pacs = Pacs::where('user_id', '=', request()->user()->id)->first();
+        $items = json_decode($pacs->rules);
+        $items->{$domain} = 1;
+        $pacs->rules = json_encode($items);
+
+        if ($pacs->save()) {
+            return redirect()->back()->withMsg(trans('settings.add_rule_success', ['domain' => $domain]));
+        } else {
+            return redirect()->back()->withMsg(trans('settings.add_rule_failed', ['domain' => $domain]));
+        }
+    }
 }
