@@ -56,7 +56,12 @@ class SettingsController extends Controller
 
     public function postAddPAC()
     {
-        $domain = parse_url(request()->input('domain'), PHP_URL_HOST);
+        if (parse_url(request()->input('domain'), PHP_URL_SCHEME) == null) {
+            $domain = parse_url('http://' . request()->input('domain'), PHP_URL_HOST);
+        } else {
+            $domain = parse_url(request()->input('domain'), PHP_URL_HOST);
+        }
+
         if (!$domain) {
             return redirect()->back()->withMsg(trans('settings.invalid_URL', ['domain' => $domain]));
         }
