@@ -14,8 +14,11 @@ class SettingsController extends Controller
      */
     public function getIndex()
     {
+        $pacs = Pacs::where('user_id', '=', request()->user()->id)->first();
+
         return view('user.settings.index')
             ->withTitle(trans('settings.system'))
+            ->withPacs($pacs)
             ->withAct('index');
     }
 
