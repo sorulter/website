@@ -14,4 +14,5 @@ return [
     'add_rule_failed' => '添加 PAC 加速规则 <b>[:domain]</b> 失败',
     'invalid_URL' => '请输入合法的 URL 地址',
     'input_url' => '请粘贴需要加速的域名或者 URL（将自动解析出域名）',
+    'limit_rules_number' => '自定义 PAC 规则数量到达 :no 条上限，请移除部分条目后添加。',
 ];

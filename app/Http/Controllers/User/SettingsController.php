@@ -63,6 +63,10 @@ class SettingsController extends Controller
 
         $pacs = Pacs::where('user_id', '=', request()->user()->id)->first();
         $items = json_decode($pacs->rules);
+        if (sizeof((array) $items) >= env('CUSTOM_PAC_LIMIT')) {
+            return redirect()->back()->withMsg(trans('settings.limit_rules_number', ['no' => env('CUSTOM_PAC_LIMIT')]));
+        }
+
         $items->{$domain} = 1;
         $pacs->rules = json_encode($items);
 
