@@ -26,7 +26,7 @@
 								<b>{{ $k }}</b>
 							</td>
 							<td class="col-md-3 small">
-								<a class="bg-red remove pull-right" href="/user/settings/pac/remove/{{ mb_substr(md5($k+env('APP_KEY')), 8, 16) }}">
+								<a class="bg-red remove pull-right" href="/user/settings/pac/remove/{{ mb_substr(md5($k), 8, 16) }}">
 								{{ trans('settings.remove') }}
 								</a>
 							</td>

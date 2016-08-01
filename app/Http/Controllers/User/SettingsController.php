@@ -39,7 +39,7 @@ class SettingsController extends Controller
         $domain = "";
 
         foreach ($items as $k => $v) {
-            if (mb_substr(md5($k + env('APP_KEY')), 8, 16) == $id) {
+            if (mb_substr(md5($k), 8, 16) == $id) {
                 unset($items->{$k});
                 $domain = $k;
                 break;
