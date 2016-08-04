@@ -84,4 +84,16 @@ class SettingsController extends Controller
             return redirect()->back()->withMsg(trans('settings.add_rule_failed', ['domain' => $domain]));
         }
     }
+
+    public function getGlobalPAC()
+    {
+        $pacs = Pacs::where('user_id', '=', request()->user()->id)->first();
+        $pacs->global = 1;
+
+        if ($pacs->save()) {
+            return redirect()->back()->withMsg(trans('settings.pac_global_mode_success'));
+        } else {
+            return redirect()->back()->withMsg(trans('settings.pac_global_mode_failed'));
+        }
+    }
 }

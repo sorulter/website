@@ -28,7 +28,7 @@
 								<a class="btn btn-xs btn-success">{{ trans('settings.global') }}</a>
 							@else
 								<a class="btn btn-xs btn-success">{{ trans('settings.auto') }}</a>
-								<a class="btn btn-xs btn-default" href="">{{ trans('settings.global') }}</a>
+								<a class="btn btn-xs btn-default" href="{{ url('user/settings/pac/global') }}">{{ trans('settings.global') }}</a>
 							@endif
 							</div>
 						</td>
