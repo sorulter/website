@@ -24,7 +24,7 @@
 						<td>
 							<div class="btn-group pull-right small">
 							@if ($pacs->global)
-								<a class="btn btn-xs btn-default" href="">{{ trans('settings.auto') }}</a>
+								<a class="btn btn-xs btn-default" href="{{ url('user/settings/pac/auto') }}">{{ trans('settings.auto') }}</a>
 								<a class="btn btn-xs btn-success">{{ trans('settings.global') }}</a>
 							@else
 								<a class="btn btn-xs btn-success">{{ trans('settings.auto') }}</a>
