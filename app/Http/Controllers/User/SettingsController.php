@@ -96,4 +96,16 @@ class SettingsController extends Controller
             return redirect()->back()->withMsg(trans('settings.pac_global_mode_failed'));
         }
     }
+
+    public function getAutoPAC()
+    {
+        $pacs = Pacs::where('user_id', '=', request()->user()->id)->first();
+        $pacs->global = 0;
+
+        if ($pacs->save()) {
+            return redirect()->back()->withMsg(trans('settings.pac_auto_mode_success'));
+        } else {
+            return redirect()->back()->withMsg(trans('settings.pac_auto_mode_failed'));
+        }
+    }
 }
