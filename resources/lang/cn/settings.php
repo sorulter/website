@@ -18,4 +18,8 @@ return [
     'pac_global' => 'PAC 服务模式',
     'auto' => '智能模式',
     'global' => '全局模式',
+    'pac_global_mode_success' => '设置PAC全局模式成功',
+    'pac_global_mode_failed' => '设置PAC全局模式失败',
+    'pac_auto_mode_success' => '设置PAC自动模式成功',
+    'pac_auto_mode_failed' => '设置PAC自动模式失败',
 ];
