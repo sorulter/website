@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class Rewards extends Migration
 {
@@ -12,7 +12,20 @@ class Rewards extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('rewards', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('invited_id')->unsigned();
+            $table->integer('state');
+            $table->dateTime('useable_date');
+            $table->string('flows_type')->default('');
+            $table->integer('flows_amount')->default(0);
+
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('invited_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**
