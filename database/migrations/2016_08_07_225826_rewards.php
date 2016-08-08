@@ -35,6 +35,6 @@ class Rewards extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('rewards');
     }
 }
