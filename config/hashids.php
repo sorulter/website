@@ -42,6 +42,10 @@ return [
             'length' => env('HASHIDS_LEN', '4'),
             // 'alphabet' => 'your-alphabet-string',
         ],
+        'invitation' => [
+            'salt' => env("INVITATIONIDS_SALT", 'your-salt-string'),
+            'length' => env('INVITATIONIDS_LEN', '4'),
+        ],
 
         'alternative' => [
             'salt' => 'your-salt-string',
