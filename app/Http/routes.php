@@ -83,6 +83,9 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], functi
         Route::post('mall/payment', ['as' => '/mall/payment', 'uses' => 'MallController@payment']);
         Route::get('mall/waitpay/{id}', ['as' => '/mall/waitpay', 'uses' => 'MallController@waitpay']);
 
+        // Invitation
+        Route::get('invitation', ['as' => '/invitation', 'uses' => 'InvitationController@index']);
+
     });
 
     // Without auth middleware.
