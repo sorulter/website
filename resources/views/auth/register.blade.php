@@ -7,7 +7,14 @@ iProxier › {{trans('base.register')}}
 @section('body-class') hold-transition login-page @stop
 
 @section('content')
+
     <div class="login-box">
+    @if ( !empty(Session::get('invitation_msg')) )
+    <div class="alert alert-warning alert-dismissible">
+        <span class="center">{{Session::get('invitation_msg')}}</span>
+    </div>
+    @endif
+
     <div class="login-box-body">
       <p class="login-box-msg"><b>{{trans('base.register_tips')}}</b></p>
 
