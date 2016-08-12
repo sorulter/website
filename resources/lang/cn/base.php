@@ -47,4 +47,6 @@ return [
 
     'paused' => '您的帐号已被暂时冻结，请解冻。',
     'how_to_recovery' => '请你加入官方QQ群(:no)联系管理员为您解冻帐号，<a target="_blank" style="" href=":url"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="iProxier" title="iProxier"></a>',
+
+    'invitation_by_user' => '用户 :email 邀请您免费体验 iProxier 网络加速服务，付费订阅将获取更多流量。',
 ];
