@@ -12,6 +12,8 @@ class InvitationController extends Controller
         $uid = request()->user()->id;
         $hash = Hashids::connection('invitation')->encode($uid);
 
-        return view('user.invitation.index');
+        return view('user.invitation.index')
+            ->withTitle(trans('invitation.link'))
+            ->withAct('index');
     }
 }
