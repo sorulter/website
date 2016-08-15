@@ -13,6 +13,7 @@ class InvitationController extends Controller
         $hash = Hashids::connection('invitation')->encode($uid);
 
         return view('user.invitation.index')
+            ->withHash($hash)
             ->withTitle(trans('invitation.link'))
             ->withAct('index');
     }
