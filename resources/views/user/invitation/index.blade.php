@@ -16,10 +16,16 @@
 	<div class="col-md-9">
 		<div class="box">
 			<div class="box-header"><h3 class="box-title">{{ $title }}</h3></div>
-			<div class="box-body no-padding table-responsive">
+			<div class="box-body">
 			</div>
 
 			<div class="box-footer">
+				<div class="input-group input-group-sm">
+					<input type="text" class="form-control" value="{{ url('/invitation', $hash) }}">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-info btn-flat">{{ trans('invitation.copy') }}</button>
+					</span>
+				</div>
 			</div>
 
 		</div>
