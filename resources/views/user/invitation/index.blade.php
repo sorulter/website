@@ -23,13 +23,16 @@
 				<div class="input-group input-group-sm">
 					<input type="text" class="form-control" value="{{ url('/invitation', $hash) }}">
 					<span class="input-group-btn">
-						<button type="button" class="btn btn-info btn-flat">{{ trans('invitation.copy') }}</button>
+						<button type="button" id="copyme" class="btn btn-info btn-flat" data-clipboard-text="{{ url('/invitation', $hash) }}">{{ trans('invitation.copy') }}</button>
 					</span>
 				</div>
 			</div>
 
 		</div>
 	</div>
-
+<script src="{{ env('CDN_BASE') }}/static/js/ZeroClipboard.min.js"></script>
+<script type="text/javascript">
+	var client = new ZeroClipboard(document.getElementById("copyme"));
+</script>
 </div>
 @stop
