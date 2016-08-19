@@ -42,7 +42,7 @@ Route::get('activate/send', ['as' => 'activate/send', 'uses' => 'Auth\Activation
 // Track
 Route::get('ad/{name}', ['as' => '/ad', 'uses' => 'TrackerController@ad']);
 Route::get('promote/{name}', ['as' => '/promote', 'uses' => 'TrackerController@promote']);
-Route::get('invitation/{name}', ['as' => '/invitation', 'uses' => 'TrackerController@invitation']);
+Route::get('i/{name}', ['as' => '/invitation', 'uses' => 'TrackerController@invitation']);
 
 // user group routes...
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'as' => 'user'], function () {

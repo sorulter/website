@@ -21,9 +21,9 @@
 
 			<div class="box-footer">
 				<div class="input-group input-group-sm">
-					<input type="text" class="form-control" value="{{ url('/invitation', $hash) }}">
+					<input type="text" class="form-control" value="{{ route('/invitation', $hash) }}">
 					<span class="input-group-btn">
-						<button type="button" id="copyme" class="btn btn-info btn-flat" data-clipboard-text="{{ url('/invitation', $hash) }}">{{ trans('invitation.copy') }}</button>
+						<button type="button" id="copyme" class="btn btn-info btn-flat" data-clipboard-text="{{ route('/invitation', $hash) }}">{{ trans('invitation.copy') }}</button>
 					</span>
 				</div>
 			</div>
