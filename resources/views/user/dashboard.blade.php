@@ -75,6 +75,9 @@
     if (path == "/user/settings") {
       $('#user-settings').addClass('active');
     };
+    if (path == "/user/invitation") {
+      $('#user-invitation').addClass('active');
+    };
 
     </script>
     @yield('script')

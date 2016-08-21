@@ -40,6 +40,14 @@
           <span>{{trans('base.logs')}}</span>
         </a>
       </li>
+      <li id="user-invitation" class="fa-lg">
+        <a href="/user/invitation">
+          <span class="fa-stack">
+            <i class="fa fa-users fa-stack-1x"></i>
+          </span>
+          <span>{{trans('invitation.invitation')}}</span>
+        </a>
+      </li>
       <li id="user-settings" class="fa-lg">
         <a href="/user/settings">
           <span class="fa-stack">
