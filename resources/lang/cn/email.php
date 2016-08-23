@@ -13,4 +13,5 @@ return [
     'charge_notify_title' => 'iProxier 续费通知',
     'charge_notify_msg' => '您好，你在 iProxier 的帐户 <b>:email</b> 的流量/包月套餐已用完，为了不影响您的正常使用，请及时续费。',
     'charge_notify_btn' => '立即续费',
+    'activate_link' => '您也可以复制激活链接到浏览器中打开：',
 ];

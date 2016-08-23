@@ -89,9 +89,12 @@
       <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:600px;">
       <![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;"><table cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:10px 25px;" align="left"><div style="cursor:auto;color:#333;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:18px;line-height:22px;">{!! trans('email.activate_account_content') !!}</div></td></tr><tr><td style="word-break:break-word;font-size:0px;padding:10px 25px;" align="center"><table cellpadding="0" cellspacing="0" style="border:none;border-radius:3px;" align="center" border="0"><tbody><tr><td style="background:#f45e43;border-radius:3px;color:white;cursor:auto;" align="center" valign="middle" bgcolor="#f45e43"><a href="https://www.iProxier.com/activate/{{ $code }}" style="display:inline-block;text-decoration:none;background:#f45e43;border:1px solid #f45e43;border-radius:3px;color:white;font-family:&#x27;Helvetica Neue&#x27;, Helvetica, Arial, &#x27;Lucida Grande&#x27;, sans-serif;font-size:13px;font-weight:normal;padding:10px 25px;" target="_blank">
             {{ trans('email.click_me_to_activate') }}
-          </a></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
+          </a></td></tr>
+          </tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
       </td></tr></table>
-      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      <![endif]-->
+      <tr><td style="word-break:break-word;font-size:0px;padding:10px 25px;" align="left"><div style="cursor:auto;color:#333;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:18px;line-height:22px;">{!! trans('email.activate_link') !!} https://www.iProxier.com/activate/{{ $code }} </div></td></tr>
+      </td></tr></tbody></table></div><!--[if mso | IE]>
       </td></tr></table>
       <![endif]-->
       <!--[if mso | IE]>
