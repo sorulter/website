@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace app;
 
 use App\Model\Flows;
 use App\Model\Pacs;
@@ -31,7 +31,7 @@ CanResetPasswordContract
      *
      * @var array
      */
-    protected $fillable = ['email', 'password', 'ad_source'];
+    protected $fillable = ['email', 'password', 'ad_source', 'invite_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
