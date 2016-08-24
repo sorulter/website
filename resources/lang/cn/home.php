@@ -1,10 +1,10 @@
 <?php
 return [
     'account_info' => '帐户信息',
-    'forever_flows' => '永久流量',
-    'combo_flows' => '套餐流量',
-    'extra_flows' => '加油包流量',
-    'used_flows' => '已经使用',
+    'forever_flows' => '结余永久流量',
+    'combo_flows' => '本月套餐流量',
+    'extra_flows' => '本月加油包流量',
+    'used_flows' => '本月已经使用',
     'front_end' => '接入点',
     'combo_end_date' => '套餐截至',
     'proxy_server' => '代理地址',
