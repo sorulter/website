@@ -162,7 +162,10 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $invitation_id = session('invitation_id');
+        $invitation_id = ($invitation_id) ? $invitation_id : 0;
         return User::create([
+            'invite_id' => $invitation_id,
             'ad_source' => session('ad_source'),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
