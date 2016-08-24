@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Flows;
 use App\Model\Order;
 use App\Model\Products;
+use App\Model\Rewards;
 use Omnipay;
 
 class MallController extends Controller
@@ -82,6 +83,21 @@ class MallController extends Controller
         $order->unit_price = $product->price;
         $order->flows_type = $product->type;
         $order->flows_amount = $product->amount;
+
+        // log first pay.
+        $user = request()->user();
+        if ($user->invite_id > 0) {
+            $reward = Rewards::firstOrNew([
+                'user_id' => $user->invite_id,
+                'invited_id' => $user->id,
+                'state' => 0,
+            ]);
+            if ($reward->id) {
+                $reward->flows_type = $product->type;
+                $reward->flows_amount = $product->amount;
+                $reward->save();
+            }
+        }
 
         if ($order->save()) {
             return redirect()->route('user/mall/waitpay', [$order->id]);
