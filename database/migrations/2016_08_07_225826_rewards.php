@@ -20,6 +20,7 @@ class Rewards extends Migration
             $table->dateTime('useable_date');
             $table->string('flows_type')->default('');
             $table->integer('flows_amount')->default(0);
+            $table->integer('quantity')->default(1);
 
             $table->timestamps();
 
