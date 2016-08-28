@@ -153,6 +153,7 @@ return [
         Vinkla\Hashids\HashidsServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Latrell\QQWry\QQWryServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class,
 
     ],
 
