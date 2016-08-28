@@ -12,6 +12,7 @@
  */
 
 Route::get('/', function () {
+    return app('Dingo\Api\Routing\UrlGenerator')->version('v1')->route('ping');
     return view('welcome');
 });
 
@@ -147,4 +148,11 @@ Route::group(['prefix' => env('ADMINNS'), 'middleware' => ['auth', 'admin'], 'na
 Route::group(['prefix' => 'api/v1', 'as' => 'api', 'namespace' => 'API'], function () {
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']);
     Route::get('account', ['as' => 'account', 'uses' => 'IndexController@account']);
+});
+
+$api = app('Dingo\Api\Routing\Router');
+$api->version(['v1'], function ($api) {
+    $api->get('', ['as' => 'ping', 'uses' => function () {
+        return 'ok';
+    }]);
 });
