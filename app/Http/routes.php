@@ -159,3 +159,7 @@ $api->version(['v1'], function ($api) {
         return 'ok';
     }]);
 });
+
+$api->group(['prefix' => 'v1', 'domain' => env('API_DOMAIN'), 'version' => 'v1'], function ($api) {
+    $api->get('auth/login', ['as' => 'Auth', 'uses' => 'App\Http\Controllers\Api\V1\AuthController@login']);
+});
