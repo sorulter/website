@@ -2,6 +2,7 @@
 
 namespace app\Http\Middleware;
 
+use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 
 class VerifyCsrfToken extends BaseVerifier
@@ -17,4 +18,13 @@ class VerifyCsrfToken extends BaseVerifier
         'api/v1/*',
         'user/callback/*',
     ];
+
+    public function handle($request, Closure $next)
+    {
+        if ($request instanceof \Dingo\Api\Http\Request) {
+            return $next($request);
+        }
+
+        return $next($request);
+    }
 }
