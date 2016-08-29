@@ -154,6 +154,7 @@ return [
         Jenssegers\Agent\AgentServiceProvider::class,
         Latrell\QQWry\QQWryServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
     ],
 
@@ -212,6 +213,8 @@ return [
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'QQWry' => Latrell\QQWry\Facades\QQWry::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 
