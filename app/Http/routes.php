@@ -160,6 +160,7 @@ $api->version(['v1'], function ($api) {
     }]);
 });
 
-$api->group(['prefix' => 'v1', 'domain' => env('API_DOMAIN'), 'version' => 'v1'], function ($api) {
-    $api->get('auth/login', ['as' => 'Auth', 'uses' => 'App\Http\Controllers\Api\V1\AuthController@login']);
+$api->group(['prefix' => 'v1', 'domain' => env('API_DOMAIN'), 'version' => 'v1',
+    'namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
+    $api->any('user/login', ['as' => 'login', 'uses' => 'UserController@login']);
 });
