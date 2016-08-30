@@ -163,4 +163,8 @@ $api->version(['v1'], function ($api) {
 $api->group(['prefix' => 'v1', 'domain' => env('API_DOMAIN'), 'version' => 'v1',
     'namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
     $api->any('user/login', ['as' => 'login', 'uses' => 'UserController@login']);
+
+    // apis that need auth.
+    $api->group(['middleware' => ['api.auth']], function ($api) {
+    });
 });
